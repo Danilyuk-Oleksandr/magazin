@@ -130,3 +130,81 @@ body {
 .swiper-button-prev {
     color: #00ffff;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.cart-link {
+    position: relative;
+}
+
+#cart-count {
+    background-color: #00ffff;
+    color: black;
+    padding: 2px 8px;
+    border-radius: 50px;
+    font-size: 12px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.categories-section {
+    padding: 100px 0;
+    background-color: #020617;
+}
+
+.category-card {
+    background-color: #111827;
+    border: 1px solid #00ffff33;
+    border-radius: 20px;
+    height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #00ffff55;
+}
+
+.category-card h3 {
+    color: #00ffff;
+}
+
+.toast-message {
+    position: fixed;
+
+    bottom: 30px;
+    right: 30px;
+
+    background-color: #00ffff;
+    color: black;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.4s;
+}
+
+.toast-show {
+    opacity: 1;
+}
