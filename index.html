@@ -167,6 +167,41 @@
 
     </section>
 
+    <!-- Search Section -->
+    <section class="search-section">
+
+        <div class="container">
+
+            <div class="search-wrapper">
+
+                <input type="text" id="searchInput" placeholder="Search products...">
+
+            </div>
+
+            <div class="filter-buttons">
+
+                <button class="filter-btn active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter-btn" data-filter="keyboard">
+                    Keyboards
+                </button>
+
+                <button class="filter-btn" data-filter="headset">
+                    Headsets
+                </button>
+
+                <button class="filter-btn" data-filter="monitor">
+                    Monitors
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- Products -->
     <section class="products-section">
 
@@ -181,7 +216,8 @@
                 <!-- Product 1 -->
                 <div class="col-md-6 col-lg-4">
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-category="keyboard">
 
                         <img src="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000"
                             class="product-image" alt="Keyboard">
@@ -203,7 +239,8 @@
                 <!-- Product 2 -->
                 <div class="col-md-6 col-lg-4">
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-category="headset">
 
                         <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000"
                             class="product-image" alt="Headphones">
@@ -225,7 +262,8 @@
                 <!-- Product 3 -->
                 <div class="col-md-6 col-lg-4">
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-category="monitor">
 
                         <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
                             class="product-image" alt="Monitor">

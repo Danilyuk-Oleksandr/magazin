@@ -90,4 +90,74 @@ function showToast() {
 
 }
 
+/* Search System */
+
+const searchInput = document.getElementById("searchInput");
+
+const productCards = document.querySelectorAll(".product-card");
+
+searchInput.addEventListener("input", () => {
+
+    const value = searchInput.value.toLowerCase();
+
+    productCards.forEach(card => {
+
+        const productName =
+            card.querySelector("h3")
+                .textContent
+                .toLowerCase();
+
+        if (productName.includes(value)) {
+
+            card.parentElement.style.display = "block";
+
+        } else {
+
+            card.parentElement.style.display = "none";
+
+        }
+
+    });
+
+});
+
+/* Product Filters */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        productCards.forEach(card => {
+
+            if (
+                filter === "all" ||
+                card.dataset.category === filter
+            ) {
+
+                card.parentElement.style.display = "block";
+
+            } else {
+
+                card.parentElement.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
 console.log("CyberTech Store Loaded");
