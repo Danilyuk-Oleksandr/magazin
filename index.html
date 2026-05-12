@@ -160,8 +160,8 @@
             </div>
 
             <!-- Navigation -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="hero-next"></div>
+            <div class="hero-prev"></div>
 
         </div>
 
@@ -216,8 +216,11 @@
                 <!-- Product 1 -->
                 <div class="col-md-6 col-lg-4">
 
-                    <div class="product-card"
-                        data-category="keyboard">
+                    <div class="product-card" 
+                        data-category="keyboard" 
+                        data-title="Mechanical Keyboard"
+                        data-price="$129"
+                        data-image="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000">
 
                         <img src="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000"
                             class="product-image" alt="Keyboard">
@@ -240,7 +243,10 @@
                 <div class="col-md-6 col-lg-4">
 
                     <div class="product-card"
-                        data-category="headset">
+                        data-category="headset"
+                        data-title="Gaming Headset"
+                        data-price="$89"
+                        data-image="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000">
 
                         <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000"
                             class="product-image" alt="Headphones">
@@ -263,7 +269,10 @@
                 <div class="col-md-6 col-lg-4">
 
                     <div class="product-card"
-                        data-category="monitor">
+                        data-category="monitor"
+                        data-title="UltraWide Monitor"
+                        data-price="$399"
+                        data-image="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000">
 
                         <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
                             class="product-image" alt="Monitor">
@@ -597,6 +606,35 @@
         </div>
 
     </footer>
+
+    <!-- Product Modal -->
+
+    <div class="modal fade" id="productModal" tabindex="-1">
+
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content custom-modal">
+
+                <div class="modal-body">
+
+                    <img id="modalImage" src="" class="modal-product-image" alt="Product">
+
+                    <h2 id="modalTitle"></h2>
+
+                    <p id="modalPrice"></p>
+
+                    <p class="modal-description">
+                        Premium futuristic gaming equipment
+                        designed for максимальний gaming experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- Toast -->
     <div class="toast-message" id="toast">

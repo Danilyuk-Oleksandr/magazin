@@ -7,8 +7,8 @@ const heroSwiper = new Swiper(".heroSwiper", {
     loop: true,
 
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".hero-next",
+        prevEl: ".hero-prev",
     },
 
     autoplay: {
@@ -155,6 +155,43 @@ filterButtons.forEach(button => {
             }
 
         });
+
+    });
+
+});
+
+/* Product Modal */
+
+const modal = new bootstrap.Modal(
+    document.getElementById("productModal")
+);
+
+const modalImage =
+    document.getElementById("modalImage");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalPrice =
+    document.getElementById("modalPrice");
+
+productCards.forEach(card => {
+
+    card.addEventListener("click", event => {
+
+        if (
+            event.target.classList.contains("product-btn")
+        ) return;
+
+        modalImage.src = card.dataset.image;
+
+        modalTitle.textContent =
+            card.dataset.title;
+
+        modalPrice.textContent =
+            card.dataset.price;
+
+        modal.show();
 
     });
 
