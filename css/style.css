@@ -1,7 +1,71 @@
+:root {
+
+    /* Colors */
+
+    --bg-primary: #020617;
+    --bg-secondary: #0f172a;
+    --card-bg: rgba(15, 23, 42, 0.8);
+
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+
+    --accent: #00ffff;
+    --accent-hover: #67e8f9;
+
+    --border-color: rgba(0, 255, 255, 0.15);
+
+    --shadow-glow:
+        0 0 25px rgba(0, 255, 255, 0.15);
+
+    --card-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+}
+
+/* Light Theme */
+
+body.light-theme {
+
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #e2e8f0;
+    --card-bg: rgba(255, 255, 255, 0.85);
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+
+    --accent: #0891b2;
+    --accent-hover: #06b6d4;
+
+    --border-color: rgba(8, 145, 178, 0.15);
+
+    --shadow-glow:
+        0 0 25px rgba(8, 145, 178, 0.12);
+
+    --card-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.08);
+
+}
+
 body {
-    background-color: #0a0a0a;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(0, 255, 255, 0.08),
+            transparent 35%),
+
+        radial-gradient(circle at bottom right,
+            rgba(139, 92, 246, 0.08),
+            transparent 35%),
+
+        var(--bg-primary);
+
     font-family: 'Orbitron', sans-serif;
-    color: white;
+
+    color: var(--text-primary);
+
+    overflow-x: hidden;
+
+    transition: 0.4s;
 }
 
 .navbar {
@@ -28,9 +92,24 @@ body {
 }
 
 .hero-title {
-    font-size: 70px;
-    color: #00ffff;
-    text-shadow: 0 0 20px #00ffff;
+
+    font-size: clamp(50px, 8vw, 90px);
+
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            white,
+            var(--accent)
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    
+    text-shadow:
+        0 0 25px rgba(0,255,255,0.2);
 }
 
 .hero-text {
@@ -78,28 +157,80 @@ body {
 }
 
 .products-section {
-    padding: 100px 0;
-    background-color: #0f172a;
+
+    padding: 120px 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255,255,255,0.02)
+        );
 }
 
 .section-title {
-    font-size: 42px;
-    margin-bottom: 50px;
-    color: #00ffff;
+
+    font-size: clamp(36px, 5vw, 54px);
+
+    margin-bottom: 60px;
+
+    font-weight: 700;
+
+    color: var(--accent);
+
+    text-align: center;
 }
 
 .product-card {
-    background-color: #111827;
-    border: 1px solid #00ffff33;
-    border-radius: 20px;
-    padding: 20px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 24px;
+
+    padding: 24px;
+
     text-align: center;
+
     transition: 0.4s;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.product-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.04),
+            transparent
+        );
+
+    pointer-events: none;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px #00ffff44;
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        var(--shadow-glow),
+        var(--card-shadow);
 }
 
 .product-image {
@@ -119,11 +250,56 @@ body {
     margin: 15px 0;
 }
 
-.product-btn {
-    background-color: #00ffff;
-    color: black;
-    font-weight: bold;
-    width: 100%;
+.product-card {
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    text-align: center;
+
+    transition: 0.4s;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow: var(--card-shadow);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.product-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.04),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.product-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        var(--shadow-glow),
+        var(--card-shadow);
 }
 
 .swiper-button-next,
@@ -157,8 +333,10 @@ html {
 }
 
 .categories-section {
-    padding: 100px 0;
-    background-color: #020617;
+
+    padding: 120px 0;
+
+    background-color: var(--bg-secondary);
 }
 
 .category-card {
@@ -209,9 +387,11 @@ html {
     opacity: 1;
 }
 
-.features-section {
-    padding: 100px 0;
-    background-color: #0f172a;
+.categories-section {
+
+    padding: 120px 0;
+
+    background-color: var(--bg-secondary);
 }
 
 .feature-card {
@@ -274,27 +454,51 @@ html {
 }
 
 .newsletter-form input {
-    width: 350px;
 
-    padding: 15px;
+    width: 380px;
 
-    border-radius: 10px;
+    padding: 16px 22px;
 
-    border: none;
+    border-radius: 16px;
+
+    border: 1px solid var(--border-color);
+
+    background: var(--card-bg);
+
+    color: var(--text-primary);
+
+    backdrop-filter: blur(10px);
 
     outline: none;
 }
 
 .newsletter-form button {
-    padding: 15px 30px;
 
-    background-color: #00ffff;
+    padding: 16px 32px;
+
+    border-radius: 16px;
 
     border: none;
 
-    border-radius: 10px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #38bdf8
+        );
 
-    font-weight: bold;
+    color: #020617;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-glow);
 }
 
 .footer {
@@ -352,27 +556,34 @@ body::after {
 }
 
 .review-card {
-    background: rgba(17, 24, 39, 0.7);
 
-    border: 1px solid #00ffff22;
+    background: var(--card-bg);
 
-    border-radius: 25px;
+    border: 1px solid var(--border-color);
 
-    padding: 40px;
+    border-radius: 28px;
+
+    padding: 45px;
 
     text-align: center;
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
 
     transition: 0.4s;
+
+    box-shadow: var(--card-shadow);
 
     height: 100%;
 }
 
 .review-card:hover {
-    transform: translateY(-10px);
 
-    box-shadow: 0 0 25px #00ffff33;
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        var(--shadow-glow),
+        var(--card-shadow);
 }
 
 .review-card img {
