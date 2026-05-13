@@ -572,3 +572,94 @@ body::after {
 
     line-height: 1.8;
 }
+
+/* Theme Toggle */
+
+.theme-toggle-btn {
+    background-color: transparent;
+
+    border: 1px solid #00ffff55;
+
+    color: white;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+
+    margin-left: 15px;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #00ffff;
+
+    color: black;
+
+    box-shadow: 0 0 20px #00ffff88;
+}
+
+/* Light Theme */
+
+body.light-theme {
+    background-color: #f8fafc;
+
+    color: #111827;
+}
+
+body.light-theme .navbar {
+    background-color: white !important;
+}
+
+body.light-theme .nav-link {
+    color: #111827 !important;
+}
+
+body.light-theme .products-section,
+body.light-theme .features-section,
+body.light-theme .newsletter-section,
+body.light-theme .search-section {
+    background-color: #e2e8f0;
+}
+
+body.light-theme .categories-section,
+body.light-theme .reviews-section,
+body.light-theme .footer {
+    background-color: #cbd5e1;
+}
+
+body.light-theme .product-card,
+body.light-theme .feature-card,
+body.light-theme .category-card,
+body.light-theme .review-card,
+body.light-theme .custom-modal {
+    background-color: white;
+
+    color: #111827;
+}
+
+body.light-theme .hero-title,
+body.light-theme .section-title,
+body.light-theme .feature-card h3,
+body.light-theme .review-card h3,
+body.light-theme .footer-logo {
+    color: #0891b2;
+}
+
+body.light-theme .hero-text,
+body.light-theme .review-card p,
+body.light-theme .modal-description {
+    color: #334155;
+}
+
+body,
+.product-card,
+.feature-card,
+.category-card,
+.review-card,
+.navbar,
+.footer,
+.custom-modal {
+    transition: 0.4s;
+}

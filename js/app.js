@@ -198,3 +198,43 @@ productCards.forEach(card => {
 });
 
 console.log("CyberTech Store Loaded");
+
+/* Theme Toggle */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const body =
+    document.body;
+
+/* Load Theme */
+
+if (localStorage.getItem("theme") === "light") {
+
+    body.classList.add("light-theme");
+
+    themeToggle.textContent = "☀️";
+
+}
+
+/* Toggle Theme */
+
+themeToggle.addEventListener("click", () => {
+
+    body.classList.toggle("light-theme");
+
+    if (body.classList.contains("light-theme")) {
+
+        localStorage.setItem("theme", "light");
+
+        themeToggle.textContent = "☀️";
+
+    } else {
+
+        localStorage.setItem("theme", "dark");
+
+        themeToggle.textContent = "🌙";
+
+    }
+
+});
