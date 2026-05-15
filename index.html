@@ -271,7 +271,8 @@
 
                     <div class="product-card" data-category="keyboard" data-title="Mechanical Keyboard"
                         data-price="$129"
-                        data-image="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000">
+                        data-image="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000"
+                        data-price-number="129">
                         <button class="wishlist-btn">
 
                             ♡
@@ -303,7 +304,8 @@
                 <div class="col-md-6 col-lg-4">
 
                     <div class="product-card" data-category="headset" data-title="Gaming Headset" data-price="$89"
-                        data-image="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000">
+                        data-image="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000"
+                        data-price-number="89">
                         <button class="wishlist-btn">
 
                             ♡
@@ -335,7 +337,8 @@
                 <div class="col-md-6 col-lg-4">
 
                     <div class="product-card" data-category="monitor" data-title="UltraWide Monitor" data-price="$399"
-                        data-image="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000">
+                        data-image="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
+                        data-price-number="399">
                         <button class="wishlist-btn">
 
                             ♡
@@ -857,6 +860,63 @@
         </div>
 
     </footer>
+
+    <!-- Cart Sidebar -->
+
+<div class="cart-overlay"
+     id="cartOverlay"></div>
+
+<div class="cart-sidebar"
+     id="cartSidebar">
+
+    <div class="cart-header">
+
+        <h2>
+            Shopping Cart
+        </h2>
+
+        <button class="close-cart"
+                id="closeCart">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="cart-items"
+         id="cartItems">
+
+        <p class="empty-cart">
+
+            Your cart is empty
+
+        </p>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <h3>
+
+            Total:
+            <span id="cartTotal">
+
+                $0
+
+            </span>
+
+        </h3>
+
+        <button class="checkout-btn">
+
+            Proceed to Checkout
+
+        </button>
+
+    </div>
+
+</div>
 
     <!-- Product Modal -->
 
