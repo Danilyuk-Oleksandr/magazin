@@ -253,6 +253,172 @@ if (savedWishlist) {
 
 }
 
+/* Cart Sidebar */
+
+const cartSidebar =
+    document.getElementById("cartSidebar");
+
+const cartOverlay =
+    document.getElementById("cartOverlay");
+
+const closeCart =
+    document.getElementById("closeCart");
+
+const cartLink =
+    document.querySelector(".cart-link");
+
+const cartItems =
+    document.getElementById("cartItems");
+
+const cartTotal =
+    document.getElementById("cartTotal");
+
+let total = 0;
+
+/* Open Cart */
+
+cartLink.addEventListener("click", event => {
+
+    event.preventDefault();
+
+    cartSidebar.classList.add("show");
+
+    cartOverlay.classList.add("show");
+
+});
+
+/* Close Cart */
+
+function closeCartSidebar() {
+
+    cartSidebar.classList.remove("show");
+
+    cartOverlay.classList.remove("show");
+
+}
+
+closeCart.addEventListener(
+    "click",
+    closeCartSidebar
+);
+
+cartOverlay.addEventListener(
+    "click",
+    closeCartSidebar
+);
+
+/* Add Products */
+
+cartButtons.forEach(button => {
+
+    button.addEventListener("click", event => {
+
+        const card =
+            event.target.closest(".product-card");
+
+        const title =
+            card.dataset.title;
+
+        const price =
+            card.dataset.price;
+
+        const image =
+            card.dataset.image;
+
+        const numericPrice =
+            Number(card.dataset.priceNumber);
+
+        addToCart(
+            title,
+            price,
+            image,
+            numericPrice
+        );
+
+    });
+
+});
+
+function addToCart(
+    title,
+    price,
+    image,
+    numericPrice
+) {
+
+    const emptyCart =
+        document.querySelector(".empty-cart");
+
+    if (emptyCart) {
+
+        emptyCart.remove();
+
+    }
+
+    const cartItem =
+        document.createElement("div");
+
+    cartItem.classList.add("cart-item");
+
+    cartItem.innerHTML = `
+
+        <img src="${image}" alt="${title}">
+
+        <div class="cart-item-info">
+
+            <h4>${title}</h4>
+
+            <p>${price}</p>
+
+            <button class="cart-remove">
+
+                Remove
+
+            </button>
+
+        </div>
+
+    `;
+
+    cartItems.appendChild(cartItem);
+
+    total += numericPrice;
+
+    cartTotal.textContent =
+        "$" + total;
+
+    const removeButton =
+        cartItem.querySelector(".cart-remove");
+
+    removeButton.addEventListener(
+        "click",
+        () => {
+
+            cartItem.remove();
+
+            total -= numericPrice;
+
+            cartTotal.textContent =
+                "$" + total;
+
+            if (!cartItems.children.length) {
+
+                cartItems.innerHTML = `
+
+                    <p class="empty-cart">
+
+                        Your cart is empty
+
+                    </p>
+
+                `;
+            }
+
+        }
+    );
+
+}
+
 console.log("CyberTech Store Loaded");
 
 /* Theme Toggle */
