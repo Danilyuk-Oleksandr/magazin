@@ -20,6 +20,9 @@ const heroSwiper = new Swiper(".heroSwiper", {
 /* Reviews Swiper */
 
 const reviewsSwiper = new Swiper(".reviewsSwiper", {
+    speed: 1000,
+
+    grabCursor: true,
 
     loop: true,
 
@@ -312,6 +315,8 @@ cartOverlay.addEventListener(
 cartButtons.forEach(button => {
 
     button.addEventListener("click", event => {
+
+        event.stopPropagation();
 
         const card =
             event.target.closest(".product-card");

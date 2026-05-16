@@ -361,6 +361,16 @@ html {
     box-shadow: 0 0 20px #00ffff55;
 }
 
+.category-card:hover h3 {
+
+    transform: scale(1.1);
+}
+
+.category-card h3 {
+
+    transition: 0.3s;
+}
+
 .category-card h3 {
     color: #00ffff;
 }
@@ -1621,4 +1631,98 @@ body.light-theme .accordion-button::after {
     align-items: center;
 
     justify-content: center;
+}
+
+.gaming-zone-section {
+
+    padding: 120px 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,255,255,0.03),
+            transparent
+        );
+}
+
+.gaming-card {
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 30px;
+
+    padding: 50px 35px;
+
+    text-align: center;
+
+    transition: 0.4s;
+
+    backdrop-filter: blur(18px);
+
+    overflow: hidden;
+
+    position: relative;
+
+    height: 100%;
+}
+
+.gaming-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        var(--shadow-glow),
+        var(--card-shadow);
+}
+
+.gaming-icon {
+
+    font-size: 64px;
+
+    margin-bottom: 25px;
+
+    transition: 0.4s;
+}
+
+.gaming-card:hover .gaming-icon {
+
+    transform:
+        scale(1.2)
+        rotate(8deg);
+}
+
+.gaming-card h3 {
+
+    color: var(--accent);
+
+    margin-bottom: 20px;
+
+    font-size: 30px;
+}
+
+.gaming-card p {
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+}
+
+.product-btn {
+
+    border-radius: 14px;
+
+    padding: 12px;
+
+    transition: 0.3s;
+}
+
+.product-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-glow);
 }
