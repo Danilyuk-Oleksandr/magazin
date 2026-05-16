@@ -1,40 +1,531 @@
-AOS.init();
+/* =========================
+   PRODUCTS
+========================= */
 
-/* Hero Swiper */
+const products = [
 
-const heroSwiper = new Swiper(".heroSwiper", {
-
-    loop: true,
-
-    navigation: {
-        nextEl: ".hero-next",
-        prevEl: ".hero-prev",
+    {
+        id: 1,
+        title: "Mechanical Keyboard",
+        category: "keyboard",
+        price: 129,
+        image:
+            "https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000",
+        badge: "NEW"
     },
 
-    autoplay: {
-        delay: 4000,
+    {
+        id: 2,
+        title: "Gaming Headset",
+        category: "headset",
+        price: 89,
+        image:
+            "https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000",
+        badge: "SALE"
     },
+
+    {
+        id: 3,
+        title: "UltraWide Monitor",
+        category: "monitor",
+        price: 399,
+        image:
+            "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
+    },
+
+    {
+        id: 4,
+        title: "RGB Gaming Mouse",
+        category: "mouse",
+        price: 59,
+        image:
+            "https://images.unsplash.com/photo-1527814050087-3793815479db?q=80&w=1000",
+        badge: "HOT"
+    },
+
+    {
+        id: 5,
+        title: "Gaming Chair",
+        category: "chair",
+        price: 249,
+        image:
+            "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000"
+    },
+
+    {
+        id: 6,
+        title: "Gaming Laptop",
+        category: "laptop",
+        price: 1499,
+        image:
+            "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1000",
+        badge: "SALE"
+    },
+
+    {
+        id: 7,
+        title: "RGB Mini Keyboard",
+        category: "keyboard",
+        price: 99,
+        image:
+            "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1000"
+    },
+
+    {
+        id: 8,
+        title: "Wireless Headset",
+        category: "headset",
+        price: 119,
+        image:
+            "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000"
+    },
+
+    {
+        id: 9,
+        title: "4K Gaming Monitor",
+        category: "monitor",
+        price: 599,
+        image:
+            "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=1000"
+    },
+
+    {
+        id: 10,
+        title: "Cyber Mouse Pro",
+        category: "mouse",
+        price: 79,
+        image:
+            "https://images.unsplash.com/photo-1563297007-0686b7003af7?q=80&w=1000",
+        badge: "-20%"
+    }
+
+];
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const productsContainer =
+    document.getElementById(
+        "productsContainer"
+    );
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+const filterButtons =
+    document.querySelectorAll(
+        ".filter-btn"
+    );
+
+const cartCount =
+    document.getElementById(
+        "cart-count"
+    );
+
+const cartItems =
+    document.getElementById(
+        "cartItems"
+    );
+
+const cartTotal =
+    document.getElementById(
+        "cartTotal"
+    );
+
+const cartSidebar =
+    document.getElementById(
+        "cartSidebar"
+    );
+
+const cartOverlay =
+    document.getElementById(
+        "cartOverlay"
+    );
+
+const closeCart =
+    document.getElementById(
+        "closeCart"
+    );
+
+const cartLink =
+    document.querySelector(
+        ".cart-link"
+    );
+
+const loader =
+    document.getElementById(
+        "loader"
+    );
+
+/* =========================
+   STATE
+========================= */
+
+let cart = [];
+
+let currentFilter = "all";
+
+let searchValue = "";
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts() {
+
+    let filteredProducts =
+        products.filter(product => {
+
+            const matchesSearch =
+                product.title
+                    .toLowerCase()
+                    .includes(
+                        searchValue
+                    );
+
+            const matchesFilter =
+                currentFilter === "all"
+                ||
+                product.category ===
+                currentFilter;
+
+            return (
+                matchesSearch &&
+                matchesFilter
+            );
+
+        });
+
+    productsContainer.innerHTML = "";
+
+    filteredProducts.forEach(product => {
+
+        productsContainer.innerHTML += `
+
+            <div class="col-md-6 col-lg-4">
+
+                <div
+                    class="product-card ui-card"
+                >
+
+                    <button
+                        class="wishlist-btn"
+                    >
+                        ♡
+                    </button>
+
+                    ${product.badge
+                        ? `
+                            <span
+                                class="product-badge"
+                            >
+                                ${product.badge}
+                            </span>
+                          `
+                        : ""
+                    }
+
+                    <img
+                        src="${product.image}"
+                        class="product-image"
+                        alt="${product.title}"
+                    >
+
+                    <h3>
+                        ${product.title}
+                    </h3>
+
+                    <p class="price">
+                        $${product.price}
+                    </p>
+
+                    <button
+                        class="btn product-btn"
+                        data-id="${product.id}"
+                    >
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+    initCartButtons();
+
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        event => {
+
+            searchValue =
+                event.target.value
+                    .toLowerCase();
+
+            renderProducts();
+
+        }
+    );
+
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+            button.classList.add(
+                "active"
+            );
+
+            currentFilter =
+                button.dataset.filter;
+
+            renderProducts();
+
+        }
+    );
 
 });
 
-/* Reviews Swiper */
+/* =========================
+   CART
+========================= */
 
-const reviewsSwiper = new Swiper(".reviewsSwiper", {
-    speed: 1000,
+function initCartButtons() {
 
-    grabCursor: true,
+    const buttons =
+        document.querySelectorAll(
+            ".product-btn"
+        );
 
-    loop: false,
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const id =
+                    Number(
+                        button.dataset.id
+                    );
+
+                const product =
+                    products.find(
+                        item =>
+                            item.id === id
+                    );
+
+                addToCart(product);
+
+            }
+        );
+
+    });
+
+}
+
+function addToCart(product) {
+
+    cart.push(product);
+
+    updateCart();
+
+}
+
+function updateCart() {
+
+    cartCount.textContent =
+        cart.length;
+
+    cartItems.innerHTML = "";
+
+    if (!cart.length) {
+
+        cartItems.innerHTML = `
+
+            <p class="empty-cart">
+
+                Your cart is empty
+
+            </p>
+
+        `;
+
+        cartTotal.textContent =
+            "$0";
+
+        return;
+
+    }
+
+    let total = 0;
+
+    cart.forEach((product, index) => {
+
+        total += product.price;
+
+        cartItems.innerHTML += `
+
+            <div class="cart-item ui-card">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.title}"
+                >
+
+                <div>
+
+                    <h4>
+                        ${product.title}
+                    </h4>
+
+                    <p>
+                        $${product.price}
+                    </p>
+
+                    <button
+                        class="cart-remove"
+                        data-index="${index}"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+    cartTotal.textContent =
+        "$" + total;
+
+    initRemoveButtons();
+
+}
+
+function initRemoveButtons() {
+
+    const removeButtons =
+        document.querySelectorAll(
+            ".cart-remove"
+        );
+
+    removeButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const index =
+                    Number(
+                        button.dataset.index
+                    );
+
+                cart.splice(index, 1);
+
+                updateCart();
+
+            }
+        );
+
+    });
+
+}
+
+/* =========================
+   CART SIDEBAR
+========================= */
+
+if (cartLink) {
+
+    cartLink.addEventListener(
+        "click",
+        () => {
+
+            cartSidebar.classList.add(
+                "show"
+            );
+
+            cartOverlay.classList.add(
+                "show"
+            );
+
+        }
+    );
+
+}
+
+function closeCartSidebar() {
+
+    cartSidebar.classList.remove(
+        "show"
+    );
+
+    cartOverlay.classList.remove(
+        "show"
+    );
+
+}
+
+if (closeCart) {
+
+    closeCart.addEventListener(
+        "click",
+        closeCartSidebar
+    );
+
+}
+
+if (cartOverlay) {
+
+    cartOverlay.addEventListener(
+        "click",
+        closeCartSidebar
+    );
+
+}
+
+/* =========================
+   REVIEWS SWIPER
+========================= */
+
+new Swiper(".reviewsSwiper", {
+
+    loop: true,
 
     spaceBetween: 30,
 
     autoplay: {
         delay: 3000,
-    },
-
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
     },
 
     breakpoints: {
@@ -55,541 +546,31 @@ const reviewsSwiper = new Swiper(".reviewsSwiper", {
 
 });
 
-/* Toast Function */
+/* =========================
+   LOADER
+========================= */
 
-function showToast() {
+window.addEventListener(
+    "load",
+    () => {
 
-    toast.classList.add("toast-show");
+        setTimeout(() => {
 
-    setTimeout(() => {
+            loader.classList.add(
+                "hide"
+            );
 
-        toast.classList.remove("toast-show");
-
-    }, 2000);
-
-}
-
-/* Search System */
-
-const searchInput = document.getElementById("searchInput");
-
-const productCards = document.querySelectorAll(".product-card");
-
-const cartButtons =
-    document.querySelectorAll(".product-btn");
-
-const cartCount =
-    document.getElementById("cart-count");
-
-const toast =
-    document.getElementById("toast");
-
-let count = 0;
-
-if (searchInput) {
-
-    searchInput.addEventListener("input", () => {
-
-    const value = searchInput.value.toLowerCase();
-
-    productCards.forEach(card => {
-
-        const productName =
-            card.querySelector("h3")
-                .textContent
-                .toLowerCase();
-
-        if (productName.includes(value)) {
-
-            card.parentElement.style.display = "block";
-
-        } else {
-
-            card.parentElement.style.display = "none";
-
-        }
-
-    });
-
-});
-
-}
-
-/* Product Filters */
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn => {
-
-            btn.classList.remove("active");
-
-        });
-
-        button.classList.add("active");
-
-        const filter = button.dataset.filter;
-
-        productCards.forEach(card => {
-
-    if (
-        filter === "all" ||
-        card.dataset.category === filter
-    ) {
-
-        card.parentElement.style.display = "";
-
-    } else {
-
-        card.parentElement.style.display = "none";
+        }, 600);
 
     }
-
-});
-
-    });
-
-});
-
-/* Product Modal */
-
-const modal = new bootstrap.Modal(
-    document.getElementById("productModal")
 );
 
-const modalImage =
-    document.getElementById("modalImage");
+/* =========================
+   INIT
+========================= */
 
-const modalTitle =
-    document.getElementById("modalTitle");
+renderProducts();
 
-const modalPrice =
-    document.getElementById("modalPrice");
-
-productCards.forEach(card => {
-
-    card.addEventListener("click", event => {
-
-        if (
-            event.target.closest(".product-btn") ||
-            event.target.closest(".wishlist-btn")
-        ) return;
-
-        modalImage.src = card.dataset.image;
-
-        modalTitle.textContent =
-            card.dataset.title;
-
-        modalPrice.textContent =
-            card.dataset.price;
-
-        modal.show();
-
-    });
-
-});
-
-/* Wishlist System */
-
-const wishlistButtons =
-    document.querySelectorAll(".wishlist-btn");
-
-const wishlistCount =
-    document.getElementById("wishlist-count");
-
-let wishlist = 0;
-
-wishlistButtons.forEach(button => {
-
-    button.addEventListener("click", event => {
-
-        event.stopPropagation();
-
-        button.classList.toggle("active");
-
-        if (button.classList.contains("active")) {
-
-            button.textContent = "♥";
-
-            wishlist++;
-
-        } else {
-
-            button.textContent = "♡";
-
-            wishlist--;
-
-        }
-
-        wishlistCount.textContent = wishlist;
-
-        localStorage.setItem(
-            "wishlistCount",
-            wishlist
-        );
-
-    });
-
-});
-
-/* Load Wishlist */
-
-const savedWishlist =
-    localStorage.getItem("wishlistCount");
-
-if (savedWishlist) {
-
-    wishlist = savedWishlist;
-
-    wishlistCount.textContent = wishlist;
-
-}
-
-/* Cart Sidebar */
-
-const cartSidebar =
-    document.getElementById("cartSidebar");
-
-const cartOverlay =
-    document.getElementById("cartOverlay");
-
-const closeCart =
-    document.getElementById("closeCart");
-
-const cartLink =
-    document.querySelector(".cart-item a");
-
-const cartItems =
-    document.getElementById("cartItems");
-
-const cartTotal =
-    document.getElementById("cartTotal");
-
-let total = 0;
-
-/* Open Cart */
-
-cartLink.addEventListener("click", event => {
-
-    event.preventDefault();
-
-    cartSidebar.classList.add("show");
-
-    cartOverlay.classList.add("show");
-
-});
-
-/* Close Cart */
-
-function closeCartSidebar() {
-
-    cartSidebar.classList.remove("show");
-
-    cartOverlay.classList.remove("show");
-
-}
-
-closeCart.addEventListener(
-    "click",
-    closeCartSidebar
+console.log(
+    "CyberTech Loaded"
 );
-
-cartOverlay.addEventListener(
-    "click",
-    closeCartSidebar
-);
-
-/* Add Products */
-
-cartButtons.forEach(button => {
-
-    button.addEventListener("click", event => {
-
-        event.preventDefault();
-
-        event.stopPropagation();
-
-        const card =
-            event.target.closest(".product-card");
-
-        if (!card) return;
-
-        count++;
-
-        cartCount.textContent = count;
-
-        showToast();
-
-        const title =
-            card.dataset.title;
-
-        const price =
-            card.dataset.price;
-
-        const image =
-            card.dataset.image;
-
-        const numericPrice =
-            Number(card.dataset.priceNumber);
-
-        addToCart(
-            title,
-            price,
-            image,
-            numericPrice
-        );
-
-    });
-
-});
-
-function addToCart(
-    title,
-    price,
-    image,
-    numericPrice
-) {
-
-    const emptyCart =
-        document.querySelector(".empty-cart");
-
-    if (emptyCart) {
-
-        emptyCart.remove();
-
-    }
-
-    const cartItem =
-        document.createElement("div");
-
-    cartItem.classList.add("cart-item");
-
-    cartItem.innerHTML = `
-
-        <img src="${image}" alt="${title}">
-
-        <div class="cart-item-info">
-
-            <h4>${title}</h4>
-
-            <p>${price}</p>
-
-            <button class="cart-remove">
-
-                Remove
-
-            </button>
-
-        </div>
-
-    `;
-
-    cartItems.appendChild(cartItem);
-
-    total += numericPrice;
-
-    cartTotal.textContent =
-        "$" + total;
-
-    const removeButton =
-        cartItem.querySelector(".cart-remove");
-
-    removeButton.addEventListener(
-        "click",
-        () => {
-
-            cartItem.remove();
-
-            total -= numericPrice;
-
-            cartTotal.textContent =
-                "$" + total;
-
-            if (!cartItems.children.length) {
-
-                cartItems.innerHTML = `
-
-                    <p class="empty-cart">
-
-                        Your cart is empty
-
-                    </p>
-
-                `;
-            }
-
-        }
-    );
-
-}
-
-console.log("CyberTech Store Loaded");
-
-/* Theme Toggle */
-
-const themeToggle =
-    document.getElementById("themeToggle");
-
-const body =
-    document.body;
-
-/* Load Theme */
-
-if (localStorage.getItem("theme") === "light") {
-
-    body.classList.add("light-theme");
-
-    themeToggle.textContent = "☀️";
-
-}
-
-/* Toggle Theme */
-
-themeToggle.addEventListener("click", () => {
-
-    body.classList.toggle("light-theme");
-
-    if (body.classList.contains("light-theme")) {
-
-        localStorage.setItem("theme", "light");
-
-        themeToggle.textContent = "☀️";
-
-    } else {
-
-        localStorage.setItem("theme", "dark");
-
-        themeToggle.textContent = "🌙";
-
-    }
-
-});
-
-/* Loader */
-
-const loader =
-    document.getElementById("loader");
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        loader.classList.add("hide");
-
-    }, 1200);
-
-});
-
-/* Scroll Progress */
-
-const scrollProgress =
-    document.getElementById("scrollProgress");
-
-window.addEventListener("scroll", () => {
-
-    const scrollTop =
-        document.documentElement.scrollTop;
-
-    const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-
-    const progress =
-        (scrollTop / scrollHeight) * 100;
-
-    scrollProgress.style.width =
-        progress + "%";
-
-});
-
-/* Back To Top */
-
-const backToTop =
-    document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 500) {
-
-        backToTop.classList.add("show");
-
-    } else {
-
-        backToTop.classList.remove("show");
-
-    }
-
-});
-
-backToTop.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-});
-
-/* Language System */
-
-const langToggle =
-    document.getElementById("langToggle");
-
-let currentLang =
-    localStorage.getItem("language") || "en";
-
-function applyLanguage(lang) {
-
-    const elements =
-        document.querySelectorAll(
-            "[data-en]"
-        );
-
-    elements.forEach(element => {
-
-        element.textContent =
-            element.dataset[lang];
-
-    });
-
-    if (lang === "ua") {
-
-        langToggle.textContent =
-            "🇬🇧 EN";
-
-        document.documentElement.lang = "uk";
-
-    } else {
-
-        langToggle.textContent =
-            "🇺🇦 UA";
-
-        document.documentElement.lang = "en";
-
-    }
-
-    localStorage.setItem(
-        "language",
-        lang
-    );
-
-}
-
-applyLanguage(currentLang);
-
-langToggle.addEventListener("click", () => {
-
-    currentLang =
-        currentLang === "en"
-            ? "ua"
-            : "en";
-
-    applyLanguage(currentLang);
-
-});

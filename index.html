@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CyberTech Store</title>
@@ -10,18 +12,19 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -31,94 +34,72 @@
     <div class="loader-wrapper" id="loader">
 
         <div class="loader-logo">
-
             CyberTech
-
         </div>
 
     </div>
 
-    <!-- Scroll Progress -->
-
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Back To Top -->
-
-    <button class="back-to-top" id="backToTop">
-
-        ↑
-
-    </button>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <nav class="navbar navbar-expand-lg">
+
         <div class="container">
 
             <a class="navbar-brand" href="#">
+
                 CyberTech
+
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
             <div class="collapse navbar-collapse" id="navMenu">
 
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <li class="nav-item">
-                        <a class="nav-link active-nav" href="index.html" data-en="Home" data-ua="Головна">
+
+                        <a class="nav-link active-nav" href="#">
+
                             Home
+
                         </a>
+
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active-nav" href="about.html" data-en="About" data-ua="Про нас">
+
+                        <a class="nav-link" href="about.html">
+
                             About
+
                         </a>
+
                     </li>
 
-                    <li class="nav-item cart-item">
+                    <li class="nav-item">
 
-                        <a class="nav-link active-nav" href="index.html" data-en="Cart" data-ua="Кошик">
+                        <a class="nav-link" href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item cart-link">
+
+                        <button class="nav-action-btn">
 
                             Cart
+
                             <span id="cart-count">
                                 0
                             </span>
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item wishlist-item">
-
-                        <a class="nav-link active-nav" href="index.html" data-en="Wishlist" data-ua="Обране">
-
-                            Wishlist
-                            <span id="wishlist-count">
-                                0
-                            </span>
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <button id="themeToggle" class="theme-toggle-btn">
-
-                            🌙
-
-                        </button>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <button id="langToggle" class="lang-toggle-btn">
-
-                            🇺🇦 UA
 
                         </button>
 
@@ -129,136 +110,89 @@
             </div>
 
         </div>
+
     </nav>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider">
+    <!-- Hero -->
 
-        <div class="swiper heroSwiper">
+    <section class="hero-section">
 
-            <div class="swiper-wrapper">
+        <div class="container">
 
-                <!-- Slide 1 -->
-                <div class="swiper-slide">
+            <div class="row align-items-center g-5">
 
-                    <div class="slide-content container">
+                <div class="col-lg-6">
 
-                        <div class="row align-items-center">
+                    <h1 class="hero-title">
 
-                            <div class="col-lg-6">
+                        Next Level Gaming Setup
 
-                                <h1 class="hero-title">
-                                    CYBER GAMING
-                                </h1>
+                    </h1>
 
-                                <p class="hero-text">
-                                    Next generation gaming accessories
-                                </p>
+                    <p class="hero-text">
 
-                                <button class="btn hero-btn">
-                                    Shop Now
-                                </button>
+                        Premium gaming accessories and futuristic setups
+                        designed for modern gamers.
 
-                            </div>
+                    </p>
 
-                            <div class="col-lg-6 text-center">
-
-                                <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?q=80&w=1200"
-                                    class="hero-image img-fluid" alt="Gaming Keyboard">
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <button class="hero-btn">
+                        Explore Products
+                    </button>
 
                 </div>
 
-                <!-- Slide 2 -->
-                <div class="swiper-slide">
+                <div class="col-lg-6">
 
-                    <div class="slide-content container">
-
-                        <div class="row align-items-center">
-
-                            <div class="col-lg-6">
-
-                                <h1 class="hero-title">
-                                    RGB SETUP
-                                </h1>
-
-                                <p class="hero-text">
-                                    Build your futuristic workspace
-                                </p>
-
-                                <button class="btn hero-btn">
-                                    Explore
-                                </button>
-
-                            </div>
-
-                            <div class="col-lg-6 text-center">
-
-                                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=1200"
-                                    class="hero-image img-fluid" alt="Gaming Setup">
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <img src="https://cdn.togetherbuying.in/cms/uploads/Gaming_PC_or_Console_bd5df0a069.jpg" class="hero-image"
+                        alt="Gaming Setup">
 
                 </div>
 
             </div>
-
-            <!-- Navigation -->
-            <div class="hero-next"></div>
-            <div class="hero-prev"></div>
 
         </div>
 
     </section>
 
-    <!-- Search Section -->
-    <section class="search-section">
+    <!-- Search -->
+
+    <section>
 
         <div class="container">
 
-            <div class="search-wrapper">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
 
-                <input type="text" id="searchInput" placeholder="Search products...">
-
-            </div>
-
-            <div class="filter-buttons">
+            <div class="filter-buttons d-flex flex-wrap gap-3 mt-4">
 
                 <button class="filter-btn active" data-filter="all">
+
                     All
+
                 </button>
 
                 <button class="filter-btn" data-filter="keyboard">
+
                     Keyboards
+
                 </button>
 
                 <button class="filter-btn" data-filter="headset">
-                    Headsets
-                </button>
 
-                <button class="filter-btn" data-filter="monitor">
-                    Monitors
+                    Headsets
+
                 </button>
 
                 <button class="filter-btn" data-filter="mouse">
+
                     Mice
+
                 </button>
 
-                <button class="filter-btn" data-filter="chair">
-                    Chairs
-                </button>
+                <button class="filter-btn" data-filter="monitor">
 
-                <button class="filter-btn" data-filter="laptop">
-                    Laptops
+                    Monitors
+
                 </button>
 
             </div>
@@ -268,528 +202,18 @@
     </section>
 
     <!-- Products -->
-    <section class="products-section" id="products">
 
-        <div class="container">
-
-            <h2 class="section-title text-center" data-en="Home" data-ua="Головна">
-                Popular Products
-            </h2>
-
-            <div class="row g-4 products-grid">
-
-                <!-- Product 1 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="keyboard" data-title="Mechanical Keyboard"
-                        data-price="$129"
-                        data-image="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000"
-                        data-price-number="129">
-                        <button class="wishlist-btn">
-
-                            ♡
-
-                        </button>
-
-                        <span class="product-badge">
-                            NEW
-                        </span>
-
-                        <img src="https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000"
-                            class="product-image" alt="Keyboard">
-
-                        <h3>Mechanical Keyboard</h3>
-
-                        <p class="price">
-                            $129
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 2 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="headset" data-title="Gaming Headset" data-price="$89"
-                        data-image="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000"
-                        data-price-number="89">
-                        <button class="wishlist-btn">
-
-                            ♡
-
-                        </button>
-
-                        <span class="product-badge sale-badge">
-                            SALE
-                        </span>
-
-                        <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000"
-                            class="product-image" alt="Headphones">
-
-                        <h3>Gaming Headset</h3>
-
-                        <p class="price">
-                            $89
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 3 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="monitor" data-title="UltraWide Monitor" data-price="$399"
-                        data-image="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
-                        data-price-number="399">
-                        <button class="wishlist-btn">
-
-                            ♡
-
-                        </button>
-
-                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
-                            class="product-image" alt="Monitor">
-
-                        <h3>UltraWide Monitor</h3>
-
-                        <p class="price">
-                            $399
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 4 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="mouse" data-title="RGB Gaming Mouse" data-price="$59"
-                        data-image="https://images.unsplash.com/photo-1527814050087-3793815479db?q=80&w=1000"
-                        data-price-number="59">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <span class="product-badge">
-                            HOT
-                        </span>
-
-                        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?q=80&w=1000"
-                            class="product-image" alt="Mouse">
-
-                        <h3>RGB Gaming Mouse</h3>
-
-                        <p class="price">
-                            $59
-                        </p>
-
-                        <button class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 5 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="chair" data-title="Gaming Chair" data-price="$249"
-                        data-image="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000"
-                        data-price-number="249">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000"
-                            class="product-image" alt="Chair">
-
-                        <h3>Gaming Chair</h3>
-
-                        <p class="price">
-                            $249
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 6 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="laptop" data-title="Gaming Laptop" data-price="$1499"
-                        data-image="https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1000"
-                        data-price-number="1499">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <span class="product-badge sale-badge">
-                            SALE
-                        </span>
-
-                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1000"
-                            class="product-image" alt="Laptop">
-
-                        <h3>Gaming Laptop</h3>
-
-                        <p class="price">
-                            $1499
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 7 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="keyboard" data-title="RGB Mini Keyboard" data-price="$99"
-                        data-image="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1000"
-                        data-price-number="99">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1000"
-                            class="product-image" alt="Keyboard">
-
-                        <h3>RGB Mini Keyboard</h3>
-
-                        <p class="price">
-                            $99
-                        </p>
-
-                        <button class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 8 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="headset" data-title="Wireless Headset" data-price="$119"
-                        data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000"
-                        data-price-number="119">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <span class="product-badge">
-                            NEW
-                        </span>
-
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000"
-                            class="product-image" alt="Headset">
-
-                        <h3>Wireless Headset</h3>
-
-                        <p class="price">
-                            $119
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 9 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="monitor" data-title="4K Gaming Monitor" data-price="$599"
-                        data-image="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=1000"
-                        data-price-number="599">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=1000"
-                            class="product-image" alt="Monitor">
-
-                        <h3>4K Gaming Monitor</h3>
-
-                        <p class="price">
-                            $599
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <!-- Product 10 -->
-                <div class="col-md-6 col-lg-4">
-
-                    <div class="product-card" data-category="mouse" data-title="Cyber Mouse Pro" data-price="$79"
-                        data-image="https://images.unsplash.com/photo-1563297007-0686b7003af7?q=80&w=1000"
-                        data-price-number="79">
-
-                        <button class="wishlist-btn">
-                            ♡
-                        </button>
-
-                        <span class="product-badge sale-badge">
-                            -20%
-                        </span>
-
-                        <img src="https://images.unsplash.com/photo-1563297007-0686b7003af7?q=80&w=1000"
-                            class="product-image" alt="Mouse">
-
-                        <h3>Cyber Mouse Pro</h3>
-
-                        <p class="price">
-                            $79
-                        </p>
-
-                        <button type="button" class="btn product-btn">
-                            Add to Cart
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Categories -->
-    <section class="categories-section">
-
-        <div class="container">
-
-            <h2 class="section-title text-center">
-                Categories
-            </h2>
-
-            <div class="row g-4 products-grid">
-
-                <div class="col-md-3">
-
-                    <div class="category-card">
-                        <h3>Keyboards</h3>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="category-card">
-                        <h3>Headsets</h3>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="category-card">
-                        <h3>Monitors</h3>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="category-card">
-                        <h3>Gaming Chairs</h3>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="category-card">
-                        <h3>Mice</h3>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-
-                    <div class="category-card">
-                        <h3>Laptops</h3>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="gaming-zone-section">
+    <section>
 
         <div class="container">
 
             <h2 class="section-title">
-                Gaming Experience
+
+                Popular Products
+
             </h2>
 
-            <div class="row g-4">
-
-                <div class="col-lg-4">
-
-                    <div class="gaming-card">
-
-                        <div class="gaming-icon">
-                            🎮
-                        </div>
-
-                        <h3>
-                            Pro Gaming
-                        </h3>
-
-                        <p>
-                            Elite gaming accessories
-                            for competitive players.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4">
-
-                    <div class="gaming-card">
-
-                        <div class="gaming-icon">
-                            ⚡
-                        </div>
-
-                        <h3>
-                            Ultra Performance
-                        </h3>
-
-                        <p>
-                            High refresh rate devices
-                            with RGB ecosystem.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4">
-
-                    <div class="gaming-card">
-
-                        <div class="gaming-icon">
-                            🚀
-                        </div>
-
-                        <h3>
-                            Future Technology
-                        </h3>
-
-                        <p>
-                            Next generation gaming
-                            hardware experience.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Statistics -->
-    <section class="stats-section">
-
-        <div class="container">
-
-            <div class="row text-center">
-
-                <div class="col-md-4">
-
-                    <div class="stat-card">
-
-                        <h2 class="stat-number">
-                            10K+
-                        </h2>
-
-                        <p>
-                            Happy Clients
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="stat-card">
-
-                        <h2 class="stat-number">
-                            500+
-                        </h2>
-
-                        <p>
-                            Products
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="stat-card">
-
-                        <h2 class="stat-number">
-                            24/7
-                        </h2>
-
-                        <p>
-                            Online Support
-                        </p>
-
-                    </div>
-
-                </div>
+            <div class="row g-4 products-grid" id="productsContainer">
 
             </div>
 
@@ -798,264 +222,53 @@
     </section>
 
     <!-- Reviews -->
-    <section class="reviews-section">
+
+    <section>
 
         <div class="container">
 
-            <h2 class="section-title text-center" data-en="Customer Reviews" data-ua="Відгуки клієнтів">
-                Customer Reviews
+            <h2 class="section-title">
+                Reviews
             </h2>
 
             <div class="swiper reviewsSwiper">
 
                 <div class="swiper-wrapper">
 
-                    <!-- Review 1 -->
                     <div class="swiper-slide">
 
-                        <div class="review-card">
+                        <div class="review-card ui-card">
 
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-avatar" alt="User">
 
-                            <h3>Alex Carter</h3>
-
-                            <div class="review-stars">
-                                ★★★★★
-                            </div>
+                            <h3>
+                                Alex Carter
+                            </h3>
 
                             <p>
-                                Amazing quality and super fast delivery.
-                                The keyboard feels incredible.
+                                Amazing quality and fast delivery.
                             </p>
 
                         </div>
 
                     </div>
 
-                    <!-- Review 2 -->
                     <div class="swiper-slide">
 
-                        <div class="review-card">
+                        <div class="review-card ui-card">
 
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="review-avatar"
+                                alt="User">
 
-                            <h3>Emma Wilson</h3>
-
-                            <div class="review-stars">
-                                ★★★★★
-                            </div>
+                            <h3>
+                                Emma Wilson
+                            </h3>
 
                             <p>
-                                Best gaming store design I've ever seen.
-                                Everything looks futuristic.
+                                The cleanest gaming store UI I’ve seen.
                             </p>
 
                         </div>
-
-                    </div>
-
-                    <!-- Review 3 -->
-                    <div class="swiper-slide">
-
-                        <div class="review-card">
-
-                            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="User">
-
-                            <h3>Daniel Lee</h3>
-
-                            <div class="review-stars">
-                                ★★★★★
-                            </div>
-
-                            <p>
-                                The RGB setup collection is absolutely insane.
-                                Will order again.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="swiper-pagination"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FAQ Section -->
-
-    <section class="faq-section">
-
-        <div class="container">
-
-            <h2 class="section-title" data-en="Frequently Asked Questions" data-ua="Часто задавані питання">
-                Frequently Asked Questions
-            </h2>
-
-            <div class="accordion custom-accordion" id="faqAccordion">
-
-                <!-- Item 1 -->
-
-                <div class="accordion-item">
-
-                    <h2 class="accordion-header">
-
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-
-                            How long does delivery take?
-
-                        </button>
-
-                    </h2>
-
-                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-
-                        <div class="accordion-body">
-
-                            Delivery usually takes 3-7 business days
-                            depending on your location.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Item 2 -->
-
-                <div class="accordion-item">
-
-                    <h2 class="accordion-header">
-
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq2">
-
-                            Do you offer international shipping?
-
-                        </button>
-
-                    </h2>
-
-                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-
-                        <div class="accordion-body">
-
-                            Yes, CyberTech ships products worldwide
-                            with secure packaging.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Item 3 -->
-
-                <div class="accordion-item">
-
-                    <h2 class="accordion-header">
-
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#faq3">
-
-                            Can I return a product?
-
-                        </button>
-
-                    </h2>
-
-                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-
-                        <div class="accordion-body">
-
-                            Yes, you can return products within
-                            14 days after delivery.
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Support Section -->
-
-    <section class="support-section">
-
-        <div class="container">
-
-            <div class="row g-4">
-
-                <div class="col-md-4">
-
-                    <div class="support-card" data-aos="fade-up">
-
-                        <div class="support-icon">
-
-                            🚚
-
-                        </div>
-
-                        <h3>
-                            Fast Shipping
-                        </h3>
-
-                        <p>
-                            Worldwide delivery with real-time tracking.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="support-card" data-aos="fade-up" data-aos-delay="150">
-
-                        <div class="support-icon">
-
-                            🔒
-
-                        </div>
-
-                        <h3>
-                            Secure Payment
-                        </h3>
-
-                        <p>
-                            Encrypted checkout and protected payments.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="support-card" data-aos="fade-up" data-aos-delay="300">
-
-                        <div class="support-icon">
-
-                            💬
-
-                        </div>
-
-                        <h3>
-                            Online Support
-                        </h3>
-
-                        <p>
-                            Our team is available 24/7 for assistance.
-                        </p>
 
                     </div>
 
@@ -1068,64 +281,34 @@
     </section>
 
     <!-- Newsletter -->
-    <section class="newsletter-section">
 
-        <div class="container text-center">
-
-            <h2 class="section-title" data-en="Join CyberTech Community" data-ua="Приєднуйтесь до спільноти CyberTech">
-                Join CyberTech Community
-            </h2>
-
-            <form class="newsletter-form">
-
-                <input type="email" placeholder="Enter your email">
-
-                <button type="submit" data-en="Subscribe" data-ua="Підписатися">
-                    Subscribe
-                </button>
-
-            </form>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Footer -->
-    <footer class="footer">
+    <section>
 
         <div class="container">
 
-            <div class="row">
+            <div class="newsletter-wrapper">
 
-                <div class="col-md-6">
+                <h2 class="section-title">
+                    Stay Updated
+                </h2>
 
-                    <h3 class="footer-logo">
-                        CyberTech
-                    </h3>
+                <form class="newsletter-form">
 
-                    <p>
-                        Futuristic gaming ecommerce experience
-                    </p>
+                    <input type="email" placeholder="Enter your email">
 
-                </div>
+                    <button type="submit">
+                        Subscribe
+                    </button>
 
-                <div class="col-md-6 text-md-end">
-
-                    <p>
-                        © 2026 CyberTech Store
-                    </p>
-
-                </div>
+                </form>
 
             </div>
 
         </div>
 
-    </footer>
+    </section>
 
-    <!-- Cart Sidebar -->
+    <!-- Cart -->
 
     <div class="cart-overlay" id="cartOverlay"></div>
 
@@ -1137,7 +320,7 @@
                 Shopping Cart
             </h2>
 
-            <button class="close-cart" id="closeCart">
+            <button id="closeCart" class="close-cart">
 
                 ✕
 
@@ -1148,9 +331,7 @@
         <div class="cart-items" id="cartItems">
 
             <p class="empty-cart">
-
                 Your cart is empty
-
             </p>
 
         </div>
@@ -1158,70 +339,39 @@
         <div class="cart-footer">
 
             <h3>
-
                 Total:
                 <span id="cartTotal">
-
                     $0
-
                 </span>
-
             </h3>
 
-            <button class="checkout-btn">
-
-                Proceed to Checkout
-
-            </button>
-
         </div>
 
     </div>
 
-    <!-- Product Modal -->
+    <!-- Footer -->
 
-    <div class="modal fade" id="productModal" tabindex="-1">
+    <footer class="footer">
 
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
 
-            <div class="modal-content custom-modal">
+            <h3 class="footer-logo">
+                CyberTech
+            </h3>
 
-                <div class="modal-body">
-
-                    <img id="modalImage" src="" class="modal-product-image" alt="Product">
-
-                    <h2 id="modalTitle"></h2>
-
-                    <p id="modalPrice"></p>
-
-                    <p class="modal-description">
-                        Premium futuristic gaming equipment
-                        designed for максимальний gaming experience.
-                    </p>
-
-                </div>
-
-            </div>
+            <p>
+                Premium gaming ecommerce experience
+            </p>
 
         </div>
 
-    </div>
+    </footer>
 
-    <!-- Toast -->
-    <div class="toast-message" id="toast">
-
-        Product added to cart
-
-    </div>
-
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Swiper JS -->
+    <!-- Swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <!-- JS -->
     <script src="js/app.js"></script>
