@@ -1601,3 +1601,24 @@ body.light-theme .accordion-button::after {
 
     margin-top: 50px;
 }
+
+.products-grid {
+
+    align-items: stretch;
+}
+
+.product-card {
+
+    height: 100%;
+}
+
+.product-card h3 {
+
+    min-height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
