@@ -10,7 +10,7 @@ const products = [
         category: "keyboard",
         price: 129,
         image:
-            "https://images.unsplash.com/photo-1613141411244-0e4ac259d217?q=80&w=1000",
+            "https://assets3.razerzone.com/LfJACJA3KA3Qsxuo_tWznTE_OkQ=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh25%2Fhdf%2F10045163929630%2F240510-BW-V4-Pro-White-500x500.png",
         badge: "NEW"
     },
 
@@ -20,7 +20,7 @@ const products = [
         category: "headset",
         price: 89,
         image:
-            "https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1000",
+            "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/astro/en/products/a10-gen-2/pdp-gallery-a10-lilac-02.png",
         badge: "SALE"
     },
 
@@ -30,7 +30,7 @@ const products = [
         category: "monitor",
         price: 399,
         image:
-            "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=1000"
+            "https://dlcdnwebimgs.asus.com/gain/2CE57476-66B2-4154-8970-F7F201683F19/w717/h525/fwebp/w273"
     },
 
     {
@@ -39,7 +39,7 @@ const products = [
         category: "mouse",
         price: 59,
         image:
-            "https://images.unsplash.com/photo-1527814050087-3793815479db?q=80&w=1000",
+            "https://assets3.razerzone.com/IGLejpy9uJjP2M8FsPZTU6rZ-Jg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh5a%2Fh1c%2F9821720576030%2Fbasilisk-v3-pro-35k-500x500.png",
         badge: "HOT"
     },
 
@@ -49,7 +49,7 @@ const products = [
         category: "chair",
         price: 249,
         image:
-            "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000"
+            "https://assets3.razerzone.com/Gvby_QeZpl2GWaHhqlKcxCUvoE4=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh23%2Fh46%2F10003777290270%2Fiskur-v2-x-newgen-blackgreen-500x500.png"
     },
 
     {
@@ -58,7 +58,7 @@ const products = [
         category: "laptop",
         price: 1499,
         image:
-            "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1000",
+            "https://assets3.razerzone.com/buDySUbJpzLXprNWkAEoV5N8U3Y=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc0%2Fh35%2F9917794517022%2Fblade-18-k11-black-2-500x500.png",
         badge: "SALE"
     },
 
@@ -68,7 +68,7 @@ const products = [
         category: "keyboard",
         price: 99,
         image:
-            "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=1000"
+            "https://assets3.razerzone.com/UiecZnWkVhT-O7pRtym22hoXFzg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh96%2Fh06%2F10061741654046%2Fhuntsman-v3-tkl-8khz-500x500.png"
     },
 
     {
@@ -77,7 +77,7 @@ const products = [
         category: "headset",
         price: 119,
         image:
-            "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000"
+            "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/audio/g735-wireless-headset/gallery/2025/g735-front-angle-gallery-4.png"
     },
 
     {
@@ -86,7 +86,7 @@ const products = [
         category: "monitor",
         price: 599,
         image:
-            "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=1000"
+            "https://dlcdnwebimgs.asus.com/gain/755DDBA5-BD42-4E9F-8969-B5319AA6813C/w717/h525/fwebp"
     },
 
     {
@@ -95,7 +95,7 @@ const products = [
         category: "mouse",
         price: 79,
         image:
-            "https://images.unsplash.com/photo-1563297007-0686b7003af7?q=80&w=1000",
+            "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x2-superstrike-pdp/2026/pro-x2-superstrike-profile-angle-gallery-4.png",
         badge: "-20%"
     }
 
