@@ -1726,3 +1726,46 @@ body.light-theme .accordion-button::after {
 
     box-shadow: var(--shadow-glow);
 }
+
+.lang-toggle-btn {
+
+    width: 90px;
+
+    height: 45px;
+
+    border-radius: 50px;
+
+    border: 1px solid var(--border-color);
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: var(--text-primary);
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.4s;
+
+    font-weight: 700;
+
+    margin-left: 12px;
+}
+
+.lang-toggle-btn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #38bdf8
+        );
+
+    color: #020617;
+
+    box-shadow:
+        var(--shadow-glow);
+}

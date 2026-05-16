@@ -67,30 +67,20 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link active-nav" href="index.html">
+                        <a class="nav-link active-nav" href="index.html" data-en="Home" data-ua="Головна">
                             Home
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">
+                        <a class="nav-link active-nav" href="about.html" data-en="About" data-ua="Про нас">
                             About
                         </a>
                     </li>
 
                     <li class="nav-item cart-item">
 
-                        <a class="nav-link cart-link" href="#">
+                        <a class="nav-link active-nav" href="index.html" data-en="Cart" data-ua="Кошик">
 
                             Cart
                             <span id="cart-count">
@@ -103,7 +93,7 @@
 
                     <li class="nav-item wishlist-item">
 
-                        <a class="nav-link wishlist-link" href="#">
+                        <a class="nav-link active-nav" href="index.html" data-en="Wishlist" data-ua="Обране">
 
                             Wishlist
                             <span id="wishlist-count">
@@ -119,6 +109,16 @@
                         <button id="themeToggle" class="theme-toggle-btn">
 
                             🌙
+
+                        </button>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <button id="langToggle" class="lang-toggle-btn">
+
+                            🇺🇦 UA
 
                         </button>
 
@@ -272,7 +272,7 @@
 
         <div class="container">
 
-            <h2 class="section-title text-center">
+            <h2 class="section-title text-center" data-en="Home" data-ua="Головна">
                 Popular Products
             </h2>
 
@@ -304,7 +304,7 @@
                             $129
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -337,7 +337,7 @@
                             $89
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -366,7 +366,7 @@
                             $399
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -426,7 +426,7 @@
                             $249
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -458,7 +458,7 @@
                             $1499
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -518,7 +518,7 @@
                             $119
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -546,7 +546,7 @@
                             $599
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -578,7 +578,7 @@
                             $79
                         </p>
 
-                        <button class="btn product-btn">
+                        <button type="button" class="btn product-btn">
                             Add to Cart
                         </button>
 
@@ -659,72 +659,74 @@
 
     <section class="gaming-zone-section">
 
-    <div class="container">
+        <div class="container">
 
-        <h2 class="section-title">
-            Gaming Experience
-        </h2>
+            <h2 class="section-title">
+                Gaming Experience
+            </h2>
 
-        <div class="row g-4">
+            <div class="row g-4">
 
-            <div class="col-lg-4">
+                <div class="col-lg-4">
 
-                <div class="gaming-card">
+                    <div class="gaming-card">
 
-                    <div class="gaming-icon">
-                        🎮
+                        <div class="gaming-icon">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Pro Gaming
+                        </h3>
+
+                        <p>
+                            Elite gaming accessories
+                            for competitive players.
+                        </p>
+
                     </div>
-
-                    <h3>
-                        Pro Gaming
-                    </h3>
-
-                    <p>
-                        Elite gaming accessories
-                        for competitive players.
-                    </p>
 
                 </div>
 
-            </div>
+                <div class="col-lg-4">
 
-            <div class="col-lg-4">
+                    <div class="gaming-card">
 
-                <div class="gaming-card">
+                        <div class="gaming-icon">
+                            ⚡
+                        </div>
 
-                    <div class="gaming-icon">
-                        ⚡
+                        <h3>
+                            Ultra Performance
+                        </h3>
+
+                        <p>
+                            High refresh rate devices
+                            with RGB ecosystem.
+                        </p>
+
                     </div>
-
-                    <h3>
-                        Ultra Performance
-                    </h3>
-
-                    <p>
-                        High refresh rate devices
-                        with RGB ecosystem.
-                    </p>
 
                 </div>
 
-            </div>
+                <div class="col-lg-4">
 
-            <div class="col-lg-4">
+                    <div class="gaming-card">
 
-                <div class="gaming-card">
+                        <div class="gaming-icon">
+                            🚀
+                        </div>
 
-                    <div class="gaming-icon">
-                        🚀
+                        <h3>
+                            Future Technology
+                        </h3>
+
+                        <p>
+                            Next generation gaming
+                            hardware experience.
+                        </p>
+
                     </div>
-
-                    <h3>
-                        Future Technology
-                    </h3>
-
-                    <p>
-                        Next generation gaming
-                        hardware experience.
-                    </p>
 
                 </div>
 
@@ -732,9 +734,7 @@
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
     <!-- Statistics -->
     <section class="stats-section">
@@ -802,7 +802,7 @@
 
         <div class="container">
 
-            <h2 class="section-title text-center">
+            <h2 class="section-title text-center" data-en="Customer Reviews" data-ua="Відгуки клієнтів">
                 Customer Reviews
             </h2>
 
@@ -892,7 +892,7 @@
 
         <div class="container">
 
-            <h2 class="section-title">
+            <h2 class="section-title" data-en="Frequently Asked Questions" data-ua="Часто задавані питання">
                 Frequently Asked Questions
             </h2>
 
@@ -1072,7 +1072,7 @@
 
         <div class="container text-center">
 
-            <h2 class="section-title">
+            <h2 class="section-title" data-en="Join CyberTech Community" data-ua="Приєднуйтесь до спільноти CyberTech">
                 Join CyberTech Community
             </h2>
 
@@ -1080,7 +1080,7 @@
 
                 <input type="email" placeholder="Enter your email">
 
-                <button type="submit">
+                <button type="submit" data-en="Subscribe" data-ua="Підписатися">
                     Subscribe
                 </button>
 

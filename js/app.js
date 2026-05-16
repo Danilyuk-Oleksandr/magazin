@@ -24,7 +24,7 @@ const reviewsSwiper = new Swiper(".reviewsSwiper", {
 
     grabCursor: true,
 
-    loop: true,
+    loop: false,
 
     spaceBetween: 30,
 
@@ -55,30 +55,6 @@ const reviewsSwiper = new Swiper(".reviewsSwiper", {
 
 });
 
-/* Cart Counter */
-
-const cartButtons = document.querySelectorAll(".product-btn");
-
-const cartCount = document.getElementById("cart-count");
-
-const toast = document.getElementById("toast");
-
-let count = 0;
-
-cartButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        count++;
-
-        cartCount.textContent = count;
-
-        showToast();
-
-    });
-
-});
-
 /* Toast Function */
 
 function showToast() {
@@ -99,7 +75,20 @@ const searchInput = document.getElementById("searchInput");
 
 const productCards = document.querySelectorAll(".product-card");
 
-searchInput.addEventListener("input", () => {
+const cartButtons =
+    document.querySelectorAll(".product-btn");
+
+const cartCount =
+    document.getElementById("cart-count");
+
+const toast =
+    document.getElementById("toast");
+
+let count = 0;
+
+if (searchInput) {
+
+    searchInput.addEventListener("input", () => {
 
     const value = searchInput.value.toLowerCase();
 
@@ -124,6 +113,8 @@ searchInput.addEventListener("input", () => {
 
 });
 
+}
+
 /* Product Filters */
 
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -144,20 +135,20 @@ filterButtons.forEach(button => {
 
         productCards.forEach(card => {
 
-            if (
-                filter === "all" ||
-                card.dataset.category === filter
-            ) {
+    if (
+        filter === "all" ||
+        card.dataset.category === filter
+    ) {
 
-                card.parentElement.style.display = "block";
+        card.parentElement.style.display = "";
 
-            } else {
+    } else {
 
-                card.parentElement.style.display = "none";
+        card.parentElement.style.display = "none";
 
-            }
+    }
 
-        });
+});
 
     });
 
@@ -183,7 +174,8 @@ productCards.forEach(card => {
     card.addEventListener("click", event => {
 
         if (
-            event.target.classList.contains("product-btn")
+            event.target.closest(".product-btn") ||
+            event.target.closest(".wishlist-btn")
         ) return;
 
         modalImage.src = card.dataset.image;
@@ -268,7 +260,7 @@ const closeCart =
     document.getElementById("closeCart");
 
 const cartLink =
-    document.querySelector(".cart-link");
+    document.querySelector(".cart-item a");
 
 const cartItems =
     document.getElementById("cartItems");
@@ -316,10 +308,20 @@ cartButtons.forEach(button => {
 
     button.addEventListener("click", event => {
 
+        event.preventDefault();
+
         event.stopPropagation();
 
         const card =
             event.target.closest(".product-card");
+
+        if (!card) return;
+
+        count++;
+
+        cartCount.textContent = count;
+
+        showToast();
 
         const title =
             card.dataset.title;
@@ -531,5 +533,63 @@ backToTop.addEventListener("click", () => {
         behavior: "smooth"
 
     });
+
+});
+
+/* Language System */
+
+const langToggle =
+    document.getElementById("langToggle");
+
+let currentLang =
+    localStorage.getItem("language") || "en";
+
+function applyLanguage(lang) {
+
+    const elements =
+        document.querySelectorAll(
+            "[data-en]"
+        );
+
+    elements.forEach(element => {
+
+        element.textContent =
+            element.dataset[lang];
+
+    });
+
+    if (lang === "ua") {
+
+        langToggle.textContent =
+            "🇬🇧 EN";
+
+        document.documentElement.lang = "uk";
+
+    } else {
+
+        langToggle.textContent =
+            "🇺🇦 UA";
+
+        document.documentElement.lang = "en";
+
+    }
+
+    localStorage.setItem(
+        "language",
+        lang
+    );
+
+}
+
+applyLanguage(currentLang);
+
+langToggle.addEventListener("click", () => {
+
+    currentLang =
+        currentLang === "en"
+            ? "ua"
+            : "en";
+
+    applyLanguage(currentLang);
 
 });
