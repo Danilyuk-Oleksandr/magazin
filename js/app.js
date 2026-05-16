@@ -205,56 +205,75 @@ function renderProducts() {
 
         productsContainer.innerHTML += `
 
-            <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-xl-4">
 
-                <div
-                    class="product-card ui-card"
+        <div class="product-card">
+
+            <div class="product-image-wrapper">
+
+                <button
+                    class="wishlist-btn"
+                >
+                    ♡
+                </button>
+
+                ${product.badge
+                ? `
+                        <span class="product-badge">
+                            ${product.badge}
+                        </span>
+                      `
+                : ""
+            }
+
+                <img
+                    src="${product.image}"
+                    class="product-image"
+                    alt="${product.title}"
                 >
 
-                    <button
-                        class="wishlist-btn"
-                    >
-                        ♡
-                    </button>
+            </div>
 
-                    ${product.badge
-                        ? `
-                            <span
-                                class="product-badge"
-                            >
-                                ${product.badge}
-                            </span>
-                          `
-                        : ""
-                    }
+            <div class="product-content">
 
-                    <img
-                        src="${product.image}"
-                        class="product-image"
-                        alt="${product.title}"
-                    >
+                <span class="product-category">
 
-                    <h3>
-                        ${product.title}
-                    </h3>
+                    ${product.category}
+
+                </span>
+
+                <h3>
+
+                    ${product.title}
+
+                </h3>
+
+                <div class="product-bottom">
 
                     <p class="price">
+
                         $${product.price}
+
                     </p>
 
                     <button
-                        class="btn product-btn"
+                        class="product-btn"
                         data-id="${product.id}"
                     >
-                        Add to Cart
+
+                        Add
+
                     </button>
 
                 </div>
 
             </div>
 
-        `;
+        </div>
 
+    </div>
+
+`;
     });
 
     initCartButtons();
