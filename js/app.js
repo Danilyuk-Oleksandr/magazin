@@ -534,6 +534,40 @@ if (cartOverlay) {
 }
 
 /* =========================
+   HERO SWIPER
+========================= */
+
+new Swiper(".heroSwiper", {
+
+    loop: true,
+
+    speed: 1000,
+
+    autoplay: {
+
+        delay: 4500,
+
+    },
+
+    pagination: {
+
+        el: ".hero-pagination",
+
+        clickable: true,
+
+    },
+
+    navigation: {
+
+        nextEl: ".hero-next",
+
+        prevEl: ".hero-prev",
+
+    },
+
+});
+
+/* =========================
    REVIEWS SWIPER
 ========================= */
 

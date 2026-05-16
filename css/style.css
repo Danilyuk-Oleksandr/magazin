@@ -20,18 +20,18 @@ html {
 
     --bg: #070b14;
     --surface: rgba(15, 23, 42, 0.72);
-    --surface-light: rgba(255,255,255,0.03);
+    --surface-light: rgba(255, 255, 255, 0.03);
 
     --text: #f8fafc;
     --text-muted: #94a3b8;
 
-    --border: rgba(255,255,255,0.06);
+    --border: rgba(255, 255, 255, 0.06);
 
     --primary: #6366f1;
     --primary-hover: #7c3aed;
 
     --shadow:
-        0 10px 40px rgba(0,0,0,0.28);
+        0 10px 40px rgba(0, 0, 0, 0.28);
 
     --radius: 28px;
 
@@ -47,16 +47,12 @@ body {
     font-family: 'Inter', sans-serif;
 
     background:
-        radial-gradient(
-            circle at top left,
-            rgba(99,102,241,0.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at bottom right,
-            rgba(124,58,237,0.08),
-            transparent 30%
-        ),
+        radial-gradient(circle at top left,
+            rgba(99, 102, 241, 0.08),
+            transparent 30%),
+        radial-gradient(circle at bottom right,
+            rgba(124, 58, 237, 0.08),
+            transparent 30%),
         var(--bg);
 
     color: var(--text);
@@ -78,7 +74,7 @@ section {
     padding: 120px 0;
 }
 
-section + section {
+section+section {
 
     padding-top: 0;
 }
@@ -112,7 +108,7 @@ textarea {
 
     z-index: 1000;
 
-    background: rgba(7,11,20,0.7);
+    background: rgba(7, 11, 20, 0.7);
 
     backdrop-filter: blur(18px);
 
@@ -188,7 +184,7 @@ textarea {
     border-radius: 999px;
 
     background:
-        rgba(255,255,255,0.04);
+        rgba(255, 255, 255, 0.04);
 
     border:
         1px solid var(--border);
@@ -236,11 +232,9 @@ textarea {
     inset: 10%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(99,102,241,0.25),
-            transparent 70%
-        );
+        radial-gradient(circle,
+            rgba(99, 102, 241, 0.25),
+            transparent 70%);
 
     filter: blur(70px);
 
@@ -379,7 +373,7 @@ textarea {
     transform: translateY(-6px);
 
     border-color:
-        rgba(255,255,255,0.12);
+        rgba(255, 255, 255, 0.12);
 }
 
 /* =========================
@@ -393,7 +387,7 @@ textarea {
 .product-card {
 
     background:
-        rgba(255,255,255,0.03);
+        rgba(255, 255, 255, 0.03);
 
     border:
         1px solid var(--border);
@@ -481,6 +475,32 @@ textarea {
     margin: 0;
 }
 
+.product-image-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.4),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition: 0.35s ease;
+}
+
+.product-card:hover
+.product-image-wrapper::after {
+
+    opacity: 1;
+}
+
 /* =========================
    WISHLIST
 ========================= */
@@ -499,7 +519,7 @@ textarea {
 
     border: 1px solid var(--border);
 
-    background: rgba(0,0,0,0.35);
+    background: rgba(0, 0, 0, 0.35);
 
     color: white;
 
@@ -786,7 +806,7 @@ textarea {
 
     inset: 0;
 
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.45);
 
     opacity: 0;
 
@@ -952,7 +972,7 @@ textarea {
     border: 1px solid var(--border);
 
     background:
-        rgba(255,255,255,0.04);
+        rgba(255, 255, 255, 0.04);
 
     color: white;
 
@@ -966,6 +986,102 @@ textarea {
     background: white;
 
     color: black;
+}
+
+/* =========================
+   REVIEWS SWIPER
+========================= */
+
+.reviewsSwiper {
+
+    padding-bottom: 70px;
+}
+
+.swiper-pagination-bullet {
+
+    background: rgba(255,255,255,0.4);
+
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+
+    background: white;
+}
+
+/* =========================
+   HERO SWIPER
+========================= */
+
+.heroSwiper {
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.heroSwiper .swiper-slide {
+
+    display: flex;
+
+    align-items: center;
+}
+
+.hero-prev,
+.hero-next {
+
+    width: 56px !important;
+    height: 56px !important;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    border:
+        1px solid var(--border);
+
+    color: white !important;
+
+    transition: 0.3s ease;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+
+    background: white;
+
+    color: black !important;
+}
+
+.hero-prev::after,
+.hero-next::after {
+
+    font-size: 18px !important;
+
+    font-weight: 700;
+}
+
+.hero-pagination {
+
+    bottom: 40px !important;
+}
+
+.hero-pagination .swiper-pagination-bullet {
+
+    width: 12px;
+    height: 12px;
+
+    background: rgba(255, 255, 255, 0.4);
+
+    opacity: 1;
+}
+
+.hero-pagination .swiper-pagination-bullet-active {
+
+    background: white;
 }
 
 /* =========================
@@ -1018,4 +1134,3 @@ textarea {
         width: 100%;
     }
 }
-
