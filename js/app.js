@@ -160,15 +160,40 @@ const loader =
         "loader"
     );
 
+const toast =
+    document.getElementById(
+        "toast"
+    );
+
+const floatingCart =
+    document.getElementById(
+        "floatingCart"
+    );
+
+const floatingCartCount =
+    document.getElementById(
+        "floatingCartCount"
+    );
+
 /* =========================
    STATE
 ========================= */
 
-let cart = [];
+let cart =
+    JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
 
 let currentFilter = "all";
 
 let searchValue = "";
+
+let wishlist =
+    JSON.parse(
+        localStorage.getItem(
+            "wishlist"
+        )
+    ) || [];
 
 /* =========================
    RENDER PRODUCTS
@@ -212,7 +237,12 @@ function renderProducts() {
             <div class="product-image-wrapper">
 
                 <button
-                    class="wishlist-btn"
+                    class="wishlist-btn
+                    ${wishlist.includes(product.id)
+                        ? "active"
+                        : ""
+                    }"
+                    data-id="${product.id}"
                 >
                     ♡
                 </button>
@@ -277,6 +307,8 @@ function renderProducts() {
     });
 
     initCartButtons();
+
+    initWishlistButtons();
 
 }
 
@@ -370,9 +402,85 @@ function initCartButtons() {
 
 }
 
+function initWishlistButtons() {
+
+    const wishlistButtons =
+        document.querySelectorAll(
+            ".wishlist-btn"
+        );
+
+    wishlistButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const id =
+                    Number(
+                        button.dataset.id
+                    );
+
+                if (
+                    wishlist.includes(id)
+                ) {
+
+                    wishlist =
+                        wishlist.filter(
+                            item =>
+                                item !== id
+                        );
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                } else {
+
+                    wishlist.push(id);
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+
+                localStorage.setItem(
+                    "wishlist",
+                    JSON.stringify(
+                        wishlist
+                    )
+                );
+
+            }
+        );
+
+    });
+
+}
+
+function showToast(message) {
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove(
+            "show"
+        );
+
+    }, 2200);
+
+}
+
 function addToCart(product) {
 
     cart.push(product);
+
+    showToast(
+        `${product.title} added`
+    );
 
     updateCart();
 
@@ -380,7 +488,15 @@ function addToCart(product) {
 
 function updateCart() {
 
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
     cartCount.textContent =
+        cart.length;
+
+    floatingCartCount.textContent =
         cart.length;
 
     cartItems.innerHTML = "";
@@ -502,6 +618,21 @@ if (cartLink) {
     );
 
 }
+
+floatingCart.addEventListener(
+    "click",
+    () => {
+
+        cartSidebar.classList.add(
+            "show"
+        );
+
+        cartOverlay.classList.add(
+            "show"
+        );
+
+    }
+);
 
 function closeCartSidebar() {
 
@@ -635,3 +766,5 @@ renderProducts();
 console.log(
     "CyberTech Loaded"
 );
+
+updateCart();

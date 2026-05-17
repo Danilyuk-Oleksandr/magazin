@@ -1156,6 +1156,51 @@ textarea {
 }
 
 /* =========================
+   FLOATING CART
+========================= */
+
+.floating-cart {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform:
+        translateX(-50%);
+
+    height: 62px;
+
+    padding: 0 28px;
+
+    border-radius: 999px;
+
+    border: none;
+
+    background: white;
+
+    color: black;
+
+    font-weight: 700;
+
+    z-index: 999;
+
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .floating-cart {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+}
+
+/* =========================
    NAV ACTIONS
 ========================= */
 
@@ -1339,6 +1384,49 @@ textarea {
 
         transform: scale(1.05);
     }
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast-notification {
+
+    position: fixed;
+
+    right: 30px;
+    bottom: 30px;
+
+    padding: 18px 24px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(15,23,42,0.95);
+
+    border:
+        1px solid var(--border);
+
+    color: white;
+
+    backdrop-filter: blur(20px);
+
+    transform:
+        translateY(120px);
+
+    opacity: 0;
+
+    transition: 0.35s ease;
+
+    z-index: 99999;
+}
+
+.toast-notification.show {
+
+    transform:
+        translateY(0);
+
+    opacity: 1;
 }
 
 /* =========================
