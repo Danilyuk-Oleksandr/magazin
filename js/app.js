@@ -581,6 +581,14 @@ new Swiper(".reviewsSwiper", {
         delay: 3000,
     },
 
+    pagination: {
+
+        el: ".reviews-pagination",
+
+        clickable: true,
+
+    },
+
     breakpoints: {
 
         0: {

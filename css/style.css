@@ -245,7 +245,9 @@ textarea {
 
     width: 100%;
 
-    height: 650px;
+    aspect-ratio: 4 / 5;
+
+    max-height: 650px;
 
     object-fit: cover;
 
@@ -321,6 +323,8 @@ textarea {
     padding: 0 30px;
 
     transition: 0.25s ease;
+
+    cursor: pointer;
 }
 
 .btn:hover,
@@ -332,11 +336,9 @@ textarea {
     transform: translateY(-2px);
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #6366f1,
-            #7c3aed
-        );
+            #7c3aed);
 
     color: white;
 }
@@ -402,11 +404,9 @@ textarea {
     inset: 0;
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             transparent,
-            rgba(255,255,255,0.03)
-        );
+            rgba(255, 255, 255, 0.03));
 
     opacity: 0;
 
@@ -465,6 +465,10 @@ textarea {
 .product-content {
 
     padding: 28px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .product-category {
@@ -476,6 +480,15 @@ textarea {
     letter-spacing: 1px;
 
     color: var(--text-muted);
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
 }
 
 .product-card h3 {
@@ -516,19 +529,16 @@ textarea {
     inset: 0;
 
     background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.4),
-            transparent
-        );
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.4),
+            transparent);
 
     opacity: 0;
 
     transition: 0.35s ease;
 }
 
-.product-card:hover
-.product-image-wrapper::after {
+.product-card:hover .product-image-wrapper::after {
 
     opacity: 1;
 }
@@ -657,17 +667,17 @@ textarea {
     color: var(--text-muted);
 
     transition: 0.25s ease;
+
+    cursor: pointer;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #6366f1,
-            #7c3aed
-        );
+            #7c3aed);
 
     color: white;
 
@@ -805,11 +815,9 @@ textarea {
     height: 400px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(99,102,241,0.18),
-            transparent 70%
-        );
+        radial-gradient(circle,
+            rgba(99, 102, 241, 0.18),
+            transparent 70%);
 
     top: -120px;
     right: -120px;
@@ -939,7 +947,7 @@ textarea {
     backdrop-filter: blur(30px);
 
     background:
-        rgba(7,11,20,0.92);
+        rgba(7, 11, 20, 0.92);
 
 }
 
@@ -972,7 +980,7 @@ textarea {
     border-bottom: none;
 
     background:
-        rgba(255,255,255,0.02);
+        rgba(255, 255, 255, 0.02);
 }
 
 .cart-items {
@@ -995,7 +1003,7 @@ textarea {
     margin-bottom: 18px;
 
     background:
-        rgba(255,255,255,0.03);
+        rgba(255, 255, 255, 0.03);
 
     border:
         1px solid var(--border);
@@ -1031,6 +1039,7 @@ textarea {
 .close-cart {
 
     width: 48px;
+
     height: 48px;
 
     border-radius: 16px;
@@ -1038,11 +1047,13 @@ textarea {
     border: 1px solid var(--border);
 
     background:
-        rgba(255,255,255,0.05);
+        rgba(255, 255, 255, 0.05);
 
     color: white;
 
     transition: 0.25s ease;
+
+    cursor: pointer;
 }
 
 .close-cart:hover {
@@ -1089,7 +1100,7 @@ textarea {
     text-align: center;
 
     background:
-        rgba(255,255,255,0.02);
+        rgba(255, 255, 255, 0.02);
 }
 
 .footer-logo {
@@ -1186,7 +1197,7 @@ textarea {
 
 .swiper-pagination-bullet {
 
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
 
     opacity: 1;
 }
@@ -1347,11 +1358,22 @@ textarea {
 ::-webkit-scrollbar-thumb {
 
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             #6366f1,
-            #7c3aed
-        );
+            #7c3aed);
+
+    border-radius: 999px;
+}
+
+.cart-items::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255, 255, 255, 0.2);
 
     border-radius: 999px;
 }
@@ -1380,6 +1402,33 @@ textarea {
 
         padding: 30px;
     }
+
+    .hero-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .navbar-collapse {
+
+        margin-top: 20px;
+
+        padding: 20px;
+
+        border-radius: 24px;
+
+        background:
+            rgba(15, 23, 42, 0.95);
+
+        border:
+            1px solid var(--border);
+    }
+
+    .navbar-nav {
+
+        gap: 18px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1404,5 +1453,23 @@ textarea {
     .cart-sidebar {
 
         width: 100%;
+    }
+
+    .hero-actions {
+
+        flex-direction: column;
+    }
+
+    .hero-btn,
+    .hero-secondary-btn {
+
+        width: 100%;
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
     }
 }
