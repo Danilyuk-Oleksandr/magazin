@@ -239,9 +239,9 @@ function renderProducts() {
                 <button
                     class="wishlist-btn
                     ${wishlist.includes(product.id)
-                        ? "active"
-                        : ""
-                    }"
+                ? "active"
+                : ""
+            }"
                     data-id="${product.id}"
                 >
                     ♡
@@ -309,6 +309,8 @@ function renderProducts() {
     initCartButtons();
 
     initWishlistButtons();
+
+    initProductModal();
 
 }
 
@@ -753,6 +755,212 @@ window.addEventListener(
             );
 
         }, 600);
+
+    }
+);
+
+/* =========================
+   PRODUCT MODAL
+========================= */
+
+const productModal =
+    document.getElementById(
+        "productModal"
+    );
+
+const modalOverlay =
+    document.getElementById(
+        "modalOverlay"
+    );
+
+const closeModal =
+    document.getElementById(
+        "closeModal"
+    );
+
+const modalImage =
+    document.getElementById(
+        "modalImage"
+    );
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+const modalCategory =
+    document.getElementById(
+        "modalCategory"
+    );
+
+const modalPrice =
+    document.getElementById(
+        "modalPrice"
+    );
+
+const modalAddBtn =
+    document.getElementById(
+        "modalAddBtn"
+    );
+
+const quantityValue =
+    document.getElementById(
+        "quantityValue"
+    );
+
+const increaseQty =
+    document.getElementById(
+        "increaseQty"
+    );
+
+const decreaseQty =
+    document.getElementById(
+        "decreaseQty"
+    );
+
+let currentProduct = null;
+
+let quantity = 1;
+
+function initProductModal() {
+
+    const productImages =
+        document.querySelectorAll(
+            ".product-image"
+        );
+
+    productImages.forEach(image => {
+
+        image.addEventListener(
+            "click",
+            () => {
+
+                const card =
+                    image.closest(
+                        ".product-card"
+                    );
+
+                const button =
+                    card.querySelector(
+                        ".product-btn"
+                    );
+
+                const id =
+                    Number(
+                        button.dataset.id
+                    );
+
+                const product =
+                    products.find(
+                        item =>
+                            item.id === id
+                    );
+
+                openProductModal(
+                    product
+                );
+
+            }
+        );
+
+    });
+
+}
+
+function openProductModal(product) {
+
+    currentProduct = product;
+
+    quantity = 1;
+
+    quantityValue.textContent =
+        quantity;
+
+    modalImage.src =
+        product.image;
+
+    modalTitle.textContent =
+        product.title;
+
+    modalCategory.textContent =
+        product.category;
+
+    modalPrice.textContent =
+        "$" + product.price;
+
+    productModal.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+function closeProductModal() {
+
+    productModal.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+closeModal.addEventListener(
+    "click",
+    closeProductModal
+);
+
+modalOverlay.addEventListener(
+    "click",
+    closeProductModal
+);
+
+increaseQty.addEventListener(
+    "click",
+    () => {
+
+        quantity++;
+
+        quantityValue.textContent =
+            quantity;
+
+    }
+);
+
+decreaseQty.addEventListener(
+    "click",
+    () => {
+
+        if (quantity > 1) {
+
+            quantity--;
+
+            quantityValue.textContent =
+                quantity;
+
+        }
+
+    }
+);
+
+modalAddBtn.addEventListener(
+    "click",
+    () => {
+
+        for (
+            let i = 0;
+            i < quantity;
+            i++
+        ) {
+
+            addToCart(
+                currentProduct
+            );
+
+        }
+
+        closeProductModal();
 
     }
 );
