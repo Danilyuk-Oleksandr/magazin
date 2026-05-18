@@ -97,6 +97,192 @@ const products = [
         image:
             "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x2-superstrike-pdp/2026/pro-x2-superstrike-profile-angle-gallery-4.png",
         badge: "-20%"
+    },
+
+    {
+        id: 11,
+        title: "Wireless Gaming Mouse",
+        category: "mouse",
+        price: 99,
+        image:
+            "https://assets3.razerzone.com/IGLejpy9uJjP2M8FsPZTU6rZ-Jg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh5a%2Fh1c%2F9821720576030%2Fbasilisk-v3-pro-35k-500x500.png",
+        badge: "NEW"
+    },
+
+    {
+        id: 12,
+        title: "White Gaming Keyboard",
+        category: "keyboard",
+        price: 149,
+        image:
+            "https://assets3.razerzone.com/UiecZnWkVhT-O7pRtym22hoXFzg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh96%2Fh06%2F10061741654046%2Fhuntsman-v3-tkl-8khz-500x500.png"
+    },
+
+    {
+        id: 13,
+        title: "Streaming Microphone",
+        category: "microphone",
+        price: 139,
+        image:
+            "https://assets3.razerzone.com/mY6SmN2a6Uk4a1Rsl5x2OYF8I7Y=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh46%2Fh58%2F9082370215966%2Fseiren-v3-chroma-black-500x500.png",
+        badge: "HOT"
+    },
+
+    {
+        id: 14,
+        title: "RGB Gaming Chair",
+        category: "chair",
+        price: 329,
+        image:
+            "https://assets3.razerzone.com/Gvby_QeZpl2GWaHhqlKcxCUvoE4=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh23%2Fh46%2F10003777290270%2Fiskur-v2-x-newgen-blackgreen-500x500.png"
+    },
+
+    {
+        id: 15,
+        title: "240Hz Gaming Monitor",
+        category: "monitor",
+        price: 699,
+        image:
+            "https://dlcdnwebimgs.asus.com/gain/755DDBA5-BD42-4E9F-8969-B5319AA6813C/w717/h525/fwebp",
+        badge: "PRO"
+    },
+
+    {
+        id: 16,
+        title: "Studio Gaming Headset",
+        category: "headset",
+        price: 179,
+        image:
+            "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/audio/g735-wireless-headset/gallery/2025/g735-front-angle-gallery-4.png"
+    },
+
+    {
+        id: 17,
+        title: "Cyber Laptop RTX",
+        category: "laptop",
+        price: 1899,
+        image: "https://assets3.razerzone.com/buDySUbJpzLXprNWkAEoV5N8U3Y=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc0%2Fh35%2F9917794517022%2Fblade-18-k11-black-2-500x500.png",
+        badge: "RTX"
+    },
+
+    {
+        id: 18,
+        title: "Minimal White Mouse",
+        category: "mouse",
+        price: 69,
+        image:
+            "https://assets3.razerzone.com/IGLejpy9uJjP2M8FsPZTU6rZ-Jg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh5a%2Fh1c%2F9821720576030%2Fbasilisk-v3-pro-35k-500x500.png"
+    },
+
+    {
+        id: 19,
+        title: "RGB Speaker Set",
+        category: "speaker",
+        price: 159,
+        image:
+            "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=1200"
+    },
+
+    {
+        id: 20,
+        title: "Compact Gaming Keyboard",
+        category: "keyboard",
+        price: 119,
+        image:
+            "https://assets3.razerzone.com/UiecZnWkVhT-O7pRtym22hoXFzg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh96%2Fh06%2F10061741654046%2Fhuntsman-v3-tkl-8khz-500x500.png"
+    },
+
+    {
+        id: 21,
+        title: "Cyber Monitor Pro",
+        category: "monitor",
+        price: 849,
+        image:
+            "https://dlcdnwebimgs.asus.com/gain/2CE57476-66B2-4154-8970-F7F201683F19/w717/h525/fwebp/w273",
+        badge: "BEST"
+    },
+
+    {
+        id: 22,
+        title: "Pro Wireless Headset",
+        category: "headset",
+        price: 149,
+        image:
+            "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/audio/g735-wireless-headset/gallery/2025/g735-front-angle-gallery-4.png"
+    },
+
+    {
+        id: 23,
+        title: "Premium RGB Chair",
+        category: "chair",
+        price: 379,
+        image:
+            "https://assets3.razerzone.com/Gvby_QeZpl2GWaHhqlKcxCUvoE4=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh23%2Fh46%2F10003777290270%2Fiskur-v2-x-newgen-blackgreen-500x500.png"
+    },
+
+    {
+        id: 24,
+        title: "Streaming Mic White",
+        category: "microphone",
+        price: 129,
+        image:
+            "https://assets3.razerzone.com/mY6SmN2a6Uk4a1Rsl5x2OYF8I7Y=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh46%2Fh58%2F9082370215966%2Fseiren-v3-chroma-black-500x500.png"
+    },
+
+    {
+        id: 25,
+        title: "Gaming Setup Monitor",
+        category: "monitor",
+        price: 499,
+        image:
+            "https://dlcdnwebimgs.asus.com/gain/755DDBA5-BD42-4E9F-8969-B5319AA6813C/w717/h525/fwebp"
+    },
+
+    {
+        id: 26,
+        title: "Wireless Compact Keyboard",
+        category: "keyboard",
+        price: 139,
+        image:
+            "https://assets3.razerzone.com/LfJACJA3KA3Qsxuo_tWznTE_OkQ=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh25%2Fhdf%2F10045163929630%2F240510-BW-V4-Pro-White-500x500.png"
+    },
+
+    {
+        id: 27,
+        title: "Gaming Sound Speakers",
+        category: "speaker",
+        price: 189,
+        image:
+            "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=1200",
+        badge: "NEW"
+    },
+
+    {
+        id: 28,
+        title: "Cyber Gaming Laptop",
+        category: "laptop",
+        price: 2099,
+        image:
+            "https://assets3.razerzone.com/buDySUbJpzLXprNWkAEoV5N8U3Y=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc0%2Fh35%2F9917794517022%2Fblade-18-k11-black-2-500x500.png"
+    },
+
+    {
+        id: 29,
+        title: "Esports Gaming Mouse",
+        category: "mouse",
+        price: 109,
+        image:
+            "https://assets3.razerzone.com/IGLejpy9uJjP2M8FsPZTU6rZ-Jg=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh5a%2Fh1c%2F9821720576030%2Fbasilisk-v3-pro-35k-500x500.png"
+    },
+
+    {
+        id: 30,
+        title: "Cyber RGB Headset",
+        category: "headset",
+        price: 199,
+        image:
+            "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/audio/g735-wireless-headset/gallery/2025/g735-front-angle-gallery-4.png",
+        badge: "LIMITED"
     }
 
 ];
