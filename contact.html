@@ -5,32 +5,25 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Contact | CyberTech</title>
 
     <!-- Bootstrap -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Fonts -->
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS -->
 
-    <link rel="stylesheet"
-          href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -42,31 +35,25 @@
 
         <div class="container">
 
-            <a class="navbar-brand"
-               href="index.html">
+            <a class="navbar-brand" href="index.html">
 
                 CyberTech
 
             </a>
 
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navMenu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
 
                 <span class="navbar-toggler-icon"></span>
 
             </button>
 
-            <div class="collapse navbar-collapse"
-                 id="navMenu">
+            <div class="collapse navbar-collapse" id="navMenu">
 
                 <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <li class="nav-item">
 
-                        <a class="nav-link"
-                           href="index.html">
+                        <a class="nav-link" href="index.html">
 
                             Home
 
@@ -76,8 +63,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link"
-                           href="about.html">
+                        <a class="nav-link" href="about.html">
 
                             About
 
@@ -87,8 +73,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link active-nav"
-                           href="contact.html">
+                        <a class="nav-link active-nav" href="contact.html">
 
                             Contact
 
@@ -98,11 +83,37 @@
 
                     <li class="nav-item">
 
-                        <button class="nav-action-btn">
+                        <div class="account-wrapper">
 
-                            Support
+                            <button class="nav-action-btn" id="accountBtn">
 
-                        </button>
+                                Account
+
+                            </button>
+
+                            <div class="account-dropdown" id="accountDropdown">
+
+                                <button id="openLogin">
+
+                                    Login
+
+                                </button>
+
+                                <button id="openRegister">
+
+                                    Register
+
+                                </button>
+
+                                <button id="logoutBtn">
+
+                                    Logout
+
+                                </button>
+
+                            </div>
+
+                        </div>
 
                     </li>
 
@@ -178,22 +189,19 @@
 
                                 <div class="col-md-6">
 
-                                    <input type="text"
-                                           placeholder="Your Name">
+                                    <input type="text" placeholder="Your Name">
 
                                 </div>
 
                                 <div class="col-md-6">
 
-                                    <input type="email"
-                                           placeholder="Your Email">
+                                    <input type="email" placeholder="Your Email">
 
                                 </div>
 
                             </div>
 
-                            <input type="text"
-                                   placeholder="Subject">
+                            <input type="text" placeholder="Subject">
 
                             <textarea placeholder="Your Message"></textarea>
 
@@ -302,16 +310,13 @@
 
             </h2>
 
-            <div class="accordion"
-                 id="faqAccordion">
+            <div class="accordion" id="faqAccordion">
 
                 <div class="accordion-item ui-card">
 
                     <h2 class="accordion-header">
 
-                        <button class="accordion-button collapsed"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq1">
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq1">
 
                             How fast is delivery?
 
@@ -319,9 +324,7 @@
 
                     </h2>
 
-                    <div id="faq1"
-                         class="accordion-collapse collapse"
-                         data-bs-parent="#faqAccordion">
+                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
 
                         <div class="accordion-body">
 
@@ -339,9 +342,7 @@
 
                     <h2 class="accordion-header">
 
-                        <button class="accordion-button collapsed"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq2">
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
 
                             Do you offer refunds?
 
@@ -349,9 +350,7 @@
 
                     </h2>
 
-                    <div id="faq2"
-                         class="accordion-collapse collapse"
-                         data-bs-parent="#faqAccordion">
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
 
                         <div class="accordion-body">
 
@@ -369,9 +368,7 @@
 
                     <h2 class="accordion-header">
 
-                        <button class="accordion-button collapsed"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#faq3">
+                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
 
                             Is support available 24/7?
 
@@ -379,9 +376,7 @@
 
                     </h2>
 
-                    <div id="faq3"
-                         class="accordion-collapse collapse"
-                         data-bs-parent="#faqAccordion">
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
 
                         <div class="accordion-body">
 
@@ -467,9 +462,51 @@
 
     </footer>
 
+    <!-- Auth Modal -->
+
+    <div class="auth-modal" id="authModal">
+
+        <div class="auth-box">
+
+            <button class="close-auth" id="closeAuth">
+
+                ×
+
+            </button>
+
+            <h2 id="authTitle">
+
+                Login
+
+            </h2>
+
+            <form id="authForm">
+
+                <input type="text" id="authName" placeholder="Username">
+
+                <input type="email" id="authEmail" placeholder="Email">
+
+                <input type="password" id="authPassword" placeholder="Password">
+
+                <button type="submit" class="hero-btn auth-submit">
+
+                    Continue
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
     <!-- Bootstrap -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
+
+    <script src="js/auth.js"></script>
 
 </body>
 
