@@ -10,8 +10,24 @@
 
     <title>About | CyberTech</title>
 
+    <!-- Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
           rel="stylesheet">
+
+    <!-- Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
 
     <link rel="stylesheet"
           href="css/style.css">
@@ -20,7 +36,9 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg">
 
         <div class="container">
 
@@ -31,28 +49,64 @@
 
             </a>
 
-            <div class="navbar-nav ms-auto">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu">
 
-                <a class="nav-link"
-                   href="index.html">
+                <span class="navbar-toggler-icon"></span>
 
-                    Home
+            </button>
 
-                </a>
+            <div class="collapse navbar-collapse"
+                 id="navMenu">
 
-                <a class="nav-link active-nav"
-                   href="about.html">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
 
-                    About
+                    <li class="nav-item">
 
-                </a>
+                        <a class="nav-link"
+                           href="index.html">
 
-                <a class="nav-link"
-                   href="contact.html">
+                            Home
 
-                    Contact
+                        </a>
 
-                </a>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link active-nav"
+                           href="about.html">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <button class="nav-action-btn">
+
+                            Account
+
+                        </button>
+
+                    </li>
+
+                </ul>
 
             </div>
 
@@ -60,45 +114,71 @@
 
     </nav>
 
+    <!-- Hero -->
+
     <section class="about-page">
 
         <div class="container">
 
-            <div class="row align-items-center g-5">
+            <div class="hero-wrapper">
 
-                <div class="col-lg-6">
+                <div class="hero-content">
+
+                    <span class="hero-badge">
+
+                        Next Generation Ecommerce
+
+                    </span>
 
                     <h1 class="hero-title">
 
-                        ABOUT CYBERTECH
+                        About
+                        CyberTech
 
                     </h1>
 
                     <p class="hero-text">
 
-                        CyberTech is a futuristic gaming
+                        CyberTech is a premium gaming
                         ecommerce platform focused on
-                        premium gaming accessories,
-                        modern setups and innovative
-                        technology products.
+                        futuristic technology, immersive
+                        setups and high-end gaming
+                        accessories.
 
                     </p>
 
                     <p class="hero-text">
 
-                        We combine modern design,
+                        We combine minimal design,
                         smooth user experience and
-                        high-quality products for gamers
-                        around the world.
+                        modern ecommerce architecture
+                        to create the next generation
+                        gaming store.
 
                     </p>
 
+                    <div class="hero-actions">
+
+                        <a href="index.html">
+
+                            <button class="hero-btn">
+
+                                Explore Store
+
+                            </button>
+
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <div class="col-lg-6">
+                <div class="hero-visual">
 
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200"
-                         class="img-fluid hero-image"
+                    <div class="hero-glow"></div>
+
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1400"
+                         class="hero-image"
                          alt="Gaming Setup">
 
                 </div>
@@ -108,6 +188,237 @@
         </div>
 
     </section>
+
+    <!-- Stats -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <div class="ui-card about-stat-card">
+
+                        <h2>
+
+                            30+
+
+                        </h2>
+
+                        <p>
+
+                            Premium Products
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="ui-card about-stat-card">
+
+                        <h2>
+
+                            12K+
+
+                        </h2>
+
+                        <p>
+
+                            Happy Customers
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="ui-card about-stat-card">
+
+                        <h2>
+
+                            24/7
+
+                        </h2>
+
+                        <p>
+
+                            Customer Support
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section>
+
+        <div class="container">
+
+            <h2 class="section-title">
+
+                Why CyberTech?
+
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4">
+
+                    <div class="ui-card about-feature-card">
+
+                        <h3>
+
+                            Premium Design
+
+                        </h3>
+
+                        <p>
+
+                            Modern glassmorphism
+                            interface with immersive
+                            user experience.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="ui-card about-feature-card">
+
+                        <h3>
+
+                            Gaming Focused
+
+                        </h3>
+
+                        <p>
+
+                            High-end accessories
+                            and setups designed
+                            for gamers.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <div class="ui-card about-feature-card">
+
+                        <h3>
+
+                            Fast Experience
+
+                        </h3>
+
+                        <p>
+
+                            Smooth animations,
+                            modern architecture
+                            and responsive layout.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3 class="footer-logo">
+
+                        CyberTech
+
+                    </h3>
+
+                    <p>
+
+                        Premium gaming ecommerce
+                        experience.
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <h4>
+
+                        Navigation
+
+                    </h4>
+
+                    <ul>
+
+                        <li>Home</li>
+                        <li>Products</li>
+                        <li>About</li>
+
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h4>
+
+                        Socials
+
+                    </h4>
+
+                    <ul>
+
+                        <li>Instagram</li>
+                        <li>Discord</li>
+                        <li>Twitter</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

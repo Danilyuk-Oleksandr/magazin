@@ -1887,3 +1887,57 @@ textarea {
         text-align: center;
     }
 }
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-stat-card {
+
+    padding: 50px;
+
+    text-align: center;
+}
+
+.about-stat-card h2 {
+
+    font-size: 64px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+.about-stat-card p {
+
+    color: var(--text-muted);
+
+    font-size: 18px;
+}
+
+.about-feature-card {
+
+    padding: 50px;
+
+    height: 100%;
+}
+
+.about-feature-card h3 {
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 25px rgba(99, 102, 241, 0.2);
+}
+
+.about-feature-card p {
+
+    color: var(--text-muted);
+
+    line-height: 1.8;
+}
