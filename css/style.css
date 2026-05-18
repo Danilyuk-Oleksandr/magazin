@@ -1941,3 +1941,122 @@ textarea {
 
     line-height: 1.8;
 }
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.contact-hero {
+
+    padding: 80px;
+
+    text-align: center;
+}
+
+.contact-box {
+
+    padding: 50px;
+}
+
+.contact-title {
+
+    font-size: 42px;
+
+    margin-bottom: 40px;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 0 25px rgba(99, 102, 241, 0.25);
+}
+
+.contact-info-wrapper {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.contact-info-card {
+
+    padding: 36px;
+}
+
+.contact-info-card h3 {
+
+    font-size: 28px;
+
+    margin-bottom: 12px;
+}
+
+.contact-info-card p {
+
+    color: var(--text-muted);
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+.contact-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.contact-form input,
+.contact-form textarea {
+
+    width: 100%;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    color: white;
+
+    padding: 22px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+
+    border-color:
+        rgba(99, 102, 241, 0.6);
+
+    box-shadow:
+        0 0 25px rgba(99, 102, 241, 0.15);
+}
+
+.contact-form textarea {
+
+    min-height: 180px;
+
+    resize: none;
+}
+
+@media (max-width: 768px) {
+
+    .contact-hero,
+    .contact-box {
+
+        padding: 36px;
+    }
+
+    .contact-title {
+
+        font-size: 34px;
+    }
+}
