@@ -981,3 +981,186 @@ renderProduct();
 console.log(
     "Product Page Loaded"
 );
+
+/* =========================
+   QUANTITY SYSTEM
+========================= */
+
+const decreaseQty =
+    document.getElementById(
+        "decreaseQty"
+    );
+
+const increaseQty =
+    document.getElementById(
+        "increaseQty"
+    );
+
+const quantityValue =
+    document.getElementById(
+        "quantityValue"
+    );
+
+const addToCartBtn =
+    document.getElementById(
+        "addToCartBtn"
+    );
+
+const productCartCount =
+    document.getElementById(
+        "productCartCount"
+    );
+
+let quantity = 1;
+
+/* =========================
+   UPDATE QUANTITY UI
+========================= */
+
+function updateQuantityUI() {
+
+    quantityValue.textContent =
+        quantity;
+
+}
+
+/* =========================
+   INCREASE
+========================= */
+
+increaseQty?.addEventListener(
+    "click",
+    () => {
+
+        quantity++;
+
+        updateQuantityUI();
+
+    }
+);
+
+/* =========================
+   DECREASE
+========================= */
+
+decreaseQty?.addEventListener(
+    "click",
+    () => {
+
+        if (quantity > 1) {
+
+            quantity--;
+
+            updateQuantityUI();
+
+        }
+
+    }
+);
+
+/* =========================
+   CART STORAGE
+========================= */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem(
+            "cybertechCart"
+        )
+    ) || [];
+
+}
+
+function saveCart(cart) {
+
+    localStorage.setItem(
+        "cybertechCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+/* =========================
+   UPDATE CART PREVIEW
+========================= */
+
+function updateCartPreview() {
+
+    const cart = getCart();
+
+    const totalItems =
+        cart.reduce(
+            (sum, item) =>
+                sum + item.quantity,
+            0
+        );
+
+    productCartCount.textContent =
+        `${totalItems} items`;
+
+}
+
+/* =========================
+   ADD TO CART
+========================= */
+
+addToCartBtn?.addEventListener(
+    "click",
+    () => {
+
+        const cart = getCart();
+
+        const existingProduct =
+            cart.find(
+                item =>
+                    item.id === product.id
+            );
+
+        if (existingProduct) {
+
+            existingProduct.quantity +=
+                quantity;
+
+        } else {
+
+            cart.push({
+
+                id: product.id,
+
+                title: product.title,
+
+                price: product.price,
+
+                image: product.image,
+
+                quantity
+
+            });
+
+        }
+
+        saveCart(cart);
+
+        updateCartPreview();
+
+        addToCartBtn.textContent =
+            "Added ✓";
+
+        setTimeout(() => {
+
+            addToCartBtn.textContent =
+                "Add To Cart";
+
+        }, 1400);
+
+    }
+);
+
+/* =========================
+   INIT
+========================= */
+
+updateQuantityUI();
+
+updateCartPreview();
