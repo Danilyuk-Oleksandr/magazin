@@ -555,21 +555,27 @@
 
     </section>
 
-    <!-- Cart -->
+    <!-- Cart Overlay -->
 
-    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-overlay" id="cartOverlay">
+
+    </div>
+
+    <!-- Cart Sidebar -->
 
     <div class="cart-sidebar" id="cartSidebar">
 
         <div class="cart-header">
 
             <h2>
-                Shopping Cart
+
+                Your Cart
+
             </h2>
 
-            <button id="closeCart" class="close-cart">
+            <button class="close-cart" id="closeCart">
 
-                ✕
+                ×
 
             </button>
 
@@ -577,20 +583,85 @@
 
         <div class="cart-items" id="cartItems">
 
-            <p class="empty-cart">
+            <!-- Dynamic Cart -->
+
+        </div>
+
+        <div class="empty-cart" id="emptyCart">
+
+            <h3>
+
                 Your cart is empty
+
+            </h3>
+
+            <p>
+
+                Add products to start shopping
+
             </p>
 
         </div>
 
         <div class="cart-footer">
 
-            <h3>
-                Total:
-                <span id="cartTotal">
-                    $0
-                </span>
-            </h3>
+            <div class="cart-summary">
+
+                <div>
+
+                    <span>
+
+                        Subtotal
+
+                    </span>
+
+                    <strong id="cartSubtotal">
+
+                        $0
+
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>
+
+                        Shipping
+
+                    </span>
+
+                    <strong>
+
+                        Free
+
+                    </strong>
+
+                </div>
+
+                <div class="cart-total">
+
+                    <span>
+
+                        Total
+
+                    </span>
+
+                    <strong id="cartTotal">
+
+                        $0
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <button class="checkout-btn">
+
+                Proceed To Checkout
+
+            </button>
 
         </div>
 
