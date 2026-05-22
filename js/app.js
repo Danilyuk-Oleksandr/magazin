@@ -1,4 +1,39 @@
 /* =========================
+   SOUNDS
+========================= */
+
+const sounds = {
+
+    addToCart:
+        new Audio("sounds/add-to-cart.wav"),
+
+    modalOpen:
+        new Audio("sounds/modal-open.wav"),
+
+    success:
+        new Audio("sounds/success.wav"),
+
+    cartOpen:
+        new Audio("sounds/cart-open.wav")
+};
+
+/* =========================
+   PLAY SOUND
+========================= */
+
+function playSound(sound) {
+
+    if (!sounds[sound]) return;
+
+    sounds[sound].currentTime = 0;
+
+    sounds[sound].volume = 0.35;
+
+    sounds[sound].play();
+
+}
+
+/* =========================
    PRODUCTS
 ========================= */
 
@@ -635,6 +670,8 @@ function addToCart(product) {
 
     }
 
+    playSound("addToCart");
+
     showToast(
         `${product.title} added`
     );
@@ -841,6 +878,8 @@ if (cartLink) {
                 "show-overlay"
             );
 
+            playSound("cartOpen");
+
         }
     );
 
@@ -857,6 +896,8 @@ floatingCart?.addEventListener(
         cartOverlay.classList.add(
             "show-overlay"
         );
+
+        playSound("cartOpen");
 
     }
 );
@@ -924,6 +965,8 @@ function initWishlistButtons() {
                     button.classList.add(
                         "active"
                     );
+
+                    playSound("success");
 
                 }
 
@@ -1045,3 +1088,21 @@ console.log(
 );
 
 updateCart();
+
+/* =========================
+   PRELOAD SOUNDS
+========================= */
+
+document.addEventListener(
+    "click",
+    () => {
+
+        Object.values(sounds).forEach(sound => {
+
+            sound.load();
+
+        });
+
+    },
+    { once: true }
+);

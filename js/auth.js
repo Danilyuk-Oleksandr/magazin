@@ -37,6 +37,31 @@ const authPassword =
 let authMode = "login";
 
 /* =========================
+   SOUNDS
+========================= */
+
+const authSounds = {
+
+    modalOpen:
+        new Audio("sounds/modal-open.wav"),
+
+    success:
+        new Audio("sounds/success.wav")
+};
+
+function playAuthSound(sound) {
+
+    if (!authSounds[sound]) return;
+
+    authSounds[sound].currentTime = 0;
+
+    authSounds[sound].volume = 0.35;
+
+    authSounds[sound].play();
+
+}
+
+/* =========================
    DROPDOWN
 ========================= */
 
@@ -58,6 +83,8 @@ openLogin?.addEventListener("click", () => {
 
     authName.style.display = "none";
 
+    playAuthSound("modalOpen");
+
     authModal.classList.add("show-auth");
 
 });
@@ -73,6 +100,8 @@ openRegister?.addEventListener("click", () => {
     authTitle.textContent = "Create Account";
 
     authName.style.display = "block";
+
+    playAuthSound("modalOpen");
 
     authModal.classList.add("show-auth");
 
@@ -171,6 +200,8 @@ authForm?.addEventListener("submit", event => {
 
     }
 
+    playAuthSound("success");
+
     updateNavbarUser();
 
     authModal.classList.remove("show-auth");
@@ -222,3 +253,21 @@ logoutBtn?.addEventListener("click", () => {
 ========================= */
 
 updateNavbarUser();
+
+/* =========================
+   PRELOAD AUTH SOUNDS
+========================= */
+
+document.addEventListener(
+    "click",
+    () => {
+
+        Object.values(authSounds).forEach(sound => {
+
+            sound.load();
+
+        });
+
+    },
+    { once: true }
+);
