@@ -50,7 +50,7 @@ const pcBuilds = [
             "pc",
 
         price:
-            20000,
+            500,
 
         image:
             "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200",
@@ -76,7 +76,7 @@ const pcBuilds = [
             "pc",
 
         price:
-            30000,
+            750,
 
         image:
             "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1200",
@@ -102,7 +102,7 @@ const pcBuilds = [
             "pc",
 
         price:
-            40000,
+            1000,
 
         image:
             "https://images.unsplash.com/photo-1587831990711-23ca6441447b?q=80&w=1200",
@@ -128,7 +128,7 @@ const pcBuilds = [
             "pc",
 
         price:
-            60000,
+            1500,
 
         image:
             "https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1200",
@@ -154,7 +154,7 @@ const pcBuilds = [
             "pc",
 
         price:
-            80000,
+            2000,
 
         image:
             "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=1200",

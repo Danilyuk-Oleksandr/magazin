@@ -797,13 +797,13 @@ const pcBuilds = [
         id: 101,
 
         title:
-            "Gaming PC 20K",
+            "Gaming PC 500$",
 
         category:
             "Gaming PC",
 
         price:
-            "20 000₴",
+            "500$",
 
         image:
             "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200",
@@ -836,13 +836,13 @@ const pcBuilds = [
         id: 102,
 
         title:
-            "Gaming PC 30K",
+            "Gaming PC 750$",
 
         category:
             "Gaming PC",
 
         price:
-            "30 000₴",
+            "750$",
 
         image:
             "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1200",
@@ -875,13 +875,13 @@ const pcBuilds = [
         id: 103,
 
         title:
-            "Gaming PC 40K",
+            "Gaming PC 1000$",
 
         category:
             "Gaming PC",
 
         price:
-            "40 000₴",
+            "1000$",
 
         image:
             "https://images.unsplash.com/photo-1587831990711-23ca6441447b?q=80&w=1200",
@@ -914,13 +914,13 @@ const pcBuilds = [
         id: 104,
 
         title:
-            "Gaming PC 60K",
+            "Gaming PC 1500$",
 
         category:
             "Gaming PC",
 
         price:
-            "60 000₴",
+            "1500$",
 
         image:
             "https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1200",
@@ -953,13 +953,13 @@ const pcBuilds = [
         id: 105,
 
         title:
-            "Gaming PC 80K",
+            "Gaming PC 2000$",
 
         category:
             "Gaming PC",
 
         price:
-            "80 000₴",
+            "2000$",
 
         image:
             "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=1200",
