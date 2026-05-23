@@ -67,7 +67,14 @@ body {
 ========================= */
 
 .container {
+
+    width: 100%;
+
     max-width: var(--container);
+
+    margin: 0 auto;
+
+    padding: 0 16px;
 }
 
 section {
@@ -469,6 +476,14 @@ textarea {
 ========================= */
 
 .products-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 32px;
+
     align-items: stretch;
 }
 
@@ -498,6 +513,10 @@ textarea {
 
     border:
         1px solid var(--border);
+
+    display: flex;
+
+flex-direction: column;
 
     border-radius: 32px;
 

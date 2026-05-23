@@ -251,7 +251,7 @@ logoutBtn?.addEventListener("click", () => {
 /* =========================
    INIT
 ========================= */
-s
+
 updateNavbarUser();
 
 /* =========================
