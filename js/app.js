@@ -34,6 +34,144 @@ function playSound(sound) {
 }
 
 /* =========================
+   PC BUILDS
+========================= */
+
+const pcBuilds = [
+
+    {
+
+        id: 101,
+
+        title:
+            "Gaming PC 20K",
+
+        category:
+            "pc",
+
+        price:
+            20000,
+
+        image:
+            "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200",
+
+        specs: [
+
+            "Ryzen 5 3600",
+            "RX 6600",
+            "16GB DDR4",
+            "512GB NVMe"
+
+        ]
+    },
+
+    {
+
+        id: 102,
+
+        title:
+            "Gaming PC 30K",
+
+        category:
+            "pc",
+
+        price:
+            30000,
+
+        image:
+            "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1200",
+
+        specs: [
+
+            "Ryzen 5 5600",
+            "RTX 4060",
+            "32GB RAM",
+            "1TB SSD"
+
+        ]
+    },
+
+    {
+
+        id: 103,
+
+        title:
+            "Gaming PC 40K",
+
+        category:
+            "pc",
+
+        price:
+            40000,
+
+        image:
+            "https://images.unsplash.com/photo-1587831990711-23ca6441447b?q=80&w=1200",
+
+        specs: [
+
+            "Ryzen 7 7700",
+            "RTX 4070",
+            "32GB DDR5",
+            "1TB Gen4"
+
+        ]
+    },
+
+    {
+
+        id: 104,
+
+        title:
+            "Gaming PC 60K",
+
+        category:
+            "pc",
+
+        price:
+            60000,
+
+        image:
+            "https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1200",
+
+        specs: [
+
+            "7800X3D",
+            "4070 Ti Super",
+            "32GB DDR5",
+            "2TB SSD"
+
+        ]
+    },
+
+    {
+
+        id: 105,
+
+        title:
+            "Gaming PC 80K",
+
+        category:
+            "pc",
+
+        price:
+            80000,
+
+        image:
+            "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=1200",
+
+        specs: [
+
+            "Ryzen 9 9950X",
+            "RTX 4080 Super",
+            "64GB DDR5",
+            "4TB SSD"
+
+        ]
+    }
+
+];
+
+/* =========================
    PRODUCTS
 ========================= */
 
@@ -1106,3 +1244,94 @@ document.addEventListener(
     },
     { once: true }
 );
+
+/* =========================
+   RENDER PC BUILDS
+========================= */
+
+const pcBuildsContainer =
+    document.getElementById(
+        "pcBuildsContainer"
+    );
+
+function renderPcBuilds() {
+
+    if (!pcBuildsContainer) return;
+
+    pcBuilds.forEach(build => {
+
+        pcBuildsContainer.innerHTML += `
+
+            <div class="col-lg-4">
+
+                <div class="product-card">
+
+                    <div class="product-image-wrapper">
+
+                        <img
+                            src="${build.image}"
+                            class="product-image"
+                        >
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-category">
+
+                            Gaming PC
+
+                        </span>
+
+                        <h3>
+
+                            ${build.title}
+
+                        </h3>
+
+                        <ul class="pc-build-mini-specs">
+
+                            ${build.specs.map(spec => `
+
+                                <li>
+
+                                    ${spec}
+
+                                </li>
+
+                            `).join("")}
+
+                        </ul>
+
+                        <div class="product-bottom">
+
+                            <p class="price">
+
+                                ₴${build.price}
+
+                            </p>
+
+                            <a href="product.html?id=${build.id}">
+
+                                <button class="product-btn">
+
+                                    View Build
+
+                                </button>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+    });
+
+}
+
+renderPcBuilds();

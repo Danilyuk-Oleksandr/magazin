@@ -787,6 +787,209 @@ const products = [
 ];
 
 /* =========================
+   PC BUILDS
+========================= */
+
+const pcBuilds = [
+
+    {
+
+        id: 101,
+
+        title:
+            "Gaming PC 20K",
+
+        category:
+            "Gaming PC",
+
+        price:
+            "20 000₴",
+
+        image:
+            "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200",
+
+        description:
+            "Entry-level gaming PC designed for competitive games, smooth Full HD gameplay and modern esports titles.",
+
+        specifications: [
+
+            "CPU: Ryzen 5 3600",
+            "GPU: RX 6600 8GB",
+            "RAM: 16GB DDR4 3200MHz",
+            "SSD: 512GB NVMe",
+            "Motherboard: B450M",
+            "PSU: 600W Bronze",
+            "Cooling: AMD Stock Cooler",
+            "Case: AeroCool RGB"
+
+        ],
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200"
+
+        ]
+    },
+
+    {
+
+        id: 102,
+
+        title:
+            "Gaming PC 30K",
+
+        category:
+            "Gaming PC",
+
+        price:
+            "30 000₴",
+
+        image:
+            "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1200",
+
+        description:
+            "Balanced gaming build for AAA games, streaming and high refresh rate competitive gaming.",
+
+        specifications: [
+
+            "CPU: Ryzen 5 5600",
+            "GPU: RTX 4060 8GB",
+            "RAM: 32GB DDR4",
+            "SSD: 1TB NVMe",
+            "Motherboard: B550",
+            "PSU: 650W Bronze",
+            "Cooling: DeepCool AG400",
+            "Case: DeepCool CC560 RGB"
+
+        ],
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1200"
+
+        ]
+    },
+
+    {
+
+        id: 103,
+
+        title:
+            "Gaming PC 40K",
+
+        category:
+            "Gaming PC",
+
+        price:
+            "40 000₴",
+
+        image:
+            "https://images.unsplash.com/photo-1587831990711-23ca6441447b?q=80&w=1200",
+
+        description:
+            "High-end gaming PC with RTX graphics and ultra smooth performance in modern AAA games.",
+
+        specifications: [
+
+            "CPU: Ryzen 7 7700",
+            "GPU: RTX 4070",
+            "RAM: 32GB DDR5",
+            "SSD: 1TB Gen4",
+            "Motherboard: B650",
+            "PSU: 750W Gold",
+            "Cooling: DeepCool LE520",
+            "Case: Montech Sky Two"
+
+        ],
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1587831990711-23ca6441447b?q=80&w=1200"
+
+        ]
+    },
+
+    {
+
+        id: 104,
+
+        title:
+            "Gaming PC 60K",
+
+        category:
+            "Gaming PC",
+
+        price:
+            "60 000₴",
+
+        image:
+            "https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1200",
+
+        description:
+            "Premium enthusiast gaming setup focused on maximum FPS and immersive 1440p gameplay.",
+
+        specifications: [
+
+            "CPU: Ryzen 7 7800X3D",
+            "GPU: RTX 4070 Ti Super",
+            "RAM: 32GB DDR5 6000MHz",
+            "SSD: 2TB Gen4",
+            "Motherboard: B650E",
+            "PSU: 850W Gold",
+            "Cooling: 360mm Liquid Cooler",
+            "Case: Lian Li O11 Vision"
+
+        ],
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1591488320449-011701bb6704?q=80&w=1200"
+
+        ]
+    },
+
+    {
+
+        id: 105,
+
+        title:
+            "Gaming PC 80K",
+
+        category:
+            "Gaming PC",
+
+        price:
+            "80 000₴",
+
+        image:
+            "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=1200",
+
+        description:
+            "Ultimate flagship gaming PC built for ultra settings, content creation and next-generation gaming.",
+
+        specifications: [
+
+            "CPU: Ryzen 9 9950X",
+            "GPU: RTX 4080 Super",
+            "RAM: 64GB DDR5",
+            "SSD: 4TB Gen4",
+            "Motherboard: X870E",
+            "PSU: 1000W Platinum",
+            "Cooling: NZXT Kraken Elite",
+            "Case: HYTE Y70 Touch"
+
+        ],
+
+        gallery: [
+
+            "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=1200"
+
+        ]
+    }
+
+];
+
+/* =========================
    GET PRODUCT ID
 ========================= */
 
@@ -803,9 +1006,21 @@ const productId =
 ========================= */
 
 const product =
+
     products.find(
+
         item =>
-            item.id === productId
+
+            item.id == productId
+
+    ) ||
+
+    pcBuilds.find(
+
+        item =>
+
+            item.id == productId
+
     );
 
 /* =========================
