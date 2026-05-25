@@ -14,7 +14,22 @@ const sounds = {
         new Audio("sounds/success.wav"),
 
     cartOpen:
-        new Audio("sounds/cart-open.wav")
+        new Audio("sounds/cart-open.wav"),
+
+    hover:
+        new Audio("sounds/hover.wav"),
+
+    close:
+        new Audio("sounds/close.wav"),
+
+    quantity:
+        new Audio("sounds/quantity.wav"),
+
+    wishlist:
+        new Audio("sounds/wishlist.wav"),
+
+    remove:
+        new Audio("sounds/remove.wav")
 };
 
 /* =========================
@@ -534,6 +549,11 @@ const floatingCartCount =
         "floatingCartCount"
     );
 
+const loadMoreBtn =
+    document.getElementById(
+        "loadMoreBtn"
+    );
+
 /* =========================
    STATE
 ========================= */
@@ -544,6 +564,8 @@ let cart =
     ) || [];
 
 let currentFilter = "all";
+
+let visibleProducts = 6;
 
 let searchValue = "";
 
@@ -583,11 +605,31 @@ function renderProducts() {
 
         });
 
-    productsContainer.innerHTML = "";
+    productsContainer.innerHTML = `
 
-    filteredProducts.forEach(product => {
+    <div class="col-md-6 col-xl-4">
+        <div class="skeleton-card"></div>
+    </div>
 
-        productsContainer.innerHTML += `
+    <div class="col-md-6 col-xl-4">
+        <div class="skeleton-card"></div>
+    </div>
+
+    <div class="col-md-6 col-xl-4">
+        <div class="skeleton-card"></div>
+    </div>
+
+`;
+
+    setTimeout(() => {
+
+        productsContainer.innerHTML = "";
+
+        filteredProducts
+            .slice(0, visibleProducts)
+            .forEach(product => {
+
+                productsContainer.innerHTML += `
 
     <div class="col-md-6 col-xl-4">
 
@@ -604,22 +646,22 @@ function renderProducts() {
                 <button
                     class="wishlist-btn
                     ${wishlist.includes(product.id)
-                ? "active"
-                : ""
-            }"
+                        ? "active"
+                        : ""
+                    }"
                     data-id="${product.id}"
                 >
                     ♡
                 </button>
 
                 ${product.badge
-                ? `
+                        ? `
                         <span class="product-badge">
                             ${product.badge}
                         </span>
                       `
-                : ""
-            }
+                        : ""
+                    }
 
                 <img
                     src="${product.image}"
@@ -669,11 +711,13 @@ function renderProducts() {
     </div>
 
 `;
-    });
+            });
 
-    initCartButtons();
+        initCartButtons();
 
-    initWishlistButtons();
+        initWishlistButtons();
+
+    }, 500);
 }
 
 /* =========================
@@ -761,6 +805,24 @@ function initCartButtons() {
 
                 addToCart(product);
 
+                button.textContent =
+                    "✓ Added";
+
+                button.classList.add(
+                    "added"
+                );
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        "Add";
+
+                    button.classList.remove(
+                        "added"
+                    );
+
+                }, 1800);
+
             }
         );
 
@@ -813,6 +875,26 @@ function addToCart(product) {
     showToast(
         `${product.title} added`
     );
+
+    cartCount.classList.add(
+        "cart-bounce"
+    );
+
+    floatingCartCount.classList.add(
+        "cart-bounce"
+    );
+
+    setTimeout(() => {
+
+        cartCount.classList.remove(
+            "cart-bounce"
+        );
+
+        floatingCartCount.classList.remove(
+            "cart-bounce"
+        );
+
+    }, 450);
 
     updateCart();
 
@@ -973,6 +1055,8 @@ function changeCartQty(id, change) {
 
     if (!product) return;
 
+    playSound("quantity");
+
     product.quantity += change;
 
     if (product.quantity <= 0) {
@@ -988,6 +1072,8 @@ function changeCartQty(id, change) {
 }
 
 function removeCartItem(id) {
+
+    playSound("remove");
 
     cart =
         cart.filter(
@@ -1074,6 +1160,8 @@ function initWishlistButtons() {
         button.addEventListener(
             "click",
             event => {
+
+                playSound("wishlist");
 
                 event.stopPropagation();
 
@@ -1335,3 +1423,49 @@ function renderPcBuilds() {
 }
 
 renderPcBuilds();
+
+/* =========================
+   HOVER SOUND
+========================= */
+
+document.addEventListener(
+    "mouseover",
+    event => {
+
+        const button =
+            event.target.closest(
+
+                ".hero-btn, .product-btn, .nav-action-btn, .filter-btn"
+
+            );
+
+        if (!button) return;
+
+        playSound("hover");
+
+    }
+);
+
+/* =========================
+   LOAD MORE
+========================= */
+
+loadMoreBtn?.addEventListener(
+    "click",
+    () => {
+
+        visibleProducts += 6;
+
+        renderProducts();
+
+        if (
+            visibleProducts >=
+            products.length
+        ) {
+
+            loadMoreBtn.style.display =
+                "none";
+        }
+
+    }
+);

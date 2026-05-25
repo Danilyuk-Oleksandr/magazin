@@ -69,7 +69,7 @@ section {
     padding: 120px 0;
 }
 
-section + section {
+section+section {
     padding-top: 0;
 }
 
@@ -326,8 +326,15 @@ textarea {
 }
 
 @keyframes glowPulse {
-    from { opacity: 0.7; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1.05); }
+    from {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 .hero-image {
@@ -1084,8 +1091,15 @@ textarea {
 }
 
 @keyframes pulse {
-    from { opacity: 0.4; transform: scale(0.96); }
-    to { opacity: 1; transform: scale(1.04); }
+    from {
+        opacity: 0.4;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.04);
+    }
 }
 
 /* =========================
@@ -1651,8 +1665,15 @@ textarea {
 }
 
 @keyframes fadeCartItem {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* =========================
@@ -1807,13 +1828,37 @@ textarea {
 ========================= */
 
 @media (max-width: 992px) {
-    section { padding: 80px 0; }
-    .hero-title { font-size: 58px; }
-    .newsletter-form { flex-direction: column; }
-    .hero-wrapper { grid-template-columns: 1fr; gap: 48px; min-height: unset; }
-    .product-layout { grid-template-columns: 1fr; }
-    .product-gallery { position: relative; top: 0; }
-    .section-shell { padding: 40px; }
+    section {
+        padding: 80px 0;
+    }
+
+    .hero-title {
+        font-size: 58px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        min-height: unset;
+    }
+
+    .product-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .product-gallery {
+        position: relative;
+        top: 0;
+    }
+
+    .section-shell {
+        padding: 40px;
+    }
+
     .navbar-collapse {
         margin-top: 16px;
         padding: 18px;
@@ -1822,41 +1867,137 @@ textarea {
         border: 1px solid var(--border);
         backdrop-filter: blur(20px);
     }
-    .navbar-nav { gap: 14px; }
-    .footer-grid { text-align: center; }
+
+    .navbar-nav {
+        gap: 14px;
+    }
+
+    .footer-grid {
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
-    section { padding: 60px 0; }
-    .hero-title { font-size: 44px; letter-spacing: -2.5px; }
-    .section-title { font-size: 34px; letter-spacing: -1.5px; }
-    .section-shell { padding: 28px 24px; }
-    .form-card, .form-card--center { padding: 28px 24px; }
-    .contact-title { font-size: 32px; }
-    .cart-sidebar { max-width: 100%; }
-    .hero-actions { flex-direction: column; }
-    .hero-btn, .hero-secondary-btn { width: 100%; justify-content: center; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 28px; }
-    .product-page-title { font-size: 38px; letter-spacing: -2px; }
-    .product-page-price { font-size: 42px; }
-    .main-product-image { height: 320px; }
-    .thumbnail-image { width: 72px; height: 72px; }
-    .product-page-actions { flex-direction: column; align-items: stretch; }
-    .auth-box { padding: 30px 24px; }
-    .auth-box h2 { font-size: 30px; }
-    .info-card { padding: 28px; }
-    .info-card--stat { padding: 32px; }
-    .info-card--stat h2 { font-size: 46px; }
-    .info-card--review { padding: 28px; }
-    .newsletter-form { flex-direction: column; }
-    .hero-wrapper--text { padding: 0 8px; }
+    section {
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 44px;
+        letter-spacing: -2.5px;
+    }
+
+    .section-title {
+        font-size: 34px;
+        letter-spacing: -1.5px;
+    }
+
+    .section-shell {
+        padding: 28px 24px;
+    }
+
+    .form-card,
+    .form-card--center {
+        padding: 28px 24px;
+    }
+
+    .contact-title {
+        font-size: 32px;
+    }
+
+    .cart-sidebar {
+        max-width: 100%;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-btn,
+    .hero-secondary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .product-page-title {
+        font-size: 38px;
+        letter-spacing: -2px;
+    }
+
+    .product-page-price {
+        font-size: 42px;
+    }
+
+    .main-product-image {
+        height: 320px;
+    }
+
+    .thumbnail-image {
+        width: 72px;
+        height: 72px;
+    }
+
+    .product-page-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .auth-box {
+        padding: 30px 24px;
+    }
+
+    .auth-box h2 {
+        font-size: 30px;
+    }
+
+    .info-card {
+        padding: 28px;
+    }
+
+    .info-card--stat {
+        padding: 32px;
+    }
+
+    .info-card--stat h2 {
+        font-size: 46px;
+    }
+
+    .info-card--review {
+        padding: 28px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .hero-wrapper--text {
+        padding: 0 8px;
+    }
 }
 
 @media (max-width: 480px) {
-    .hero-title { font-size: 36px; letter-spacing: -2px; }
-    .section-title { font-size: 28px; }
-    .navbar { height: 72px; }
-    .navbar-brand { font-size: 22px; }
+    .hero-title {
+        font-size: 36px;
+        letter-spacing: -2px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .navbar {
+        height: 72px;
+    }
+
+    .navbar-brand {
+        font-size: 22px;
+    }
 }
 
 /* =========================
@@ -1864,28 +2005,61 @@ textarea {
 ========================= */
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(32px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-28px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(28px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.88); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
 
 /* Клас що додається через JS IntersectionObserver або напряму */
@@ -1893,7 +2067,7 @@ textarea {
     opacity: 0;
     transform: translateY(32px);
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .anim-up.visible {
@@ -1905,32 +2079,44 @@ textarea {
 .row .col-md-4:nth-child(1) .anim-up,
 .row .col-lg-4:nth-child(1) .anim-up,
 .row .col-md-6:nth-child(1) .anim-up,
-.row .col-xl-4:nth-child(1) .anim-up { transition-delay: 0s; }
+.row .col-xl-4:nth-child(1) .anim-up {
+    transition-delay: 0s;
+}
 
 .row .col-md-4:nth-child(2) .anim-up,
 .row .col-lg-4:nth-child(2) .anim-up,
 .row .col-md-6:nth-child(2) .anim-up,
-.row .col-xl-4:nth-child(2) .anim-up { transition-delay: 0.1s; }
+.row .col-xl-4:nth-child(2) .anim-up {
+    transition-delay: 0.1s;
+}
 
 .row .col-md-4:nth-child(3) .anim-up,
 .row .col-lg-4:nth-child(3) .anim-up,
 .row .col-md-6:nth-child(3) .anim-up,
-.row .col-xl-4:nth-child(3) .anim-up { transition-delay: 0.2s; }
+.row .col-xl-4:nth-child(3) .anim-up {
+    transition-delay: 0.2s;
+}
 
 .row .col-md-4:nth-child(4) .anim-up,
 .row .col-lg-4:nth-child(4) .anim-up,
 .row .col-md-6:nth-child(4) .anim-up,
-.row .col-xl-4:nth-child(4) .anim-up { transition-delay: 0.3s; }
+.row .col-xl-4:nth-child(4) .anim-up {
+    transition-delay: 0.3s;
+}
 
 .row .col-md-4:nth-child(5) .anim-up,
 .row .col-lg-4:nth-child(5) .anim-up,
 .row .col-md-6:nth-child(5) .anim-up,
-.row .col-xl-4:nth-child(5) .anim-up { transition-delay: 0.38s; }
+.row .col-xl-4:nth-child(5) .anim-up {
+    transition-delay: 0.38s;
+}
 
 .row .col-md-4:nth-child(6) .anim-up,
 .row .col-lg-4:nth-child(6) .anim-up,
 .row .col-md-6:nth-child(6) .anim-up,
-.row .col-xl-4:nth-child(6) .anim-up { transition-delay: 0.46s; }
+.row .col-xl-4:nth-child(6) .anim-up {
+    transition-delay: 0.46s;
+}
 
 /* =========================
    SKELETON LOADER
@@ -1950,12 +2136,10 @@ textarea {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.06) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.06) 50%,
+            transparent 100%);
     background-size: 200% 100%;
     animation: shimmer 1.6s ease-in-out infinite;
 }
@@ -2024,7 +2208,7 @@ textarea {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
     opacity: 0;
     transform: scale(0);
     transition: transform 0.4s ease, opacity 0.4s ease;
@@ -2067,8 +2251,15 @@ textarea {
 }
 
 @keyframes filterShimmer {
-    0%, 100% { background-position: 0% center; }
-    50% { background-position: 100% center; }
+
+    0%,
+    100% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
 }
 
 /* =========================
@@ -2076,8 +2267,15 @@ textarea {
 ========================= */
 
 @keyframes fadeCartItem {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* =========================
@@ -2085,10 +2283,23 @@ textarea {
 ========================= */
 
 @keyframes toastBounce {
-    0% { transform: translateY(100px); opacity: 0; }
-    60% { transform: translateY(-8px); opacity: 1; }
-    80% { transform: translateY(4px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .toast-notification.show {
@@ -2111,8 +2322,8 @@ textarea {
 .close-cart,
 .close-auth {
     transition: background var(--transition),
-                color var(--transition),
-                transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        color var(--transition),
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .close-cart:hover,
@@ -2126,8 +2337,8 @@ textarea {
 
 .swiper-pagination-bullet {
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                background 0.3s ease,
-                opacity 0.3s ease;
+        background 0.3s ease,
+        opacity 0.3s ease;
 }
 
 /* =========================
@@ -2136,7 +2347,7 @@ textarea {
 
 .loader-wrapper {
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* =========================
@@ -2157,6 +2368,7 @@ textarea {
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -2174,10 +2386,160 @@ textarea {
     opacity: 0;
     filter: blur(10px);
     transform: translateY(30px) scale(0.98);
-    animation: pageEnter 0.9s cubic-bezier(.22,1,.36,1) forwards;
+    animation: pageEnter 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
 @keyframes pageEnter {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================
+   LOAD MORE
+========================= */
+
+.load-more-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 56px;
+}
+
+.load-more-btn {
+
+    min-width: 220px;
+
+    height: 58px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition:
+        all var(--transition);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.load-more-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        white;
+
+    color:
+        black;
+
+    border-color:
+        white;
+
+    box-shadow:
+        0 16px 40px rgba(255, 255, 255, 0.12);
+}
+
+/* =========================
+   BUTTON SUCCESS
+========================= */
+
+.product-btn.added {
+
+    background:
+        #22c55e !important;
+
+    color:
+        white !important;
+
+    pointer-events:
+        none;
+}
+
+/* =========================
+   CART COUNT ANIMATION
+========================= */
+
+.cart-bounce {
+
+    animation:
+        cartBounce 0.45s ease;
+}
+
+@keyframes cartBounce {
+
+    0% {
+
+        transform:
+            scale(1);
+    }
+
+    40% {
+
+        transform:
+            scale(1.4);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+    }
+}
+
+/* =========================
+   SKELETON
+========================= */
+
+.skeleton-card {
+
+    height: 480px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.03));
+
+    background-size:
+        300% 100%;
+
+    animation:
+        skeletonLoading 1.4s infinite;
+}
+
+@keyframes skeletonLoading {
+
+    0% {
+
+        background-position:
+            100% 0;
+    }
+
+    100% {
+
+        background-position:
+            -100% 0;
+    }
 }

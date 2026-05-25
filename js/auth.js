@@ -46,7 +46,16 @@ const authSounds = {
         new Audio("sounds/modal-open.wav"),
 
     success:
-        new Audio("sounds/success.wav")
+        new Audio("sounds/success.wav"),
+
+    hover:
+        new Audio("sounds/hover.wav"),
+
+    close:
+        new Audio("sounds/close.wav"),
+
+    error:
+        new Audio("sounds/error.wav")
 };
 
 function playAuthSound(sound) {
@@ -66,6 +75,8 @@ function playAuthSound(sound) {
 ========================= */
 
 accountBtn?.addEventListener("click", () => {
+
+    playAuthSound("hover");
 
     accountDropdown.classList.toggle("show-dropdown");
 
@@ -113,6 +124,8 @@ openRegister?.addEventListener("click", () => {
 
 closeAuth?.addEventListener("click", () => {
 
+    playAuthSound("close");
+
     authModal.classList.remove("show-auth");
 
 });
@@ -154,6 +167,8 @@ authForm?.addEventListener("submit", event => {
 
     if (!email || !password) {
 
+        playAuthSound("error");
+
         alert("Fill all fields");
 
         return;
@@ -162,6 +177,8 @@ authForm?.addEventListener("submit", event => {
     if (authMode === "register") {
 
         if (!username) {
+
+            playAuthSound("error");
 
             alert("Enter username");
 
@@ -192,6 +209,8 @@ authForm?.addEventListener("submit", event => {
             );
 
         if (!savedUser) {
+
+            playAuthSound("error");
 
             alert("Account not found");
 
