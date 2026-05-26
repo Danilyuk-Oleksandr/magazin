@@ -16,9 +16,6 @@ const sounds = {
     cartOpen:
         new Audio("sounds/cart-open.wav"),
 
-    hover:
-        new Audio("sounds/hover.wav"),
-
     close:
         new Audio("sounds/close.wav"),
 
@@ -823,6 +820,24 @@ function initCartButtons() {
 
                 }, 1800);
 
+                button.textContent =
+                    "✓ Added";
+
+                button.classList.add(
+                    "added"
+                );
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        "Add";
+
+                    button.classList.remove(
+                        "added"
+                    );
+
+                }, 1800);
+
             }
         );
 
@@ -875,6 +890,26 @@ function addToCart(product) {
     showToast(
         `${product.title} added`
     );
+
+    cartCount.classList.add(
+        "cart-bounce"
+    );
+
+    floatingCartCount.classList.add(
+        "cart-bounce"
+    );
+
+    setTimeout(() => {
+
+        cartCount.classList.remove(
+            "cart-bounce"
+        );
+
+        floatingCartCount.classList.remove(
+            "cart-bounce"
+        );
+
+    }, 450);
 
     cartCount.classList.add(
         "cart-bounce"
@@ -1425,28 +1460,6 @@ function renderPcBuilds() {
 renderPcBuilds();
 
 /* =========================
-   HOVER SOUND
-========================= */
-
-document.addEventListener(
-    "mouseover",
-    event => {
-
-        const button =
-            event.target.closest(
-
-                ".hero-btn, .product-btn, .nav-action-btn, .filter-btn"
-
-            );
-
-        if (!button) return;
-
-        playSound("hover");
-
-    }
-);
-
-/* =========================
    LOAD MORE
 ========================= */
 
@@ -1466,6 +1479,30 @@ loadMoreBtn?.addEventListener(
             loadMoreBtn.style.display =
                 "none";
         }
+
+    }
+);
+
+/* =========================
+   CURSOR GLOW
+========================= */
+
+const cursorGlow =
+    document.querySelector(
+        ".cursor-glow"
+    );
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        if (!cursorGlow) return;
+
+        cursorGlow.style.left =
+            event.clientX + "px";
+
+        cursorGlow.style.top =
+            event.clientY + "px";
 
     }
 );

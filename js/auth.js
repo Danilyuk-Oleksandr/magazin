@@ -48,9 +48,6 @@ const authSounds = {
     success:
         new Audio("sounds/success.wav"),
 
-    hover:
-        new Audio("sounds/hover.wav"),
-
     close:
         new Audio("sounds/close.wav"),
 
@@ -75,8 +72,6 @@ function playAuthSound(sound) {
 ========================= */
 
 accountBtn?.addEventListener("click", () => {
-
-    playAuthSound("hover");
 
     accountDropdown.classList.toggle("show-dropdown");
 
