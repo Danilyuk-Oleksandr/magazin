@@ -3816,3 +3816,349 @@ section {
     pointer-events:
         none;
 }
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+
+    background:
+        rgba(99,102,241,0.3);
+
+    color:
+        white;
+}
+
+/* =========================
+   SMOOTH SCROLL
+========================= */
+
+html {
+
+    scroll-behavior:
+        smooth;
+}
+
+/* =========================
+   BODY NOISE
+========================= */
+
+body::before {
+
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    background-image:
+        url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+
+    opacity:
+        0.03;
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+}
+
+/* =========================
+   SECTION GLOW
+========================= */
+
+.section-shell::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(99,102,241,0.08),
+            transparent 60%
+        );
+
+    pointer-events:
+        none;
+}
+
+/* =========================
+   PRODUCT CARD GLOW
+========================= */
+
+.product-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99,102,241,0.12),
+            transparent 40%
+        );
+
+    opacity:
+        0;
+
+    transition:
+        var(--transition);
+
+    pointer-events:
+        none;
+}
+
+.product-card:hover::before {
+
+    opacity:
+        1;
+}
+
+/* =========================
+   IMAGE OVERLAY
+========================= */
+
+.product-image-wrapper::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.34),
+            transparent 50%
+        );
+
+    pointer-events:
+        none;
+}
+
+/* =========================
+   HERO GRID
+========================= */
+
+.hero-section {
+
+    position:
+        relative;
+}
+
+.hero-section::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(255,255,255,0.02) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        60px 60px;
+
+    opacity:
+        0.18;
+
+    pointer-events:
+        none;
+}
+
+/* =========================
+   GLASS STRONG
+========================= */
+
+.glass-strong {
+
+    background:
+        rgba(255,255,255,0.06);
+
+    backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+
+    padding:
+        80px 20px;
+
+    text-align:
+        center;
+
+    border:
+        1px dashed var(--border);
+
+    border-radius:
+        32px;
+
+    background:
+        rgba(255,255,255,0.02);
+}
+
+.empty-state-title {
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        32px;
+
+    font-weight:
+        800;
+}
+
+.empty-state-text {
+
+    color:
+        var(--text-light);
+
+    font-size:
+        16px;
+}
+
+/* =========================
+   INPUT AUTOFILL FIX
+========================= */
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+
+    -webkit-box-shadow:
+        0 0 0 1000px
+        #0b0d14 inset !important;
+
+    -webkit-text-fill-color:
+        white !important;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 768px) {
+
+    section {
+
+        padding:
+            70px 0;
+    }
+
+    .section-shell {
+
+        padding:
+            28px;
+    }
+
+    .section-title {
+
+        font-size:
+            34px;
+    }
+
+    .hero-title,
+    .about-title,
+    .product-page-title {
+
+        line-height:
+            1;
+    }
+
+    .navbar {
+
+        padding:
+            16px 0;
+    }
+
+    .hero-image,
+    .about-image {
+
+        min-height:
+            320px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .hero-title {
+
+        font-size:
+            36px;
+    }
+
+    .section-title {
+
+        font-size:
+            28px;
+    }
+
+    .product-content {
+
+        padding:
+            20px;
+    }
+
+    .product-title {
+
+        font-size:
+            20px;
+    }
+
+    .product-price {
+
+        font-size:
+            22px;
+    }
+
+    .hero-btn,
+    .hero-btn-secondary,
+    .checkout-btn,
+    .contact-btn,
+    .auth-submit {
+
+        height:
+            54px;
+    }
+}
