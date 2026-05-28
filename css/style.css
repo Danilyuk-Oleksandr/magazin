@@ -3824,7 +3824,7 @@ section {
 ::selection {
 
     background:
-        rgba(99,102,241,0.3);
+        rgba(99, 102, 241, 0.3);
 
     color:
         white;
@@ -3884,11 +3884,9 @@ body::before {
         0;
 
     background:
-        radial-gradient(
-            circle at top,
-            rgba(99,102,241,0.08),
-            transparent 60%
-        );
+        radial-gradient(circle at top,
+            rgba(99, 102, 241, 0.08),
+            transparent 60%);
 
     pointer-events:
         none;
@@ -3910,11 +3908,9 @@ body::before {
         0;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(99,102,241,0.12),
-            transparent 40%
-        );
+        linear-gradient(135deg,
+            rgba(99, 102, 241, 0.12),
+            transparent 40%);
 
     opacity:
         0;
@@ -3948,11 +3944,9 @@ body::before {
         0;
 
     background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.34),
-            transparent 50%
-        );
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.34),
+            transparent 50%);
 
     pointer-events:
         none;
@@ -3980,11 +3974,9 @@ body::before {
         0;
 
     background:
-        linear-gradient(
-            to right,
-            rgba(255,255,255,0.02) 1px,
-            transparent 1px
-        );
+        linear-gradient(to right,
+            rgba(255, 255, 255, 0.02) 1px,
+            transparent 1px);
 
     background-size:
         60px 60px;
@@ -4003,13 +3995,13 @@ body::before {
 .glass-strong {
 
     background:
-        rgba(255,255,255,0.06);
+        rgba(255, 255, 255, 0.06);
 
     backdrop-filter:
         blur(18px);
 
     border:
-        1px solid rgba(255,255,255,0.08);
+        1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* =========================
@@ -4031,7 +4023,7 @@ body::before {
         32px;
 
     background:
-        rgba(255,255,255,0.02);
+        rgba(255, 255, 255, 0.02);
 }
 
 .empty-state-title {
@@ -4063,8 +4055,7 @@ input:-webkit-autofill,
 textarea:-webkit-autofill {
 
     -webkit-box-shadow:
-        0 0 0 1000px
-        #0b0d14 inset !important;
+        0 0 0 1000px #0b0d14 inset !important;
 
     -webkit-text-fill-color:
         white !important;
@@ -4161,4 +4152,169 @@ textarea:-webkit-autofill {
         height:
             54px;
     }
+}
+
+/* =========================
+   FOOTER GRID
+========================= */
+
+.footer-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        40px;
+}
+
+/* =========================
+   FOOTER LOGO
+========================= */
+
+.footer-logo {
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        32px;
+
+    font-weight:
+        800;
+}
+
+/* =========================
+   FOOTER HEADINGS
+========================= */
+
+.footer h4 {
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+}
+
+/* =========================
+   FOOTER LIST
+========================= */
+
+.footer ul {
+
+    list-style:
+        none;
+
+    padding:
+        0;
+}
+
+.footer li {
+
+    margin-bottom:
+        12px;
+
+    color:
+        var(--text-light);
+
+    transition:
+        var(--transition);
+
+    cursor:
+        pointer;
+}
+
+.footer li:hover {
+
+    color:
+        white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+/* =========================
+   INFO CARD
+========================= */
+
+.info-card {
+
+    padding:
+        32px;
+
+    height:
+        100%;
+}
+
+/* =========================
+   REVIEW CARD
+========================= */
+
+.info-card--review {
+
+    text-align:
+        center;
+}
+
+/* =========================
+   REVIEW AVATAR
+========================= */
+
+.review-avatar {
+
+    width:
+        90px;
+
+    height:
+        90px;
+
+    margin:
+        0 auto 22px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+/* =========================
+   STAT CARD
+========================= */
+
+.info-card--stat {
+
+    text-align:
+        center;
+}
+
+.info-card--stat h2 {
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        52px;
+
+    font-weight:
+        800;
+
+    color:
+        #a5b4fc;
 }

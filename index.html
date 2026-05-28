@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="page-enter">
     <div class="cursor-glow"></div>
 
     <!-- Loader -->
@@ -65,7 +65,7 @@
                                 <p class="hero-text">Premium gaming accessories and futuristic setups.</p>
                                 <div class="hero-actions">
                                     <button class="hero-btn">Shop Now</button>
-                                    <button class="hero-secondary-btn">Explore</button>
+                                    <button class="hero-btn-secondary">Explore</button>
                                 </div>
                             </div>
                             <div class="hero-visual">
@@ -124,7 +124,7 @@
         <div class="container">
             <div class="section-shell">
                 <h2 class="section-title">Popular Products</h2>
-                <div class="row g-4" id="productsContainer"></div>
+                <div class="products-grid" id="productsContainer"></div>
                 <div class="load-more-wrapper">
                     <button class="load-more-btn" id="loadMoreBtn">
                         Load More
@@ -139,7 +139,7 @@
         <div class="container">
             <div class="section-shell">
                 <h2 class="section-title">Gaming PC Builds</h2>
-                <div class="row g-4" id="pcBuildsContainer"></div>
+                <div class="products-grid" id="pcBuildsContainer"></div>
             </div>
         </div>
     </section>
@@ -273,7 +273,7 @@
         <div class="auth-box">
             <button class="close-auth" id="closeAuth">×</button>
             <h2 id="authTitle">Login</h2>
-            <form id="authForm">
+            <form id="authForm" class="auth-form">
                 <input type="text" id="authName" placeholder="Username">
                 <input type="email" id="authEmail" placeholder="Email">
                 <input type="password" id="authPassword" placeholder="Password">
