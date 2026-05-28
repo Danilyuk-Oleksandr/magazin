@@ -3483,3 +3483,336 @@ section {
             center;
     }
 }
+
+/* =========================
+   PAGE ENTER
+========================= */
+
+.page-enter {
+
+    animation:
+        pageEnter 0.8s ease;
+}
+
+@keyframes pageEnter {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(26px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================
+   BUTTON GLOW
+========================= */
+
+.hero-btn,
+.product-btn,
+.checkout-btn,
+.contact-btn,
+.auth-submit {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+.hero-btn::before,
+.product-btn::before,
+.checkout-btn::before,
+.contact-btn::before,
+.auth-submit::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.22),
+            transparent);
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        0.7s ease;
+}
+
+.hero-btn:hover::before,
+.product-btn:hover::before,
+.checkout-btn:hover::before,
+.contact-btn:hover::before,
+.auth-submit:hover::before {
+
+    transform:
+        translateX(120%);
+}
+
+/* =========================
+   FLOATING CARD
+========================= */
+
+.product-card,
+.about-stat,
+.contact-card {
+
+    animation:
+        floatingCard 6s ease-in-out infinite;
+}
+
+@keyframes floatingCard {
+
+    0% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-6px);
+    }
+
+    100% {
+
+        transform:
+            translateY(0);
+    }
+}
+
+/* =========================
+   IMAGE SHINE
+========================= */
+
+.hero-image,
+.about-image,
+.main-product-image {
+
+    position:
+        relative;
+}
+
+/* =========================
+   SECTION REVEAL
+========================= */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        0.9s ease;
+}
+
+.reveal.active-reveal {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================
+   SKELETON
+========================= */
+
+.skeleton-card {
+
+    height:
+        460px;
+
+    border-radius:
+        32px;
+
+    background:
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.03));
+
+    background-size:
+        300% 100%;
+
+    animation:
+        skeletonLoading 1.4s infinite;
+}
+
+@keyframes skeletonLoading {
+
+    0% {
+
+        background-position:
+            100% 0;
+    }
+
+    100% {
+
+        background-position:
+            -100% 0;
+    }
+}
+
+/* =========================
+   SCROLL TO TOP
+========================= */
+
+.scroll-top {
+
+    position:
+        fixed;
+
+    right:
+        26px;
+
+    bottom:
+        26px;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(99, 102, 241, 0.92);
+
+    color:
+        white;
+
+    font-size:
+        22px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter:
+        blur(14px);
+
+    z-index:
+        3000;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        var(--transition);
+
+    box-shadow:
+        0 16px 40px rgba(99, 102, 241, 0.34);
+}
+
+/* =========================
+   SHOW SCROLL TOP
+========================= */
+
+.show-scroll-top {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================
+   SCROLL TOP HOVER
+========================= */
+
+.scroll-top:hover {
+
+    transform:
+        translateY(-4px);
+
+    background:
+        var(--accent-hover);
+}
+
+/* =========================
+   CART BOUNCE
+========================= */
+
+.cart-bounce {
+
+    animation:
+        cartBounce 0.45s ease;
+}
+
+@keyframes cartBounce {
+
+    0% {
+
+        transform:
+            scale(1);
+    }
+
+    40% {
+
+        transform:
+            scale(1.35);
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+    }
+}
+
+/* =========================
+   ADDED BUTTON
+========================= */
+
+.product-btn.added {
+
+    background:
+        #22c55e !important;
+
+    border-color:
+        #22c55e !important;
+
+    color:
+        white !important;
+
+    pointer-events:
+        none;
+}

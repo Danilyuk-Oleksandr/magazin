@@ -1506,3 +1506,89 @@ document.addEventListener(
 
     }
 );
+
+/* =========================
+   REVEAL
+========================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".section-shell, .product-card, .about-stat, .contact-card"
+    );
+
+function revealOnScroll() {
+
+    revealElements.forEach(element => {
+
+        const windowHeight =
+            window.innerHeight;
+
+        const revealTop =
+            element.getBoundingClientRect().top;
+
+        if (
+            revealTop <
+            windowHeight - 80
+        ) {
+
+            element.classList.add(
+                "active-reveal"
+            );
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
+
+/* =========================
+   SCROLL TOP
+========================= */
+
+const scrollTopBtn =
+    document.querySelector(
+        ".scroll-top"
+    );
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (
+            window.scrollY > 400
+        ) {
+
+            scrollTopBtn?.classList.add(
+                "show-scroll-top"
+            );
+
+        } else {
+
+            scrollTopBtn?.classList.remove(
+                "show-scroll-top"
+            );
+        }
+
+    }
+);
+
+scrollTopBtn?.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior:
+                "smooth"
+        });
+
+    }
+);
