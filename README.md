@@ -1,53 +1,105 @@
-# CyberTech Store
+# CyberTech
 
-Modern futuristic ecommerce website built with Bootstrap, CSS and JavaScript.
+Сучасний інтернет-магазин ігрової периферії та комп'ютерної техніки, створений на HTML, CSS та JavaScript.
 
-## About Project
+---
 
-CyberTech Store is a responsive online shop concept focused on gaming accessories and cyber gadgets.
+## Про проєкт
 
-The project was created for educational purposes to practice:
-- Bootstrap 5
-- Responsive Design
-- JavaScript
-- Swiper.js
-- UI/UX Design
-- Git & GitHub workflow
+CyberTech — це навчальний eCommerce-проєкт із сучасним футуристичним дизайном, анімаціями та інтерактивними елементами.
 
-## Features
+Основна мета проєкту:
 
-- Responsive navbar
-- Hero Swiper slider
-- Product cards
-- Categories section
-- Animated statistics
-- Newsletter form
-- Toast notifications
-- Cart counter
-- Smooth scrolling
-- Modern futuristic UI
-- Hover animations
-- Responsive layout
+- практика HTML5
+- практика CSS3
+- практика JavaScript
+- робота з LocalStorage
+- створення адаптивного інтерфейсу
+- робота з Git та GitHub
+- створення сучасного UI/UX
 
-## Technologies
+---
+
+## Можливості
+
+### Магазин
+
+- каталог товарів
+- пошук товарів
+- фільтрація по категоріях
+- сторінка окремого товару
+- рекомендації схожих товарів
+- Gaming PC Builds
+
+### Кошик
+
+- додавання товарів
+- видалення товарів
+- зміна кількості
+- автоматичний підрахунок суми
+- збереження кошика через LocalStorage
+
+### Акаунт
+
+- реєстрація
+- вхід
+- вихід
+- відображення імені користувача
+- збереження даних через LocalStorage
+
+### Інтерфейс
+
+- Hero Slider
+- Reviews Slider
+- Toast повідомлення
+- Loader Screen
+- Scroll To Top Button
+- Custom Cursor Glow
+- Hover Effects
+- Page Transition Animation
+- Sound Effects
+
+---
+
+## Використані технології
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (ES6)
 - Bootstrap 5
 - Swiper.js
-- AOS Library
+- LocalStorage API
 - Google Fonts
 
-## Project Structure
+---
 
-```bash
-project/
+## Структура проєкту
+
+```text
+magazin/
 │
 ├── index.html
+├── product.html
+├── about.html
+├── contact.html
+│
 ├── css/
 │   └── style.css
+│
 ├── js/
-│   └── script.js
-├── images/
+│   ├── app.js
+│   ├── auth.js
+│   └── product.js
+│
+├── sounds/
+│   ├── add-to-cart.wav
+│   ├── cart-open.wav
+│   ├── close.wav
+│   ├── error.wav
+│   ├── modal-open.wav
+│   ├── quantity.wav
+│   ├── remove.wav
+│   ├── success.wav
+│   └── wishlist.wav
+│
 └── README.md
