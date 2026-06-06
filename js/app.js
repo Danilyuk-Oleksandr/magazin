@@ -1,5 +1,184 @@
-/* ========================= ЗВУКИ (поки що просто щоб не ламалось) ========================= */
-// Це всі звуки які є на сайті, якщо звукового файлу нема - нічого не станеться
+/* ========================= ПЕРЕКЛАДИ ========================= */
+const translations = {
+    en: {
+        nav_home: "Home", nav_about: "About", nav_contact: "Contact",
+        nav_account: "Account", nav_login: "Login", nav_register: "Register",
+        nav_logout: "Logout", nav_cart: "Cart",
+        hero1_badge: "New Generation Gaming",
+        hero1_title: "Build Your Dream Gaming Setup",
+        hero1_text: "Premium gaming accessories and futuristic setups for every level of play.",
+        hero2_badge: "Ultimate Performance",
+        hero2_title: "Gaming Without Limits",
+        hero2_text: "Discover high-end accessories for competitive gaming and immersive setups.",
+        btn_shop_now: "Shop Now", btn_pc_builds: "PC Builds",
+        search_ph: "Search products...",
+        filter_all: "All", filter_keyboard: "Keyboards", filter_headset: "Headsets",
+        filter_mouse: "Mice", filter_monitor: "Monitors", filter_chair: "Chairs",
+        filter_laptop: "Laptops", filter_microphone: "Microphones", filter_speaker: "Speakers",
+        sort_default: "Sort: Default", sort_price_asc: "Price: Low → High",
+        sort_price_desc: "Price: High → Low", sort_name: "Name: A → Z",
+        section_products: "Popular Products", section_pc_builds: "Gaming PC Builds",
+        section_reviews: "What Customers Say",
+        newsletter_title: "Stay Updated",
+        newsletter_sub: "Get the latest deals and new arrivals straight to your inbox.",
+        newsletter_ph: "Enter your email", btn_subscribe: "Subscribe",
+        cart_title: "Your Cart", cart_subtotal: "Subtotal",
+        cart_shipping: "Shipping", cart_free: "Free", cart_total: "Total",
+        cart_empty_h: "Your cart is empty", cart_empty_p: "Add products to start shopping",
+        btn_checkout: "Proceed To Checkout",
+        btn_add: "Add", btn_load_more: "Load More",
+        qv_add: "Add to Cart", qv_goto: "View Product →",
+        specs_title: "Specifications", related_title: "Related Products",
+        btn_add_cart: "Add To Cart", cart_label: "Cart:",
+        footer_nav: "Navigation", footer_socials: "Socials",
+        footer_desc: "Premium gaming ecommerce experience built for the next generation.",
+        footer_copy: "Demo educational project.",
+        about_badge: "Next Generation Ecommerce", about_title: "About CyberTech",
+        about_text1: "CyberTech is a premium gaming ecommerce platform focused on futuristic technology, immersive setups and high-end gaming accessories.",
+        about_text2: "We combine minimal design, smooth user experience and modern ecommerce architecture to create the next generation gaming store.",
+        about_btn_explore: "Explore Store", about_btn_contact: "Contact Us",
+        about_stats_title: "Our Numbers",
+        stat_products: "Premium Products", stat_customers: "Happy Customers", stat_support: "Customer Support",
+        about_why: "Why CyberTech?",
+        f1_title: "Premium Design", f1_text: "Modern glassmorphism interface with immersive user experience and attention to every detail.",
+        f2_title: "Gaming Focused", f2_text: "High-end accessories and setups curated specifically for gamers of every level.",
+        f3_title: "Fast Experience", f3_text: "Smooth animations, modern architecture and fully responsive layout across all devices.",
+        contact_badge: "24/7 Customer Support", contact_title: "Contact CyberTech",
+        contact_text: "Need help with products, setup recommendations or your order? Our support team is ready to help anytime.",
+        contact_form_title: "Send Message",
+        contact_name_ph: "Your Name", contact_email_ph: "Your Email",
+        contact_subject_ph: "Subject", contact_msg_ph: "Your Message",
+        btn_send: "Send Message",
+        faq_title: "Frequently Asked Questions",
+        faq1_q: "How fast is delivery?", faq1_a: "Delivery usually takes 2–5 business days depending on your location.",
+        faq2_q: "Do you offer refunds?", faq2_a: "Yes. We provide a full refund policy for damaged or defective products within 30 days.",
+        faq3_q: "Is support available 24/7?", faq3_a: "Our support team is available 24/7 via email and live chat.",
+        faq4_q: "Do you ship internationally?", faq4_a: "Yes, we ship to over 50 countries worldwide with competitive international rates.",
+        auth_username_ph: "Username", auth_email_ph: "Email", auth_password_ph: "Password",
+        btn_continue: "Continue", login_title: "Login", register_title: "Create Account",
+        breadcrumb_home: "Home", breadcrumb_products: "Products",
+        toast_added: "added to cart", toast_subscribed: "✓ Subscribed successfully!",
+        toast_msg_sent: "✓ Message sent! We'll get back to you soon.",
+        empty_title: "No products found", empty_text: "Try a different search or filter",
+        showing: "Showing", products_word: "products",
+    },
+    ua: {
+        nav_home: "Головна", nav_about: "Про нас", nav_contact: "Контакти",
+        nav_account: "Акаунт", nav_login: "Вхід", nav_register: "Реєстрація",
+        nav_logout: "Вийти", nav_cart: "Кошик",
+        hero1_badge: "Нове Покоління Гемінгу",
+        hero1_title: "Збери Своє Ідеальне Місце Геймера",
+        hero1_text: "Преміум ігрові аксесуари та футуристичні налаштування для кожного рівня гри.",
+        hero2_badge: "Максимальна Продуктивність",
+        hero2_title: "Гемінг Без Обмежень",
+        hero2_text: "Відкрий для себе топові аксесуари для змагального гемінгу та іммерсивних налаштувань.",
+        btn_shop_now: "Купити Зараз", btn_pc_builds: "ПК Збірки",
+        search_ph: "Пошук товарів...",
+        filter_all: "Всі", filter_keyboard: "Клавіатури", filter_headset: "Навушники",
+        filter_mouse: "Миші", filter_monitor: "Монітори", filter_chair: "Крісла",
+        filter_laptop: "Ноутбуки", filter_microphone: "Мікрофони", filter_speaker: "Колонки",
+        sort_default: "Сортування: за замовчуванням", sort_price_asc: "Ціна: від дешевих",
+        sort_price_desc: "Ціна: від дорогих", sort_name: "Назва: А → Я",
+        section_products: "Популярні Товари", section_pc_builds: "Готові ПК Збірки",
+        section_reviews: "Що Кажуть Покупці",
+        newsletter_title: "Будь в курсі",
+        newsletter_sub: "Отримуй найкращі акції та новинки прямо на пошту.",
+        newsletter_ph: "Введи свій email", btn_subscribe: "Підписатись",
+        cart_title: "Твій Кошик", cart_subtotal: "Сума",
+        cart_shipping: "Доставка", cart_free: "Безкоштовно", cart_total: "Разом",
+        cart_empty_h: "Кошик порожній", cart_empty_p: "Додай товари щоб почати покупки",
+        btn_checkout: "Оформити Замовлення",
+        btn_add: "Додати", btn_load_more: "Завантажити Ще",
+        qv_add: "Додати в Кошик", qv_goto: "Переглянути →",
+        specs_title: "Характеристики", related_title: "Схожі Товари",
+        btn_add_cart: "Додати в Кошик", cart_label: "Кошик:",
+        footer_nav: "Навігація", footer_socials: "Соцмережі",
+        footer_desc: "Преміум ігровий магазин для нового покоління.",
+        footer_copy: "Демо навчальний проєкт.",
+        about_badge: "Наступне Покоління E-commerce", about_title: "Про CyberTech",
+        about_text1: "CyberTech — це преміум ігровий магазин з футуристичними технологіями, іммерсивними налаштуваннями та топовими ігровими аксесуарами.",
+        about_text2: "Ми поєднуємо мінімалістичний дизайн, плавний досвід та сучасну архітектуру для створення ігрового магазину нового покоління.",
+        about_btn_explore: "Переглянути Магазин", about_btn_contact: "Зв'язатись з нами",
+        about_stats_title: "Наші Цифри",
+        stat_products: "Преміум Товарів", stat_customers: "Щасливих Покупців", stat_support: "Підтримка Клієнтів",
+        about_why: "Чому CyberTech?",
+        f1_title: "Преміум Дизайн", f1_text: "Сучасний скляний інтерфейс з іммерсивним досвідом та увагою до кожної деталі.",
+        f2_title: "Для Геймерів", f2_text: "Топові аксесуари та налаштування спеціально підібрані для геймерів будь-якого рівня.",
+        f3_title: "Швидкий Досвід", f3_text: "Плавні анімації, сучасна архітектура та повністю адаптивний макет на всіх пристроях.",
+        contact_badge: "Підтримка 24/7", contact_title: "Контакти CyberTech",
+        contact_text: "Потрібна допомога з товарами або замовленням? Наша команда підтримки готова допомогти будь-коли.",
+        contact_form_title: "Надіслати Повідомлення",
+        contact_name_ph: "Твоє Ім'я", contact_email_ph: "Твій Email",
+        contact_subject_ph: "Тема", contact_msg_ph: "Твоє Повідомлення",
+        btn_send: "Надіслати",
+        faq_title: "Часті Запитання",
+        faq1_q: "Як швидко доставляють?", faq1_a: "Зазвичай доставка займає 2–5 робочих днів залежно від місця.",
+        faq2_q: "Чи є повернення коштів?", faq2_a: "Так. Повне повернення за пошкоджені або бракові товари протягом 30 днів.",
+        faq3_q: "Підтримка справді 24/7?", faq3_a: "Наша команда підтримки доступна 24/7 через email та живий чат.",
+        faq4_q: "Є міжнародна доставка?", faq4_a: "Так, доставляємо в понад 50 країн з конкурентними тарифами.",
+        auth_username_ph: "Нікнейм", auth_email_ph: "Email", auth_password_ph: "Пароль",
+        btn_continue: "Продовжити", login_title: "Вхід", register_title: "Створити Акаунт",
+        breadcrumb_home: "Головна", breadcrumb_products: "Товари",
+        toast_added: "додано в кошик", toast_subscribed: "✓ Підписку оформлено!",
+        toast_msg_sent: "✓ Повідомлення надіслано!",
+        empty_title: "Нічого не знайдено", empty_text: "Спробуй інший пошук або фільтр",
+        showing: "Показано", products_word: "товарів",
+    }
+};
+
+/* ========================= ПОТОЧНА МОВА ========================= */
+window.currentLang = localStorage.getItem("cybertech-lang") || "en";
+
+/* ========================= ЗАСТОСУВАТИ ПЕРЕКЛАД ========================= */
+function applyLang(lang) {
+    const t = translations[lang];
+    if (!t) return;
+    window.currentLang = lang;
+    localStorage.setItem("cybertech-lang", lang);
+
+    // Текст елементів
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    // Placeholder інпутів
+    document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+        const key = el.getAttribute("data-i18n-ph");
+        if (t[key] !== undefined) el.placeholder = t[key];
+    });
+
+    // Кнопка мови
+    const langBtn = document.getElementById("langToggle");
+    if (langBtn) langBtn.textContent = lang === "ua" ? "🇬🇧 EN" : "🇺🇦 UA";
+
+    // Оновлюємо кошик і товари якщо вони є
+    if (typeof updateCart === "function") updateCart();
+    if (typeof renderProducts === "function") renderProducts();
+}
+
+/* ========================= КНОПКА ПЕРЕМИКАННЯ МОВИ ========================= */
+document.getElementById("langToggle")?.addEventListener("click", () => {
+    const newLang = window.currentLang === "en" ? "ua" : "en";
+    applyLang(newLang);
+});
+
+/* ========================= ТЕМА ========================= */
+const _savedTheme = localStorage.getItem("cybertech-theme");
+if (_savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    const _themeBtn = document.getElementById("themeToggle");
+    if (_themeBtn) _themeBtn.textContent = "☀️";
+}
+document.getElementById("themeToggle")?.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    const isLight = document.body.classList.contains("light-mode");
+    localStorage.setItem("cybertech-theme", isLight ? "light" : "dark");
+    const b = document.getElementById("themeToggle");
+    if (b) b.textContent = isLight ? "☀️" : "🌙";
+});
+
+/* ========================= ЗВУКИ ========================= */
 const sounds = {
     addToCart: new Audio("sounds/add-to-cart.wav"),
     success: new Audio("sounds/success.wav"),
@@ -8,23 +187,18 @@ const sounds = {
     wishlist: new Audio("sounds/wishlist.wav"),
     remove: new Audio("sounds/remove.wav")
 };
-
-// Грає звук за назвою, якщо такого нема - просто нічого не робить
 function playSound(name) {
     const s = sounds[name];
     if (!s) return;
     s.currentTime = 0;
     s.volume = 0.35;
-    s.play().catch(() => { }); // якщо помилка - ігноруємо
+    s.play().catch(() => { });
 }
-
-// Завантажуємо звуки при першому кліку
 document.addEventListener("click", () => {
     Object.values(sounds).forEach(s => s.load());
 }, { once: true });
 
-/* ========================= ВСІ ТОВАРИ ========================= */
-// Це масив товарів, кожен товар - це об'єкт з id, назвою, категорією, ціною і картинкою
+/* ========================= ТОВАРИ ========================= */
 const products = [
     { id: 1, title: "Mechanical Keyboard", category: "keyboard", price: 129, image: "https://assets3.razerzone.com/LfJACJA3KA3Qsxuo_tWznTE_OkQ=/300x300/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh25%2Fhdf%2F10045163929630%2F240510-BW-V4-Pro-White-500x500.png", badge: "NEW", description: "Premium mechanical keyboard designed for competitive gaming." },
     { id: 2, title: "Gaming Headset", category: "headset", price: 89, image: "https://resource.logitechg.com/w_416,h_312,ar_4:3,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/astro/en/products/a10-gen-2/pdp-gallery-a10-lilac-02.png", badge: "SALE", description: "Immersive surround sound gaming headset with premium microphone." },
@@ -57,8 +231,6 @@ const products = [
     { id: 29, title: "Esports Gaming Mouse", category: "mouse", price: 109, image: "https://resource.logitechg.com/w_544,h_466,ar_7:6,c_pad,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight-2-dex/gallery/new-gallery-assets-2025/pro-x-superlight-2-dex-mouse-3qtr-high-back-angle-black-gallery-3-new.png", description: "Professional esports gaming mouse with ultra fast sensor." },
     { id: 30, title: "Cyber RGB Headset", category: "headset", price: 199, image: "https://dlcdnwebimgs.asus.com/gain/378A90DA-2DFF-414F-B8A2-57B7C411665F/w717/h525/fwebp/w273", badge: "LIMITED", description: "Premium RGB gaming headset with immersive surround audio." }
 ];
-
-// Це пк-збірки, окремий масив
 const pcBuilds = [
     { id: 101, title: "Gaming PC 500$", category: "pc", price: 500, image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1200", specs: ["Ryzen 5 3600", "RX 6600", "16GB DDR4", "512GB NVMe"] },
     { id: 102, title: "Gaming PC 750$", category: "pc", price: 750, image: "https://images.unsplash.com/photo-1593640495253-23196b27a87f?q=80&w=1200", specs: ["Ryzen 5 5600", "RTX 4060", "32GB RAM", "1TB SSD"] },
@@ -67,17 +239,15 @@ const pcBuilds = [
     { id: 105, title: "Gaming PC 2000$", category: "pc", price: 2000, image: "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?q=80&w=1200", specs: ["Ryzen 9 9950X", "RTX 4080 Super", "64GB DDR5", "4TB SSD"] }
 ];
 
-/* ========================= СТАН САЙТУ ========================= */
-// Тут зберігаємо всі змінні стану - що вибрано, що введено і тд
-let cart = JSON.parse(localStorage.getItem("cart")) || [];       // кошик з localStorage
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || []; // список бажань
-let currentFilter = "all";   // поточний фільтр категорії
-let visibleProducts = 6;     // скільки товарів показувати
-let searchValue = "";        // поточний пошуковий запит
-let currentSort = "default"; // поточне сортування
+/* ========================= СТАН ========================= */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let currentFilter = "all";
+let visibleProducts = 6;
+let searchValue = "";
+let currentSort = "default";
 
-/* ========================= ЗНАХОДИМО ЕЛЕМЕНТИ ========================= */
-// Беремо всі потрібні елементи зі сторінки
+/* ========================= ЕЛЕМЕНТИ ========================= */
 const productsContainer = document.getElementById("productsContainer");
 const searchInput = document.getElementById("searchInput");
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -98,57 +268,42 @@ const floatingCartCount = document.getElementById("floatingCartCount");
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 const pcBuildsContainer = document.getElementById("pcBuildsContainer");
 
-/* ========================= МАЛЮЄМО ТОВАРИ ========================= */
-// Ця функція малює всі товари на сторінці, враховуючи фільтри та пошук
+/* ========================= РЕНДЕР ТОВАРІВ ========================= */
 function renderProducts() {
-    // Фільтруємо товари
+    const t = translations[window.currentLang];
     let filtered = products.filter(p => {
-        const matchSearch = p.title.toLowerCase().includes(searchValue);
-        const matchFilter = currentFilter === "all" || p.category === currentFilter;
-        return matchSearch && matchFilter;
+        return p.title.toLowerCase().includes(searchValue) &&
+            (currentFilter === "all" || p.category === currentFilter);
     });
-
-    // Сортуємо якщо треба
     if (currentSort === "price-asc") filtered.sort((a, b) => a.price - b.price);
     if (currentSort === "price-desc") filtered.sort((a, b) => b.price - a.price);
     if (currentSort === "name-asc") filtered.sort((a, b) => a.title.localeCompare(b.title));
 
-    // Оновлюємо лічильник товарів
     if (productCountEl) productCountEl.textContent = Math.min(visibleProducts, filtered.length);
 
-    // Спочатку показуємо скелетон-загрузку (сірі блоки)
     productsContainer.innerHTML = `
         <div class="col-md-6 col-xl-4"><div class="skeleton-card"></div></div>
         <div class="col-md-6 col-xl-4"><div class="skeleton-card"></div></div>
         <div class="col-md-6 col-xl-4"><div class="skeleton-card"></div></div>`;
 
-    // Через 480мс малюємо справжні товари
     setTimeout(() => {
         productsContainer.innerHTML = "";
         const slice = filtered.slice(0, visibleProducts);
-
-        // Якщо нічого не знайдено - показуємо пусто
         if (!slice.length) {
-            const t = window.currentLang === "ua" ? "Нічого не знайдено" : "No products found";
-            const s = window.currentLang === "ua" ? "Спробуй інший пошук або фільтр" : "Try a different search or filter";
             productsContainer.innerHTML = `
-                <div class="col-12">
-                    <div class="empty-state">
-                        <div class="empty-state-title">${t}</div>
-                        <div class="empty-state-text">${s}</div>
-                    </div>
-                </div>`;
+                <div class="col-12"><div class="empty-state">
+                    <div class="empty-state-title">${t.empty_title}</div>
+                    <div class="empty-state-text">${t.empty_text}</div>
+                </div></div>`;
             if (loadMoreBtn) loadMoreBtn.style.display = "none";
             return;
         }
-
-        // Малюємо кожен товар
         slice.forEach(p => {
             productsContainer.innerHTML += `
                 <div class="col-md-6 col-xl-4">
                     <div class="product-card" onclick="window.location.href='product.html?id=${p.id}'">
                         <div class="product-image-wrapper">
-                            <button class="wishlist-btn ${wishlist.includes(p.id) ? "active" : ""}" data-id="${p.id}" title="Wishlist">♡</button>
+                            <button class="wishlist-btn ${wishlist.includes(p.id) ? "active" : ""}" data-id="${p.id}">♡</button>
                             ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ""}
                             <img src="${p.image}" class="product-image" alt="${p.title}" loading="lazy">
                         </div>
@@ -158,37 +313,23 @@ function renderProducts() {
                             <div class="product-bottom">
                                 <p class="price">$${p.price}</p>
                                 <div style="display:flex;gap:8px;">
-                                    <button class="product-btn quick-view-btn" data-id="${p.id}" onclick="event.stopPropagation()" title="Quick View">👁</button>
-                                    <button class="product-btn" data-id="${p.id}" onclick="event.stopPropagation()">Add</button>
+                                    <button class="product-btn quick-view-btn" data-id="${p.id}" onclick="event.stopPropagation()">👁</button>
+                                    <button class="product-btn" data-id="${p.id}" onclick="event.stopPropagation()">${t.btn_add}</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>`;
         });
-
-        // Показуємо/ховаємо кнопку "завантажити ще"
-        if (loadMoreBtn) {
-            loadMoreBtn.style.display = visibleProducts >= filtered.length ? "none" : "flex";
-        }
-
-        // Ініціалізуємо кнопки
+        if (loadMoreBtn) loadMoreBtn.style.display = visibleProducts >= filtered.length ? "none" : "flex";
         initCartButtons();
         initWishlistButtons();
         initQuickViewButtons();
     }, 480);
 }
 
-/* ========================= ПОШУК ========================= */
-// При введенні тексту в пошук - оновлюємо товари
-searchInput?.addEventListener("input", e => {
-    searchValue = e.target.value.toLowerCase();
-    visibleProducts = 6; // скидаємо до початку
-    renderProducts();
-});
-
-/* ========================= ФІЛЬТРИ ========================= */
-// При кліку на фільтр - вибираємо категорію і оновлюємо
+/* ========================= ПОШУК / ФІЛЬТРИ / СОРТ ========================= */
+searchInput?.addEventListener("input", e => { searchValue = e.target.value.toLowerCase(); visibleProducts = 6; renderProducts(); });
 filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
         filterButtons.forEach(b => b.classList.remove("active", "active-filter"));
@@ -198,26 +339,12 @@ filterButtons.forEach(btn => {
         renderProducts();
     });
 });
+sortSelect?.addEventListener("change", e => { currentSort = e.target.value; renderProducts(); });
+loadMoreBtn?.addEventListener("click", () => { visibleProducts += 6; renderProducts(); });
 
-/* ========================= СОРТУВАННЯ ========================= */
-// При зміні сортування - оновлюємо товари
-sortSelect?.addEventListener("change", e => {
-    currentSort = e.target.value;
-    renderProducts();
-});
-
-/* ========================= КНОПКА "ЩЕ" ========================= */
-// Показуємо більше товарів при кліку
-loadMoreBtn?.addEventListener("click", () => {
-    visibleProducts += 6;
-    renderProducts();
-});
-
-/* ========================= КНОПКИ ДОДАТИ В КОШИК ========================= */
-// Ця функція вішає обробники на всі кнопки "Add"
+/* ========================= КНОПКИ КОШИКА / ВІШЛІСТ / QUICK VIEW ========================= */
 function initCartButtons() {
     document.querySelectorAll(".product-btn[data-id]").forEach(btn => {
-        // Кнопки з оком (quick view) пропускаємо
         if (btn.classList.contains("quick-view-btn")) return;
         btn.addEventListener("click", e => {
             e.stopPropagation();
@@ -227,89 +354,50 @@ function initCartButtons() {
             addToCart(product);
             btn.textContent = "✓";
             btn.classList.add("added");
-            setTimeout(() => {
-                btn.textContent = "Add";
-                btn.classList.remove("added");
-            }, 1800);
+            setTimeout(() => { btn.textContent = translations[window.currentLang].btn_add; btn.classList.remove("added"); }, 1800);
         });
     });
 }
 
-/* ========================= КНОПКИ СПИСОК БАЖАНЬ ========================= */
-// Вішає обробники на кнопки "серце"
 function initWishlistButtons() {
     document.querySelectorAll(".wishlist-btn").forEach(btn => {
         btn.addEventListener("click", e => {
             e.stopPropagation();
             const id = Number(btn.dataset.id);
-            if (wishlist.includes(id)) {
-                wishlist = wishlist.filter(i => i !== id);
-                btn.classList.remove("active");
-            } else {
-                wishlist.push(id);
-                btn.classList.add("active");
-                playSound("success");
-            }
+            if (wishlist.includes(id)) { wishlist = wishlist.filter(i => i !== id); btn.classList.remove("active"); }
+            else { wishlist.push(id); btn.classList.add("active"); playSound("success"); }
             playSound("wishlist");
             localStorage.setItem("wishlist", JSON.stringify(wishlist));
         });
     });
 }
 
-/* ========================= QUICK VIEW (швидкий перегляд) ========================= */
-// Кнопки ока - відкривають модалку з коротким виглядом товару
 function initQuickViewButtons() {
     document.querySelectorAll(".quick-view-btn").forEach(btn => {
-        btn.addEventListener("click", e => {
-            e.stopPropagation();
-            const id = Number(btn.dataset.id);
-            openQuickView(id);
-        });
+        btn.addEventListener("click", e => { e.stopPropagation(); openQuickView(Number(btn.dataset.id)); });
     });
 }
 
-// Відкрити модалку швидкого перегляду
 function openQuickView(id) {
     const product = products.find(p => p.id === id);
     if (!product) return;
-
-    // Заповнюємо дані в модалку
+    const t = translations[window.currentLang];
     document.getElementById("quickViewImg").src = product.image;
     document.getElementById("quickViewCategory").textContent = product.category;
     document.getElementById("quickViewTitle").textContent = product.title;
     document.getElementById("quickViewPrice").textContent = "$" + product.price;
     document.getElementById("quickViewDesc").textContent = product.description || "";
-
-    // Кнопка додати в кошик
     const addBtn = document.getElementById("quickViewAdd");
-    addBtn.onclick = () => {
-        addToCart(product);
-        addBtn.textContent = "✓ Added!";
-        setTimeout(() => addBtn.textContent = window.currentLang === "ua" ? "Додати в кошик" : "Add to Cart", 1500);
-    };
-
-    // Кнопка перейти на сторінку товару
-    document.getElementById("quickViewGoto").onclick = () => {
-        window.location.href = `product.html?id=${id}`;
-    };
-
-    // Показуємо модалку
-    document.getElementById("quickViewModal").classList.add("show");
+    if (addBtn) { addBtn.textContent = t.qv_add; addBtn.onclick = () => { addToCart(product); addBtn.textContent = "✓"; setTimeout(() => addBtn.textContent = t.qv_add, 1500); }; }
+    const gotoBtn = document.getElementById("quickViewGoto");
+    if (gotoBtn) { gotoBtn.textContent = t.qv_goto; gotoBtn.onclick = () => window.location.href = `product.html?id=${id}`; }
+    document.getElementById("quickViewModal")?.classList.add("show");
 }
 
-// Закрити модалку
-document.getElementById("closeQuickView")?.addEventListener("click", () => {
-    document.getElementById("quickViewModal").classList.remove("show");
-});
+document.getElementById("closeQuickView")?.addEventListener("click", () => document.getElementById("quickViewModal")?.classList.remove("show"));
+document.getElementById("quickViewModal")?.addEventListener("click", e => { if (e.target === document.getElementById("quickViewModal")) document.getElementById("quickViewModal").classList.remove("show"); });
 
-// Закрити якщо клікнули поза модалкою
-document.getElementById("quickViewModal")?.addEventListener("click", e => {
-    if (e.target === document.getElementById("quickViewModal")) {
-        document.getElementById("quickViewModal").classList.remove("show");
-    }
-});
-
-/* ========================= ТОСТ (спливаюче повідомлення) ========================= */
+/* ========================= ТОСТ ========================= */
 function showToast(msg) {
     if (!toast) return;
     toast.textContent = msg;
@@ -317,59 +405,31 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove("show"), 2200);
 }
 
-/* ========================= ДОДАТИ В КОШИК ========================= */
+/* ========================= КОШИК ========================= */
 function addToCart(product) {
-    // Перевіряємо чи вже є такий товар
     const existing = cart.find(i => i.id === product.id);
-    if (existing) {
-        existing.quantity++;
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
-
+    if (existing) existing.quantity++;
+    else cart.push({ ...product, quantity: 1 });
     playSound("addToCart");
-    const msg = window.currentLang === "ua" ? `${product.title} додано в кошик` : `${product.title} added to cart`;
-    showToast(msg);
-
-    // Анімація кнопок кошика
-    [cartCount, floatingCartCount].forEach(el => {
-        if (!el) return;
-        el.classList.add("cart-bounce");
-        setTimeout(() => el.classList.remove("cart-bounce"), 450);
-    });
-
+    showToast(`${product.title} ${translations[window.currentLang].toast_added}`);
+    [cartCount, floatingCartCount].forEach(el => { if (!el) return; el.classList.add("cart-bounce"); setTimeout(() => el.classList.remove("cart-bounce"), 450); });
     updateCart();
 }
 
-/* ========================= ОНОВИТИ КОШИК ========================= */
-// Ця функція оновлює все що пов'язане з кошиком
 function updateCart() {
-    // Зберігаємо в localStorage
+    const t = translations[window.currentLang];
     localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Оновлюємо лічильники
     const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
     if (cartCount) cartCount.textContent = totalItems;
     if (floatingCartCount) floatingCartCount.textContent = totalItems;
-
     if (!cartItems) return;
     cartItems.innerHTML = "";
-
-    // Якщо кошик пустий
     if (!cart.length) {
-        const h = window.currentLang === "ua" ? "Кошик порожній" : "Your cart is empty";
-        const p = window.currentLang === "ua" ? "Додай товари щоб почати" : "Add products to start shopping";
-        cartItems.innerHTML = `
-            <div class="empty-cart">
-                <h3>${h}</h3>
-                <p>${p}</p>
-            </div>`;
+        cartItems.innerHTML = `<div class="empty-cart"><h3>${t.cart_empty_h}</h3><p>${t.cart_empty_p}</p></div>`;
         if (cartTotal) cartTotal.textContent = "$0";
         if (cartSubtotal) cartSubtotal.textContent = "$0";
         return;
     }
-
-    // Малюємо кожен товар в кошику
     let total = 0;
     cart.forEach(p => {
         total += p.price * p.quantity;
@@ -380,20 +440,18 @@ function updateCart() {
                     <h4>${p.title}</h4>
                     <div class="cart-item-price">$${p.price}</div>
                     <div class="cart-item-actions">
-                        <button class="cart-qty-btn" onclick="changeCartQty(${p.id}, -1)">−</button>
+                        <button class="cart-qty-btn" onclick="changeCartQty(${p.id},-1)">−</button>
                         <span>${p.quantity}</span>
-                        <button class="cart-qty-btn" onclick="changeCartQty(${p.id}, 1)">+</button>
+                        <button class="cart-qty-btn" onclick="changeCartQty(${p.id},1)">+</button>
                         <button class="remove-cart-item" onclick="removeCartItem(${p.id})">Remove</button>
                     </div>
                 </div>
             </div>`;
     });
-
     if (cartTotal) cartTotal.textContent = "$" + total;
     if (cartSubtotal) cartSubtotal.textContent = "$" + total;
 }
 
-// Змінити кількість товару в кошику
 function changeCartQty(id, change) {
     const p = cart.find(i => i.id === id);
     if (!p) return;
@@ -402,27 +460,10 @@ function changeCartQty(id, change) {
     if (p.quantity <= 0) { removeCartItem(id); return; }
     updateCart();
 }
+function removeCartItem(id) { playSound("remove"); cart = cart.filter(i => i.id !== id); updateCart(); }
 
-// Видалити товар з кошика
-function removeCartItem(id) {
-    playSound("remove");
-    cart = cart.filter(i => i.id !== id);
-    updateCart();
-}
-
-/* ========================= ВІДКРИТИ/ЗАКРИТИ КОШИК ========================= */
-function openCartSidebar() {
-    cartSidebar?.classList.add("show-cart");
-    cartOverlay?.classList.add("show-overlay");
-    playSound("cartOpen");
-}
-
-function closeCartSidebar() {
-    cartSidebar?.classList.remove("show-cart");
-    cartOverlay?.classList.remove("show-overlay");
-}
-
-// Вішаємо обробники на всі кнопки кошика
+function openCartSidebar() { cartSidebar?.classList.add("show-cart"); cartOverlay?.classList.add("show-overlay"); playSound("cartOpen"); }
+function closeCartSidebar() { cartSidebar?.classList.remove("show-cart"); cartOverlay?.classList.remove("show-overlay"); }
 cartNavBtn?.addEventListener("click", openCartSidebar);
 floatingCart?.addEventListener("click", openCartSidebar);
 closeCart?.addEventListener("click", closeCartSidebar);
@@ -441,12 +482,10 @@ function renderPcBuilds() {
                     <div class="product-content">
                         <span class="product-category">Gaming PC</span>
                         <h3>${b.title}</h3>
-                        <ul class="pc-build-mini-specs">
-                            ${b.specs.map(s => `<li>${s}</li>`).join("")}
-                        </ul>
+                        <ul class="pc-build-mini-specs">${b.specs.map(s => `<li>${s}</li>`).join("")}</ul>
                         <div class="product-bottom">
                             <p class="price">$${b.price}</p>
-                            <button class="product-btn" onclick="event.stopPropagation(); window.location.href='product.html?id=${b.id}'">View</button>
+                            <button class="product-btn" onclick="event.stopPropagation();window.location.href='product.html?id=${b.id}'">View</button>
                         </div>
                     </div>
                 </div>
@@ -454,94 +493,37 @@ function renderPcBuilds() {
     });
 }
 
-/* ========================= СВАЙПЕР (карусель) ========================= */
-// Карусель героя
-new Swiper(".heroSwiper", {
-    loop: true,
-    speed: 900,
-    autoplay: { delay: 4500 },
-    pagination: { el: ".hero-pagination", clickable: true },
-    navigation: { nextEl: ".hero-next", prevEl: ".hero-prev" }
-});
+/* ========================= SWIPER ========================= */
+new Swiper(".heroSwiper", { loop: true, speed: 900, autoplay: { delay: 4500 }, pagination: { el: ".hero-pagination", clickable: true }, navigation: { nextEl: ".hero-next", prevEl: ".hero-prev" } });
+new Swiper(".reviewsSwiper", { loop: true, spaceBetween: 24, autoplay: { delay: 3200 }, pagination: { el: ".reviews-pagination", clickable: true }, breakpoints: { 0: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } } });
 
-// Карусель відгуків
-new Swiper(".reviewsSwiper", {
-    loop: true,
-    spaceBetween: 24,
-    autoplay: { delay: 3200 },
-    pagination: { el: ".reviews-pagination", clickable: true },
-    breakpoints: {
-        0: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1200: { slidesPerView: 3 }
-    }
-});
+/* ========================= LOADER ========================= */
+window.addEventListener("load", () => setTimeout(() => loader?.classList.add("hide"), 500));
 
-/* ========================= ЗАВАНТАЖУВАЧ ========================= */
-// Ховаємо завантажувач коли сторінка завантажилась
-window.addEventListener("load", () => {
-    setTimeout(() => loader?.classList.add("hide"), 500);
-});
-
-/* ========================= ГАРНИЙ КУРСОР ========================= */
-// Рухаємо блискучий круг за курсором
+/* ========================= КУРСОР ========================= */
 const cursorGlow = document.querySelector(".cursor-glow");
-document.addEventListener("mousemove", e => {
-    if (!cursorGlow) return;
-    cursorGlow.style.left = e.clientX + "px";
-    cursorGlow.style.top = e.clientY + "px";
-});
+document.addEventListener("mousemove", e => { if (!cursorGlow) return; cursorGlow.style.left = e.clientX + "px"; cursorGlow.style.top = e.clientY + "px"; });
 
-/* ========================= АНІМАЦІЯ ПРИ СКРОЛІ ========================= */
-// Елементи з'являються коли ми до них доскролюємо
-const revealElements = document.querySelectorAll(".section-shell, .ui-card");
-function revealOnScroll() {
-    revealElements.forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 60) {
-            el.classList.add("active-reveal");
-        }
-    });
-}
+/* ========================= REVEAL ========================= */
+const revealEls = document.querySelectorAll(".section-shell, .ui-card");
+function revealOnScroll() { revealEls.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add("active-reveal"); }); }
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
-/* ========================= КНОПКА НАВЕРХ ========================= */
+/* ========================= SCROLL TOP ========================= */
 const scrollTopBtn = document.getElementById("scrollTop");
-window.addEventListener("scroll", () => {
-    scrollTopBtn?.classList.toggle("show-scroll-top", window.scrollY > 400);
-});
+window.addEventListener("scroll", () => scrollTopBtn?.classList.toggle("show-scroll-top", window.scrollY > 400));
 scrollTopBtn?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-/* ========================= ТЕМНА/СВІТЛА ТЕМА ========================= */
-// Завантажуємо збережену тему
-const savedTheme = localStorage.getItem("cybertech-theme");
-if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-    const btn = document.getElementById("themeToggle");
-    if (btn) btn.textContent = "☀️";
-}
-
-// Перемикаємо тему при кліку
-document.getElementById("themeToggle")?.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    const isLight = document.body.classList.contains("light-mode");
-    localStorage.setItem("cybertech-theme", isLight ? "light" : "dark");
-    const btn = document.getElementById("themeToggle");
-    if (btn) btn.textContent = isLight ? "☀️" : "🌙";
-});
-
-/* ========================= РОЗСИЛКА ========================= */
-// Обробляємо форму підписки
+/* ========================= NEWSLETTER ========================= */
 function handleNewsletter(e) {
     e.preventDefault();
-    const email = document.getElementById("newsletterEmail")?.value;
-    if (!email) return;
-    const msg = window.currentLang === "ua" ? "✓ Підписку оформлено!" : "✓ Subscribed successfully!";
-    showToast(msg);
+    showToast(translations[window.currentLang].toast_subscribed);
     e.target.reset();
 }
 
-/* ========================= ЗАПУСКАЄМО ВСЕ ========================= */
+/* ========================= ЗАПУСК ========================= */
+applyLang(window.currentLang);
 renderProducts();
 renderPcBuilds();
 updateCart();
