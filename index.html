@@ -16,12 +16,10 @@
 <body class="page-enter">
     <div class="cursor-glow"></div>
 
-    <!-- Loader -->
     <div class="loader-wrapper" id="loader">
         <div class="loader-logo">CyberTech</div>
     </div>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">CyberTech</a>
@@ -30,31 +28,36 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link active-nav" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active-nav" href="#" data-i18n="nav_home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav_about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav_contact">Contact</a>
+                    </li>
                     <li class="nav-item">
                         <div class="account-wrapper">
-                            <button class="nav-action-btn" id="accountBtn">Account</button>
+                            <button class="nav-action-btn" id="accountBtn" data-i18n="nav_account">Account</button>
                             <div class="account-dropdown" id="accountDropdown">
-                                <button id="openLogin">Login</button>
-                                <button id="openRegister">Register</button>
-                                <button id="logoutBtn">Logout</button>
+                                <button id="openLogin" data-i18n="nav_login">Login</button>
+                                <button id="openRegister" data-i18n="nav_register">Register</button>
+                                <button id="logoutBtn" data-i18n="nav_logout">Logout</button>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item cart-link">
-                        <button class="nav-action-btn" id="cartNavBtn">Cart <span id="cart-count">0</span></button>
+                        <button class="nav-action-btn" id="cartNavBtn">
+                            <span data-i18n="nav_cart">Cart</span> <span id="cart-count">0</span>
+                        </button>
                     </li>
                     <li class="nav-item">
                         <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-action-btn" id="langToggle">🇺🇦 UA</button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero-section" style="padding:0;">
         <div class="swiper heroSwiper">
             <div class="swiper-wrapper">
@@ -62,17 +65,17 @@
                     <div class="container">
                         <div class="hero-wrapper">
                             <div class="hero-content">
-                                <span class="hero-badge">New Generation Gaming</span>
-                                <h1 class="hero-title">Build Your Dream Gaming Setup</h1>
-                                <p class="hero-text">Premium gaming accessories and futuristic setups for every level of
-                                    play.</p>
+                                <span class="hero-badge" data-i18n="hero1_badge">New Generation Gaming</span>
+                                <h1 class="hero-title" data-i18n="hero1_title">Build Your Dream Gaming Setup</h1>
+                                <p class="hero-text" data-i18n="hero1_text">Premium gaming accessories and futuristic
+                                    setups for every level of play.</p>
                                 <div class="hero-actions">
                                     <button class="hero-btn"
-                                        onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">Shop
-                                        Now</button>
+                                        onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})"
+                                        data-i18n="btn_shop_now">Shop Now</button>
                                     <button class="hero-btn-secondary"
-                                        onclick="document.getElementById('pcBuildsSection').scrollIntoView({behavior:'smooth'})">PC
-                                        Builds</button>
+                                        onclick="document.getElementById('pcBuildsSection').scrollIntoView({behavior:'smooth'})"
+                                        data-i18n="btn_pc_builds">PC Builds</button>
                                 </div>
                             </div>
                             <div class="hero-visual">
@@ -87,17 +90,17 @@
                     <div class="container">
                         <div class="hero-wrapper">
                             <div class="hero-content">
-                                <span class="hero-badge">Ultimate Performance</span>
-                                <h1 class="hero-title">Gaming Without Limits</h1>
-                                <p class="hero-text">Discover high-end accessories for competitive gaming and immersive
-                                    setups.</p>
+                                <span class="hero-badge" data-i18n="hero2_badge">Ultimate Performance</span>
+                                <h1 class="hero-title" data-i18n="hero2_title">Gaming Without Limits</h1>
+                                <p class="hero-text" data-i18n="hero2_text">Discover high-end accessories for
+                                    competitive gaming and immersive setups.</p>
                                 <div class="hero-actions">
                                     <button class="hero-btn"
-                                        onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">Shop
-                                        Now</button>
+                                        onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})"
+                                        data-i18n="btn_shop_now">Shop Now</button>
                                     <button class="hero-btn-secondary"
-                                        onclick="document.getElementById('pcBuildsSection').scrollIntoView({behavior:'smooth'})">PC
-                                        Builds</button>
+                                        onclick="document.getElementById('pcBuildsSection').scrollIntoView({behavior:'smooth'})"
+                                        data-i18n="btn_pc_builds">PC Builds</button>
                                 </div>
                             </div>
                             <div class="hero-visual">
@@ -115,63 +118,61 @@
         </div>
     </section>
 
-    <!-- Search & Filters -->
     <section>
         <div class="container">
             <div class="ui-card form-card">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
+                <input type="text" class="search-input" id="searchInput" data-i18n-ph="search_ph"
+                    placeholder="Search products...">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="keyboard">Keyboards</button>
-                    <button class="filter-btn" data-filter="headset">Headsets</button>
-                    <button class="filter-btn" data-filter="mouse">Mice</button>
-                    <button class="filter-btn" data-filter="monitor">Monitors</button>
-                    <button class="filter-btn" data-filter="chair">Chairs</button>
-                    <button class="filter-btn" data-filter="laptop">Laptops</button>
-                    <button class="filter-btn" data-filter="microphone">Microphones</button>
-                    <button class="filter-btn" data-filter="speaker">Speakers</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn" data-filter="keyboard" data-i18n="filter_keyboard">Keyboards</button>
+                    <button class="filter-btn" data-filter="headset" data-i18n="filter_headset">Headsets</button>
+                    <button class="filter-btn" data-filter="mouse" data-i18n="filter_mouse">Mice</button>
+                    <button class="filter-btn" data-filter="monitor" data-i18n="filter_monitor">Monitors</button>
+                    <button class="filter-btn" data-filter="chair" data-i18n="filter_chair">Chairs</button>
+                    <button class="filter-btn" data-filter="laptop" data-i18n="filter_laptop">Laptops</button>
+                    <button class="filter-btn" data-filter="microphone"
+                        data-i18n="filter_microphone">Microphones</button>
+                    <button class="filter-btn" data-filter="speaker" data-i18n="filter_speaker">Speakers</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products -->
     <section id="productsSection">
         <div class="container">
             <div class="section-shell">
                 <div class="sort-bar">
                     <div class="sort-bar-label">Showing <span id="productCount">0</span> products</div>
                     <select class="sort-select" id="sortSelect">
-                        <option value="default">Sort: Default</option>
-                        <option value="price-asc">Price: Low → High</option>
-                        <option value="price-desc">Price: High → Low</option>
-                        <option value="name-asc">Name: A → Z</option>
+                        <option value="default" data-i18n="sort_default">Sort: Default</option>
+                        <option value="price-asc" data-i18n="sort_price_asc">Price: Low → High</option>
+                        <option value="price-desc" data-i18n="sort_price_desc">Price: High → Low</option>
+                        <option value="name-asc" data-i18n="sort_name">Name: A → Z</option>
                     </select>
                 </div>
-                <h2 class="section-title">Popular Products</h2>
+                <h2 class="section-title" data-i18n="section_products">Popular Products</h2>
                 <div class="row g-4" id="productsContainer"></div>
                 <div class="load-more-wrapper">
-                    <button class="load-more-btn" id="loadMoreBtn">Load More</button>
+                    <button class="load-more-btn" id="loadMoreBtn" data-i18n="btn_load_more">Load More</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PC Builds -->
     <section id="pcBuildsSection">
         <div class="container">
             <div class="section-shell">
-                <h2 class="section-title">Gaming PC Builds</h2>
+                <h2 class="section-title" data-i18n="section_pc_builds">Gaming PC Builds</h2>
                 <div class="row g-4" id="pcBuildsContainer"></div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews -->
     <section>
         <div class="container">
             <div class="section-shell">
-                <h2 class="section-title">What Customers Say</h2>
+                <h2 class="section-title" data-i18n="section_reviews">What Customers Say</h2>
                 <div class="swiper reviewsSwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -223,44 +224,43 @@
         </div>
     </section>
 
-    <!-- Newsletter -->
     <section>
         <div class="container">
             <div class="ui-card form-card form-card--center">
-                <h2 class="section-title" style="margin-bottom:8px;">Stay Updated</h2>
-                <p style="color:var(--text-muted);font-size:15px;">Get the latest deals and new arrivals straight to
-                    your inbox.</p>
+                <h2 class="section-title" style="margin-bottom:8px;" data-i18n="newsletter_title">Stay Updated</h2>
+                <p style="color:var(--text-muted);font-size:15px;" data-i18n="newsletter_sub">Get the latest deals and
+                    new arrivals straight to your inbox.</p>
                 <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                    <input type="email" placeholder="Enter your email" id="newsletterEmail">
-                    <button type="submit" class="product-btn"
-                        style="height:50px;padding:0 24px;font-size:14px;">Subscribe</button>
+                    <input type="email" id="newsletterEmail" data-i18n-ph="newsletter_ph"
+                        placeholder="Enter your email">
+                    <button type="submit" class="product-btn" style="height:50px;padding:0 24px;font-size:14px;"
+                        data-i18n="btn_subscribe">Subscribe</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Cart Overlay -->
     <div class="cart-overlay" id="cartOverlay"></div>
 
-    <!-- Cart Sidebar -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
-            <h2>Your Cart</h2>
+            <h2 data-i18n="cart_title">Your Cart</h2>
             <button class="close-cart" id="closeCart">×</button>
         </div>
         <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer">
             <div class="cart-summary">
-                <div><span>Subtotal</span><strong id="cartSubtotal">$0</strong></div>
-                <div><span>Shipping</span><strong>Free</strong></div>
-                <div class="cart-total"><span>Total</span><strong id="cartTotal">$0</strong></div>
+                <div><span data-i18n="cart_subtotal">Subtotal</span><strong id="cartSubtotal">$0</strong></div>
+                <div><span data-i18n="cart_shipping">Shipping</span><strong data-i18n="cart_free">Free</strong></div>
+                <div class="cart-total"><span data-i18n="cart_total">Total</span><strong id="cartTotal">$0</strong>
+                </div>
             </div>
-            <button class="checkout-btn" onclick="alert('Checkout coming soon! This is a demo store.')">Proceed To
-                Checkout</button>
+            <button class="checkout-btn"
+                onclick="alert(window.currentLang==='ua'?'Оплата скоро! Це демо-магазин.':'Checkout coming soon! Demo store.')"
+                data-i18n="btn_checkout">Proceed To Checkout</button>
         </div>
     </div>
 
-    <!-- Quick View Modal -->
     <div class="quick-view-modal" id="quickViewModal">
         <div class="quick-view-box">
             <button class="close-quick-view" id="closeQuickView">×</button>
@@ -278,39 +278,37 @@
         </div>
     </div>
 
-    <!-- Auth Modal -->
     <div class="auth-modal" id="authModal">
         <div class="auth-box">
             <button class="close-auth" id="closeAuth">×</button>
-            <h2 id="authTitle">Login</h2>
+            <h2 id="authTitle" data-i18n="nav_login">Login</h2>
             <form id="authForm" class="auth-form">
-                <input type="text" id="authName" placeholder="Username">
-                <input type="email" id="authEmail" placeholder="Email">
-                <input type="password" id="authPassword" placeholder="Password">
-                <button type="submit" class="auth-submit">Continue</button>
+                <input type="text" id="authName" data-i18n-ph="auth_username_ph" placeholder="Username">
+                <input type="email" id="authEmail" data-i18n-ph="auth_email_ph" placeholder="Email">
+                <input type="password" id="authPassword" data-i18n-ph="auth_password_ph" placeholder="Password">
+                <button type="submit" class="auth-submit" data-i18n="btn_continue">Continue</button>
             </form>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <h3 class="footer-logo">CyberTech</h3>
-                    <p>Premium gaming ecommerce experience built for the next generation.</p>
+                    <p data-i18n="footer_desc">Premium gaming ecommerce experience built for the next generation.</p>
                 </div>
                 <div>
-                    <h4>Navigation</h4>
+                    <h4 data-i18n="footer_nav">Navigation</h4>
                     <ul>
-                        <li onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</li>
+                        <li onclick="window.scrollTo({top:0,behavior:'smooth'})" data-i18n="nav_home">Home</li>
                         <li onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">
                             Products</li>
-                        <li onclick="window.location.href='about.html'">About</li>
+                        <li onclick="window.location.href='about.html'" data-i18n="nav_about">About</li>
                     </ul>
                 </div>
                 <div>
-                    <h4>Socials</h4>
+                    <h4 data-i18n="footer_socials">Socials</h4>
                     <ul>
                         <li>Instagram</li>
                         <li>Discord</li>
@@ -318,12 +316,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-copy">© 2026 CyberTech. Demo educational project.</div>
+            <div class="footer-copy">© 2026 CyberTech. <span data-i18n="footer_copy">Demo educational project.</span>
+            </div>
         </div>
     </footer>
 
-    <!-- Floating cart (mobile only) -->
-    <button class="floating-cart" id="floatingCart">🛒 Cart <span id="floatingCartCount">0</span></button>
+    <button class="floating-cart" id="floatingCart">🛒 <span data-i18n="nav_cart">Cart</span> <span
+            id="floatingCartCount">0</span></button>
     <div class="toast-notification" id="toast"></div>
     <button class="scroll-top" id="scrollTop">↑</button>
 
