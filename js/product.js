@@ -66,6 +66,8 @@ const addToCartBtn = document.getElementById("addToCartBtn");
 const productCartCount = document.getElementById("productCartCount");
 const relatedProducts = document.getElementById("relatedProducts");
 const scrollTopBtn = document.getElementById("scrollTop");
+const productNavCartCount = document.getElementById("productNavCartCount");
+const cartNavBtnProduct = document.getElementById("cartNavBtnProduct");
 
 // Поточна кількість товару
 let quantity = 1;
@@ -140,6 +142,7 @@ function renderRelated() {
             <div class="col-md-6 col-xl-4">
                 <div class="product-card" onclick="window.location.href='product.html?id=${p.id}'">
                     <div class="product-image-wrapper">
+                        <button class="wishlist-btn quick-view-btn" data-id="${p.id}" onclick="event.stopPropagation(); openQuickView(${p.id})">👁</button>
                         <img src="${p.image}" class="product-image" alt="${p.title}" loading="lazy">
                     </div>
                     <div class="product-content">
@@ -147,7 +150,10 @@ function renderRelated() {
                         <h3>${p.title}</h3>
                         <div class="product-bottom">
                             <p class="price">$${p.price}</p>
-                            <button class="product-btn" onclick="event.stopPropagation(); addRelatedToCart(${p.id})">Add</button>
+                            <div style="display:flex;gap:8px;">
+                                <button class="product-btn quick-view-btn" data-id="${p.id}" onclick="event.stopPropagation(); openQuickView(${p.id})">👁</button>
+                                <button class="product-btn" onclick="event.stopPropagation(); addRelatedToCart(${p.id})">Add</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +170,57 @@ function addRelatedToCart(id) {
     if (existing) { existing.quantity++; } else { cart.push({ ...p, quantity: 1 }); }
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartPreview();
+    showToast(`${p.title} added to cart`);
 }
+
+/* ========================= QUICK VIEW MODAL (added for eye button) ========================= */
+function openQuickView(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+
+    const modal = document.getElementById("quickViewModal");
+    if (!modal) return;
+
+    document.getElementById("quickViewImg").src = p.image;
+    document.getElementById("quickViewCategory").textContent = p.category;
+    document.getElementById("quickViewTitle").textContent = p.title;
+    document.getElementById("quickViewPrice").textContent = "$" + p.price;
+    document.getElementById("quickViewDesc").textContent = p.description || "";
+
+    const addBtn = document.getElementById("quickViewAdd");
+    if (addBtn) {
+        addBtn.onclick = () => {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const existing = cart.find(i => i.id === p.id);
+            if (existing) existing.quantity++;
+            else cart.push({ ...p, quantity: 1 });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartPreview();
+            showToast(`${p.title} added to cart`);
+            addBtn.textContent = "✓ Added";
+            setTimeout(() => { addBtn.textContent = "Add to Cart"; }, 1500);
+        };
+    }
+
+    const gotoBtn = document.getElementById("quickViewGoto");
+    if (gotoBtn) {
+        gotoBtn.onclick = () => {
+            window.location.href = `product.html?id=${p.id}`;
+        };
+    }
+
+    modal.classList.add("show");
+}
+
+function closeQuickView() {
+    const modal = document.getElementById("quickViewModal");
+    if (modal) modal.classList.remove("show");
+}
+
+document.getElementById("closeQuickView")?.addEventListener("click", closeQuickView);
+document.getElementById("quickViewModal")?.addEventListener("click", e => {
+    if (e.target.id === "quickViewModal") closeQuickView();
+});
 
 /* ========================= КІЛЬКІСТЬ ТОВАРУ ========================= */
 function updateQuantityUI() {
@@ -183,6 +239,7 @@ function updateCartPreview() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const total = cart.reduce((s, i) => s + i.quantity, 0);
     if (productCartCount) productCartCount.textContent = `${total} item${total !== 1 ? "s" : ""}`;
+    if (productNavCartCount) productNavCartCount.textContent = total;
 }
 
 // Кнопка "Додати в кошик" на сторінці товару
@@ -209,7 +266,8 @@ addToCartBtn?.addEventListener("click", () => {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartPreview();
 
-    // Змінюємо кнопку щоб показати що додано
+    // Toast + button feedback
+    showToast(`${product.title} added to cart`);
     addToCartBtn.textContent = "✓ Added";
     addToCartBtn.style.background = "#22c55e";
     setTimeout(() => {
@@ -217,6 +275,16 @@ addToCartBtn?.addEventListener("click", () => {
         addToCartBtn.style.background = "";
     }, 1600);
 });
+
+/* ========================= TOAST (missing before - for add feedback) ========================= */
+const toast = document.getElementById("toast");
+
+function showToast(msg) {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 2200);
+}
 
 /* ========================= КУРСОР І СКРОЛ ========================= */
 const cursorGlow = document.querySelector(".cursor-glow");
@@ -252,3 +320,105 @@ document.getElementById("themeToggle")?.addEventListener("click", () => {
 renderProduct();
 updateQuantityUI();
 updateCartPreview();
+
+// Cart nav button on product page
+cartNavBtnProduct?.addEventListener("click", () => {
+    window.location.href = "index.html#cart"; // redirect to main cart (or you can open sidebar if ported)
+    // Alternatively, you could implement a mini cart sidebar here too.
+});
+
+/* ========================= QUICK VIEW BUTTONS FOR RELATED (delegated) ========================= */
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("quick-view-btn")) {
+        const id = Number(e.target.dataset.id);
+        if (id) openQuickView(id);
+    }
+});
+
+/* ========================= PRODUCT WISHLIST (frontend only) ========================= */
+const productWishlistBtn = document.getElementById("productWishlistBtn");
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+function updateProductWishlistUI() {
+    if (!productWishlistBtn || !product) return;
+    const isWish = wishlist.includes(product.id);
+    productWishlistBtn.classList.toggle("active", isWish);
+    productWishlistBtn.textContent = isWish ? "♥" : "♡";
+    productWishlistBtn.title = isWish ? "Remove from Wishlist" : "Add to Wishlist";
+}
+
+if (productWishlistBtn) {
+    productWishlistBtn.addEventListener("click", () => {
+        if (!product) return;
+        if (wishlist.includes(product.id)) {
+            wishlist = wishlist.filter(id => id !== product.id);
+            showToast("Removed from wishlist");
+        } else {
+            wishlist.push(product.id);
+            showToast("Added to wishlist ♥");
+        }
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        updateProductWishlistUI();
+    });
+    // init
+    setTimeout(updateProductWishlistUI, 300);
+}
+
+/* ========================= FAKE RATING (frontend only, nice touch) ========================= */
+function addFakeRating() {
+    if (!product || !productDescription) return;
+    const ratingContainer = document.createElement("div");
+    ratingContainer.style.cssText = "display:flex;align-items:center;gap:8px;margin-bottom:16px;";
+    ratingContainer.innerHTML = `
+        <div style="color:#facc15;font-size:18px;">★★★★☆</div>
+        <span style="color:var(--text-muted);font-size:14px;">4.7 (128 reviews)</span>
+        <button style="background:transparent;border:1px solid var(--border);color:var(--text-muted);font-size:12px;padding:2px 10px;border-radius:999px;cursor:pointer;" onclick="this.textContent='Thanks!';setTimeout(()=>this.remove(),1200)">Rate</button>
+    `;
+    productDescription.parentNode.insertBefore(ratingContainer, productDescription);
+}
+setTimeout(addFakeRating, 600);
+
+/* ========================= SHARE BUTTON (copy link - frontend) ========================= */
+function addShareButton() {
+    if (!product || !addToCartBtn) return;
+    const shareBtn = document.createElement("button");
+    shareBtn.className = "product-btn";
+    shareBtn.style.marginLeft = "8px";
+    shareBtn.textContent = "Share";
+    shareBtn.onclick = () => {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            showToast("Link copied to clipboard!");
+        }).catch(() => {
+            // fallback
+            prompt("Copy this link:", url);
+        });
+    };
+    const actions = addToCartBtn.parentElement;
+    if (actions) actions.appendChild(shareBtn);
+}
+setTimeout(addShareButton, 700);
+
+/* ========================= CONFETTI ON ADD (fun frontend effect) ========================= */
+function launchConfetti() {
+    const colors = ['#6366f1', '#a5b4fc', '#22c55e'];
+    for (let i = 0; i < 28; i++) {
+        const c = document.createElement("div");
+        c.style.cssText = `position:fixed;left:${Math.random()*100}vw;top:-10px;width:8px;height:8px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:50%;z-index:99999;pointer-events:none;`;
+        document.body.appendChild(c);
+        const angle = Math.random() * 80 + 50;
+        const duration = Math.random() * 1800 + 1600;
+        c.animate([
+            { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+            { transform: `translateY(${window.innerHeight + 100}px) rotate(${angle * 3}deg)`, opacity: 0 }
+        ], { duration, easing: "cubic-bezier(0.23,1,0.32,1)" }).onfinish = () => c.remove();
+    }
+}
+
+// hook confetti into add button
+const origAddListener = addToCartBtn?.onclick;
+if (addToCartBtn) {
+    addToCartBtn.addEventListener("click", () => {
+        setTimeout(launchConfetti, 80);
+    }, { once: false });
+}
