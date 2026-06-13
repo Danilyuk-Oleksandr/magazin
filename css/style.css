@@ -2553,3 +2553,397 @@ body.light-mode textarea:-webkit-autofill {
         padding: 24px;
     }
 }
+
+/* ========================= CYBERTECH ASSISTANT ========================= */
+.assistant-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 118px; /* moved significantly left to create clear gap from the scroll-to-top ↑ button (which is at right:20px, 50px wide) */
+    z-index: 4000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px 12px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.45);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(12px);
+}
+
+.assistant-fab:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.55);
+}
+
+.assistant-fab .assistant-icon {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.assistant-fab .assistant-label {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Desktop: ensure good visual gap between assistant and the ↑ scroll-top button */
+@media (min-width: 769px) {
+    .assistant-fab {
+        right: 118px;   /* scroll-top is right:20px + ~48px width → ~24px gap */
+        bottom: 20px;
+    }
+}
+
+/* Mobile & tablet: assistant becomes icon-only, placed clearly to the LEFT of the scroll-top button */
+@media (max-width: 768px) {
+    .assistant-fab {
+        padding: 13px 16px;
+        gap: 0;
+        right: 95px;     /* scroll-top right:20px + ~50px button width → good gap */ 
+        bottom: 18px;
+    }
+    .assistant-fab .assistant-label {
+        display: none;
+    }
+    .assistant-fab .assistant-icon {
+        font-size: 22px;
+    }
+}
+
+/* Extra small phones: keep a comfortable gap */
+@media (max-width: 380px) {
+    .assistant-fab {
+        right: 90px;
+    }
+}
+
+.assistant-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+}
+
+.assistant-modal.show {
+    display: flex;
+}
+
+.assistant-container {
+    width: 100%;
+    max-width: 480px;
+    height: 620px;
+    max-height: 82vh;
+    background: rgba(8, 10, 18, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 28px 28px 0 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    animation: assistantSlideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes assistantSlideUp {
+    from { transform: translateY(60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .assistant-container {
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        margin: 0;
+    }
+}
+
+.assistant-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.assistant-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.assistant-avatar {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--accent), #a5b4fc);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.assistant-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.assistant-status {
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 600;
+}
+
+.assistant-close {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-muted);
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.assistant-close:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Categories */
+.assistant-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.assistant-category {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.assistant-category:hover,
+.assistant-category.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* Chat */
+.assistant-chat {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    scroll-behavior: smooth;
+}
+
+.assistant-chat::-webkit-scrollbar {
+    width: 5px;
+}
+
+.assistant-chat::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+}
+
+.assistant-message {
+    max-width: 82%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    animation: messagePop 0.25s ease;
+}
+
+@keyframes messagePop {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.assistant-message.user {
+    align-self: flex-end;
+    background: var(--accent);
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.assistant-message.bot {
+    align-self: flex-start;
+    background: rgba(255,255,255,0.07);
+    color: var(--text);
+    border-bottom-left-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.assistant-typing {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px;
+    border-bottom-left-radius: 6px;
+    width: fit-content;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.assistant-typing .dot {
+    width: 5px;
+    height: 5px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: typingBounce 1.2s infinite;
+}
+
+.assistant-typing .dot:nth-child(2) { animation-delay: 0.2s; }
+.assistant-typing .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-5px); }
+}
+
+/* Quick Questions */
+.assistant-quick-questions {
+    padding: 0 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 210px;
+    overflow-y: auto;
+}
+
+.assistant-quick-question {
+    text-align: left;
+    padding: 11px 16px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.assistant-quick-question:hover {
+    background: rgba(99, 102, 241, 0.12);
+    border-color: var(--accent);
+    transform: translateX(3px);
+}
+
+/* Input */
+.assistant-input-area {
+    display: flex;
+    gap: 10px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.assistant-input-area input {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 12px 20px;
+    color: var(--text);
+    font-size: 14.5px;
+    outline: none;
+}
+
+.assistant-input-area input:focus {
+    border-color: var(--accent);
+}
+
+.assistant-input-area button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.assistant-input-area button:hover {
+    background: var(--accent-hover);
+}
+
+.assistant-footer {
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+/* Light theme for assistant */
+body.light-mode .assistant-container {
+    background: rgba(240, 242, 255, 0.98);
+    border-color: rgba(99,102,241,0.15);
+}
+
+body.light-mode .assistant-header {
+    background: rgba(255,255,255,0.6);
+}
+
+body.light-mode .assistant-category {
+    background: rgba(255,255,255,0.7);
+    color: #333;
+}
+
+body.light-mode .assistant-message.bot {
+    background: rgba(255,255,255,0.85);
+    color: #111;
+    border-color: rgba(99,102,241,0.1);
+}
+
+body.light-mode .assistant-quick-question {
+    background: rgba(255,255,255,0.7);
+    color: #222;
+}
+
+body.light-mode .assistant-input-area {
+    background: rgba(255,255,255,0.5);
+}
+
+body.light-mode .assistant-input-area input {
+    background: white;
+    color: #111;
+}

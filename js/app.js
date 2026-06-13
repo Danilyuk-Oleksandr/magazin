@@ -61,6 +61,8 @@ const translations = {
         toast_msg_sent: "✓ Message sent! We'll get back to you soon.",
         empty_title: "No products found", empty_text: "Try a different search or filter",
         showing: "Showing", products_word: "products",
+        assistant_label: "Ask Assistant",
+        assistant_input_ph: "Type your question...",
     },
     ua: {
         nav_home: "Головна", nav_about: "Про нас", nav_contact: "Контакти",
@@ -123,6 +125,8 @@ const translations = {
         toast_msg_sent: "✓ Повідомлення надіслано!",
         empty_title: "Нічого не знайдено", empty_text: "Спробуй інший пошук або фільтр",
         showing: "Показано", products_word: "товарів",
+        assistant_label: "Запитати помічника",
+        assistant_input_ph: "Напишіть питання...",
     }
 };
 
@@ -161,6 +165,19 @@ function applyLang(lang) {
 document.getElementById("langToggle")?.addEventListener("click", () => {
     const newLang = window.currentLang === "en" ? "ua" : "en";
     applyLang(newLang);
+
+    // Refresh assistant if open (re-render categories + quick questions)
+    const modal = document.getElementById('assistantModal');
+    if (modal && modal.classList.contains('show')) {
+        setTimeout(() => {
+            if (typeof renderCategories === 'function') renderCategories();
+            const quick = document.getElementById('assistantQuickQuestions');
+            if (quick && quick.style.display !== 'none' && currentAssistantCategory) {
+                const cat = ASSISTANT_DATA.categories.find(c => c.id === currentAssistantCategory);
+                if (cat && typeof showQuickQuestions === 'function') showQuickQuestions(cat);
+            }
+        }, 80);
+    }
 });
 
 /* ========================= ТЕМА ========================= */
@@ -527,3 +544,300 @@ applyLang(window.currentLang);
 renderProducts();
 renderPcBuilds();
 updateCart();
+
+/* ========================= CYBERTECH ASSISTANT (FULL IMPLEMENTATION) ========================= */
+const ASSISTANT_DATA = {
+    categories: [
+        {
+            id: "delivery",
+            icon: "🚚",
+            label: { en: "Delivery & Shipping", ua: "Доставка та відправка" },
+            questions: [
+                { q: { en: "How long does delivery take?", ua: "Скільки триває доставка?" }, a: { en: "Standard delivery takes 2–5 business days. Express options (1–2 days) are available at checkout for an extra fee.", ua: "Звичайна доставка займає 2–5 робочих днів. Експрес (1–2 дні) можна вибрати при оформленні за доплату." } },
+                { q: { en: "Do you ship internationally?", ua: "Чи є міжнародна доставка?" }, a: { en: "Yes! We ship to over 50 countries worldwide. International delivery usually takes 7–14 days.", ua: "Так! Доставляємо в понад 50 країн. Міжнародна доставка зазвичай 7–14 днів." } },
+                { q: { en: "Is shipping free?", ua: "Чи безкоштовна доставка?" }, a: { en: "Free standard shipping on all orders over $80. Below that it's only $6.99.", ua: "Безкоштовна стандартна доставка при замовленні від $80. Нижче — всього $6.99." } },
+                { q: { en: "Can I track my order?", ua: "Чи можна відстежити замовлення?" }, a: { en: "Absolutely. As soon as your order ships, you'll receive an email with a tracking link.", ua: "Звичайно. Після відправки ви отримаєте email з посиланням для відстеження." } }
+            ]
+        },
+        {
+            id: "returns",
+            icon: "↩️",
+            label: { en: "Returns & Refunds", ua: "Повернення та повернення коштів" },
+            questions: [
+                { q: { en: "What is your return policy?", ua: "Яка у вас політика повернення?" }, a: { en: "You can return any product within 30 days of delivery for a full refund. Items must be in original condition with tags.", ua: "Можна повернути товар протягом 30 днів після отримання для повного повернення коштів. Товар має бути в оригінальному стані з бірками." } },
+                { q: { en: "How do I start a return?", ua: "Як почати повернення?" }, a: { en: "Go to your account → Orders → select the order and click 'Start Return'. We'll email you a prepaid label.", ua: "Зайдіть в акаунт → Замовлення → оберіть замовлення і натисніть 'Почати повернення'. Ми надішлемо безкоштовну етикетку." } },
+                { q: { en: "When will I get my refund?", ua: "Коли я отримаю повернення коштів?" }, a: { en: "Refunds are processed within 3–5 business days after we receive the returned item.", ua: "Повернення коштів обробляється протягом 3–5 робочих днів після отримання нами повернутого товару." } },
+                { q: { en: "Can I exchange instead of refund?", ua: "Чи можна обміняти замість повернення?" }, a: { en: "Yes! During the return process you can choose to exchange for another size/color/model.", ua: "Так! Під час оформлення повернення можна обрати обмін на інший розмір/колір/модель." } }
+            ]
+        },
+        {
+            id: "products",
+            icon: "🎮",
+            label: { en: "Products & Quality", ua: "Товари та якість" },
+            questions: [
+                { q: { en: "Are your products original?", ua: "Чи ваші товари оригінальні?" }, a: { en: "100% authentic. We are official partners with Razer, Logitech, ASUS, SteelSeries and other premium brands.", ua: "100% оригінал. Ми офіційні партнери Razer, Logitech, ASUS, SteelSeries та інших преміум брендів." } },
+                { q: { en: "Do you have a warranty?", ua: "Чи є гарантія?" }, a: { en: "All products come with the official manufacturer warranty (usually 12–24 months). We also offer extended 3-year protection for most items.", ua: "Всі товари йдуть з офіційною гарантією виробника (зазвичай 12–24 місяці). Також пропонуємо розширену 3-річну гарантію." } },
+                { q: { en: "Which gaming chair is best for long sessions?", ua: "Яке крісло найкраще для довгих сесій?" }, a: { en: "Our top recommendations: Razer Iskur V2 or ASUS ROG Chariot for maximum ergonomics and lumbar support during 8+ hour sessions.", ua: "Наші топ-рекомендації: Razer Iskur V2 або ASUS ROG Chariot — максимальна ергономіка та підтримка попереку для сесій 8+ годин." } },
+                { q: { en: "What is the best monitor for esports?", ua: "Який монітор найкращий для кіберспорту?" }, a: { en: "For competitive esports we recommend 240Hz+ 1080p or 1440p panels (like our 240Hz models). Low response time and high refresh rate are key.", ua: "Для кіберспорту рекомендуємо панелі 240Hz+ (1080p або 1440p). Головне — низький час відгуку та висока частота оновлення." } }
+            ]
+        },
+        {
+            id: "payment",
+            icon: "💳",
+            label: { en: "Payment & Orders", ua: "Оплата та замовлення" },
+            questions: [
+                { q: { en: "What payment methods do you accept?", ua: "Які способи оплати ви приймаєте?" }, a: { en: "We accept all major credit/debit cards, PayPal, Apple Pay, Google Pay, and bank transfers.", ua: "Приймаємо всі основні картки, PayPal, Apple Pay, Google Pay та банківські перекази." } },
+                { q: { en: "Can I pay in installments?", ua: "Чи можна оплатити частинами?" }, a: { en: "Yes, we offer 0% interest installments up to 12 months via our partners (available at checkout).", ua: "Так, пропонуємо розстрочку 0% до 12 місяців через наших партнерів (доступно при оформленні)." } },
+                { q: { en: "Can I change or cancel my order?", ua: "Чи можна змінити або скасувати замовлення?" }, a: { en: "You can change or cancel an order within 1 hour of placing it. After that please contact support.", ua: "Можна змінити або скасувати замовлення протягом 1 години після оформлення. Після цього — напишіть в підтримку." } },
+                { q: { en: "Do you offer gift cards?", ua: "Чи є подарункові картки?" }, a: { en: "Yes! Digital gift cards from $25 to $500 are available. Perfect for gamers.", ua: "Так! Цифрові подарункові картки від $25 до $500. Ідеальний подарунок для геймерів." } }
+            ]
+        },
+        {
+            id: "pcbuilds",
+            icon: "🖥️",
+            label: { en: "PC Builds & Setup", ua: "ПК збірки та налаштування" },
+            questions: [
+                { q: { en: "Which PC build is best for me?", ua: "Яка ПК збірка найкраща для мене?" }, a: { en: "Tell us your budget and games/resolution (1080p, 1440p, 4K) and we'll recommend the perfect build. The $1000 build is our bestseller for most gamers.", ua: "Скажіть бюджет і ігри/роздільну здатність (1080p, 1440p, 4K) — підкажемо ідеальну збірку. Збірка за $1000 — наш бестселер." } },
+                { q: { en: "Do the builds come assembled?", ua: "Чи збірки йдуть зібраними?" }, a: { en: "Yes, all our PC builds ship fully assembled, tested, and ready to plug in. We include Windows 11 pre-installed.", ua: "Так, всі наші ПК збірки відправляються повністю зібраними, протестованими і готовими до підключення. Windows 11 вже встановлена." } },
+                { q: { en: "Can I upgrade a prebuilt PC later?", ua: "Чи можна модернізувати готову збірку пізніше?" }, a: { en: "Of course! All our builds use standard parts. You can easily upgrade RAM, storage, GPU etc. in the future.", ua: "Звичайно! У всіх збірках використовуються стандартні компоненти. Ви легко зможете апгрейдити RAM, накопичувач, відеокарту пізніше." } }
+            ]
+        },
+        {
+            id: "support",
+            icon: "🛠️",
+            label: { en: "Account & Support", ua: "Акаунт та підтримка" },
+            questions: [
+                { q: { en: "How do I create an account?", ua: "Як створити акаунт?" }, a: { en: "Click 'Account' in the top menu → Register. It takes 30 seconds and lets you track orders and save favorites.", ua: "Натисніть 'Акаунт' у верхньому меню → Реєстрація. Це займе 30 секунд і дозволить відстежувати замовлення та зберігати обране." } },
+                { q: { en: "Is support really 24/7?", ua: "Чи підтримка справді 24/7?" }, a: { en: "Yes! Our support team is available 24/7 via live chat, email and Discord. Average reply time is under 4 minutes.", ua: "Так! Наша команда підтримки працює 24/7 через чат, email та Discord. Середній час відповіді — менше 4 хвилин." } },
+                { q: { en: "I forgot my password", ua: "Я забув пароль" }, a: { en: "Click 'Account' → Login → 'Forgot password'. We'll send a reset link to your email instantly.", ua: "Натисніть 'Акаунт' → Вхід → 'Забули пароль'. Ми миттєво надішлемо посилання для відновлення на вашу пошту." } }
+            ]
+        }
+    ]
+};
+
+// Assistant state
+let currentAssistantCategory = null;
+let assistantChatHistory = [];
+
+// Initialize Assistant
+function initAssistant() {
+    const fab = document.getElementById('assistantFab');
+    const modal = document.getElementById('assistantModal');
+    const closeBtn = document.getElementById('assistantClose');
+    const input = document.getElementById('assistantInput');
+    const sendBtn = document.getElementById('assistantSend');
+    const categoriesContainer = document.getElementById('assistantCategories');
+    const quickContainer = document.getElementById('assistantQuickQuestions');
+    const chatContainer = document.getElementById('assistantChat');
+
+    if (!fab || !modal) return;
+
+    // Open modal
+    fab.addEventListener('click', () => {
+        modal.classList.add('show');
+        if (assistantChatHistory.length === 0) {
+            showWelcomeMessage();
+        }
+        renderCategories();
+        input.focus();
+    });
+
+    // Close modal
+    closeBtn?.addEventListener('click', () => modal.classList.remove('show'));
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('show');
+    });
+
+    // Send message
+    function sendUserMessage() {
+        const text = input.value.trim();
+        if (!text) return;
+
+        addMessageToChat('user', text);
+        input.value = '';
+
+        // Simple keyword matching for free text
+        setTimeout(() => {
+            const reply = getSmartReply(text);
+            typeBotMessage(reply);
+        }, 420);
+    }
+
+    sendBtn.addEventListener('click', sendUserMessage);
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') sendUserMessage();
+    });
+
+    // Render initial categories
+    renderCategories();
+
+    // Make sure translations are applied
+    setTimeout(() => {
+        const langBtn = document.getElementById('langToggle');
+        if (langBtn) {
+            langBtn.addEventListener('click', () => {
+                setTimeout(renderCategories, 100);
+            });
+        }
+    }, 500);
+}
+
+function renderCategories() {
+    const container = document.getElementById('assistantCategories');
+    const quickContainer = document.getElementById('assistantQuickQuestions');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    const lang = window.currentLang || 'en';
+
+    ASSISTANT_DATA.categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `assistant-category ${currentAssistantCategory === cat.id ? 'active' : ''}`;
+        btn.innerHTML = `${cat.icon} ${cat.label[lang]}`;
+        
+        btn.addEventListener('click', () => {
+            currentAssistantCategory = cat.id;
+            renderCategories();
+            showQuickQuestions(cat);
+        });
+        
+        container.appendChild(btn);
+    });
+}
+
+function showQuickQuestions(category) {
+    const quickContainer = document.getElementById('assistantQuickQuestions');
+    const chatContainer = document.getElementById('assistantChat');
+    if (!quickContainer) return;
+
+    quickContainer.innerHTML = '';
+    quickContainer.style.display = 'flex';
+
+    const lang = window.currentLang || 'en';
+
+    category.questions.forEach((item, index) => {
+        const qBtn = document.createElement('button');
+        qBtn.className = 'assistant-quick-question';
+        qBtn.textContent = item.q[lang];
+        
+        qBtn.addEventListener('click', () => {
+            quickContainer.style.display = 'none';
+            addMessageToChat('user', item.q[lang]);
+            
+            setTimeout(() => {
+                typeBotMessage(item.a[lang]);
+            }, 380);
+        });
+        
+        quickContainer.appendChild(qBtn);
+    });
+}
+
+function addMessageToChat(type, text) {
+    const chat = document.getElementById('assistantChat');
+    if (!chat) return;
+
+    const msg = document.createElement('div');
+    msg.className = `assistant-message ${type}`;
+    msg.textContent = text;
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+
+    assistantChatHistory.push({ type, text });
+}
+
+function typeBotMessage(text) {
+    const chat = document.getElementById('assistantChat');
+    if (!chat) return;
+
+    const msg = document.createElement('div');
+    msg.className = 'assistant-message bot';
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+
+    let i = 0;
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'assistant-typing';
+    typingIndicator.innerHTML = `<span>Assistant is typing</span><span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
+    chat.appendChild(typingIndicator);
+    chat.scrollTop = chat.scrollHeight;
+
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            msg.textContent += text.charAt(i);
+            i++;
+            chat.scrollTop = chat.scrollHeight;
+        } else {
+            clearInterval(interval);
+            typingIndicator.remove();
+            assistantChatHistory.push({ type: 'bot', text });
+        }
+    }, 22); // nice typing speed
+}
+
+function showWelcomeMessage() {
+    const chat = document.getElementById('assistantChat');
+    if (!chat || chat.children.length > 0) return;
+
+    const lang = window.currentLang || 'en';
+    const welcome = lang === 'ua' 
+        ? "Привіт! Я помічник CyberTech. Оберіть тему вище або напишіть своє питання."
+        : "Hi! I'm the CyberTech Assistant. Choose a category above or type your question.";
+
+    const msg = document.createElement('div');
+    msg.className = 'assistant-message bot';
+    msg.textContent = welcome;
+    chat.appendChild(msg);
+}
+
+function getSmartReply(userText) {
+    const text = userText.toLowerCase();
+    const lang = window.currentLang || 'en';
+
+    // Simple keyword based responses (can be expanded)
+    if (text.includes('deliver') || text.includes('shipping') || text.includes('доставк')) {
+        return lang === 'ua' 
+            ? "Звичайна доставка — 2–5 днів. Безкоштовна при замовленні від $80. Хочете дізнатися про трекінг?"
+            : "Standard delivery is 2–5 business days. Free over $80. Want to know about tracking?";
+    }
+    if (text.includes('return') || text.includes('refund') || text.includes('поверн')) {
+        return lang === 'ua'
+            ? "Повернення можливе протягом 30 днів. Почати можна в акаунті. Потрібна допомога з конкретним замовленням?"
+            : "You can return within 30 days. Start from your account. Need help with a specific order?";
+    }
+    if (text.includes('warranty') || text.includes('гарант')) {
+        return lang === 'ua'
+            ? "Офіційна гарантія від виробника 12–24 місяці + можливість розширеної гарантії до 3 років."
+            : "Official manufacturer warranty 12–24 months + option for 3-year extended protection.";
+    }
+    if (text.includes('price') || text.includes('cost') || text.includes('ціна')) {
+        return lang === 'ua'
+            ? "Ціни вказані на сайті. У нас часто бувають акції та знижки до 25%. Підписуйтесь на розсилку!"
+            : "Prices are listed on the site. We regularly have sales up to 25% off. Subscribe to our newsletter!";
+    }
+    if (text.includes('pc') || text.includes('build') || text.includes('збірк')) {
+        return lang === 'ua'
+            ? "У нас є готові збірки від $500 до $2000+. Скажіть бюджет і для яких ігор — підкажу найкращий варіант."
+            : "We have ready builds from $500 to $2000+. Tell me your budget and games and I'll recommend the best one.";
+    }
+    if (text.includes('support') || text.includes('help') || text.includes('підтримк')) {
+        return lang === 'ua'
+            ? "Підтримка працює 24/7. Середній час відповіді — менше 4 хвилин. Напишіть у чат або на support@cybertech.com"
+            : "Support is available 24/7. Average reply time under 4 minutes. Write in chat or email support@cybertech.com";
+    }
+
+    // Default friendly response
+    return lang === 'ua'
+        ? "Дякую за питання! На жаль, я ще не маю точної відповіді на це. Спробуйте обрати категорію вище або напишіть детальніше."
+        : "Thanks for your question! I don't have a precise answer yet. Try selecting a category above or give me more details.";
+}
+
+// Auto-init when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to make sure everything else is loaded
+    setTimeout(initAssistant, 800);
+});
+
+// Also expose for language changes
+window.reinitAssistant = initAssistant;
